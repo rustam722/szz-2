@@ -214,6 +214,8 @@ function initMap() {
     zoom: 10,
     zoomControl: true,
     attributionControl: false,
+    // SVG выносок находится вне панелей Leaflet и обновляется по координатам карты.
+    zoomAnimation: false,
     wheelPxPerZoomLevel: 80,
     zoomSnap: 0.1,
     zoomDelta: 0.5,
@@ -224,7 +226,7 @@ function initMap() {
     e.preventDefault();
     e.stopPropagation();
     const delta = e.deltaY > 0 ? -0.15 : 0.15;
-    map.setZoom(map.getZoom() + delta, { animate: true });
+    map.setZoom(map.getZoom() + delta, { animate: false });
   }, { passive: false, capture: true });
 
   BASEMAPS = {
