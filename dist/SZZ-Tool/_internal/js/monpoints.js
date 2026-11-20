@@ -33,6 +33,8 @@ function _mpGrp(pt) {
 }
 
 function _drawMonPoint(pt) {
+  // Старые проекты использовали общий флаг. Сохраняем его как исходное состояние PDF.
+  pt.pdfShowLabel ??= !!pt.showLabel;
   const grp = _mpGrp(pt);
   const color = pt.color || MP_DEFAULT_COLOR;
   const circle = L.circleMarker([pt.lat, pt.lon], {
@@ -984,9 +986,13 @@ window.mpFitBounds = () => {
 };
 
 // Выноска одной РТ — из контекстного меню её строки в панели слоёв
-window.mpToggleOneCallout = (id) => {
+window.mpToggleOneCallout = (id, fromPdf = false) => {
   const pt = _monPoints.find(p => p.id === id);
   if (!pt) return;
+  if (fromPdf) {
+    window._pdfSetMpCallouts([pt], !window._pdfMpCalloutVisible(pt));
+    return;
+  }
   _clearMpCallout(pt);
   pt.showLabel = !pt.showLabel;
   if (pt.showLabel) _drawMpCallout(pt);
@@ -1023,13 +1029,10 @@ window._mpVisiblePublic = function(pt) {
 // ── Отрисовка расчётных точек на PDF-карте ───────────────────────────────────
 window._addMonPointsToPdfMap = function(targetMap) {
   const layers = [];
-  // Видимость берём через _layerTypeVisible: она учитывает и запомненные настройки,
-  // если запись слоя в панели ещё/уже отсутствует (иначе РТ всплывали в PDF)
-  const _vis = t => (typeof window._layerTypeVisible === 'function') ? window._layerTypeVisible(t) : true;
   if (!_monPoints.length) return layers;
   const _mpVisible = window._mpVisiblePublic;
 
-  const showCallouts = _vis('mp-callouts');
+  const showCallouts = window._pdfMpCalloutsVisible();
 
   // SVG-рендерер: canvas-слой при экспорте растягивался как растр и мылился
   const cr = L.svg({ padding: 0.5 });
@@ -1051,7 +1054,7 @@ window._addMonPointsToPdfMap = function(targetMap) {
 
     // Выноска РТ на карте редактора — такая же перетаскиваемая, как у источников
     // (раньше drag был выключен, и подвинуть выноску РТ в PDF было нельзя)
-    if (pt.showLabel && showCallouts && typeof _makeCalloutLayersGlobal === 'function') {
+    if (showCallouts && window._pdfMpCalloutVisible(pt) && typeof _makeCalloutLayersGlobal === 'function') {
       pt._onSave = _saveMonPoints;
       layers.push(..._makeCalloutLayersGlobal(pt, targetMap, true));
     }
@@ -1072,20 +1075,11 @@ window._mpLoadData = function(data) {
   if (typeof mapLayers !== 'undefined') {
     for (let i = mapLayers.length - 1; i >= 0; i--) if (mapLayers[i].mpId) mapLayers.splice(i, 1);
   }
-  _monPoints = data || [];
+  _monPoints = (data || []).map(pt => ({ ...pt }));
   _mpCounter = _monPoints.reduce((m, p) => Math.max(m, p.num || 0), 0);
   _monPoints.forEach(p => _drawMonPoint(p));
   localStorage.setItem('szztool_monpoints', JSON.stringify(_monPoints.map(_mpClean)));
   _syncMonPointsLayer();
   _syncMpCalloutLayer();
-  // Re-add layer groups to map (clearAll() removes them) — но только если слой
-  // должен быть виден: скрытые РТ не должны появляться после загрузки проекта
-  if (typeof map !== 'undefined') {
-    const _vis = t => (typeof window._layerTypeVisible === 'function') ? window._layerTypeVisible(t) : true;
-    if (_mpCalloutLayerGroup) {
-      if (_vis('mp-callouts') && !map.hasLayer(_mpCalloutLayerGroup)) map.addLayer(_mpCalloutLayerGroup);
-      if (!_vis('mp-callouts') && map.hasLayer(_mpCalloutLayerGroup)) map.removeLayer(_mpCalloutLayerGroup);
-    }
-  }
   if (typeof _updateTopSelects === 'function') _updateTopSelects();
 };

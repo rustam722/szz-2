@@ -44,6 +44,12 @@ function _initSources() {
   if (!_calloutLayerGroups.other)    _calloutLayerGroups.other    = L.layerGroup().addTo(map);
 }
 
+function _validSourceCoords(pair) {
+  return Array.isArray(pair) && pair.length >= 2 &&
+    pair.slice(0, 2).every(value => (typeof value === 'number' ||
+      (typeof value === 'string' && value.trim() !== '')) && Number.isFinite(Number(value)));
+}
+
 // Миграция старого формата (lat2/lon2/lat3/lon3) → points[] + callout style defaults
 function _migrateSource(s) {
   // Перенос старых полей стиля выноски в новые callout-специфичные
@@ -56,9 +62,13 @@ function _migrateSource(s) {
   if (s.calloutStrokeWidth == null) s.calloutStrokeWidth = 2;
   if (!s.fillPattern) s.fillPattern = 'solid';
 
+  if (Array.isArray(s.points)) s.points = s.points.filter(_validSourceCoords).map(([lat, lon]) => [+lat, +lon]);
+  if (Array.isArray(s.polygon)) s.polygon = s.polygon.filter(_validSourceCoords).map(([lat, lon]) => [+lat, +lon]);
+  if (!_validSourceCoords([s.lat, s.lon]) && s.points?.length) [s.lat, s.lon] = s.points[0];
+
   if (s.geomType === 'area') {
     // Всегда пересчитываем полигон из lat/lon/radius, чтобы не тащить устаревшие координаты из localStorage
-    if (s.lat != null && s.lon != null && s.radius != null) {
+    if (_validSourceCoords([s.lat, s.lon]) && s.radius != null) {
       const MIN_HW = 0.5;          // минимум 1×1 м — не перекрываются близкие источники
       const hw   = Math.max(s.radius / 2, MIN_HW);
       const dlat = hw / 111320;
@@ -73,11 +83,11 @@ function _migrateSource(s) {
     return s;
   }
   if (s.points) return s;
-  const pts = [[s.lat, s.lon]];
-  if (s.lat2 != null && s.lon2 != null) pts.push([s.lat2, s.lon2]);
-  if (s.lat3 != null && s.lon3 != null) pts.push([s.lat3, s.lon3]);
+  const pts = [[s.lat, s.lon], [s.lat2, s.lon2], [s.lat3, s.lon3]]
+    .filter(_validSourceCoords).map(([lat, lon]) => [+lat, +lon]);
+  if (pts.length) [s.lat, s.lon] = pts[0];
   return {
-    id: s.id,
+    ...s,
     num: s.num || 0,
     name: s.name,
     type: s.type || 'emission',
@@ -221,6 +231,7 @@ window._applyFillPattern = _applyFillPattern;
 
 // ── Отрисовка источника ────────────────────────────────────────────────────────
 function _drawSource(s) {
+  if (!_validSourceCoords(_srcAnchor(s))) return;
   if (s.hidden) return;             // скрыт через ПКМ-меню выделения — не рисуем вовсе
   const _grp = _srcGroupOf(s);
   if (!_grp) return;
@@ -262,6 +273,9 @@ function _drawSource(s) {
       }).addTo(_grp).on('click', _openEdit).on('contextmenu', _openCtx);
       _applyFillPattern(cl, color, fillPattern);
       layers.push(cl);
+    } else {
+      layers.push(L.circleMarker([s.lat, s.lon], { ...bSt, radius: 5, fillOpacity: 0.85 })
+        .addTo(_grp).on('click', _openEdit).on('contextmenu', _openCtx));
     }
   }
 
@@ -320,7 +334,7 @@ function _srcAnchor(s) {
 
 // Инициализировать позицию выноски если не задана
 function _initCalloutPos(s) {
-  if (isFinite(s.calloutLat) && isFinite(s.calloutLon)) return;
+  if (_validSourceCoords([s.calloutLat, s.calloutLon])) return;
   const a = _srcAnchor(s) || [];
   const alat = a[0], alon = a[1];
   // Без внятного якоря позицию не выдумываем: пусть лучше выноски не будет,
@@ -645,8 +659,9 @@ const ShelfLeader = L.Layer.extend({
 });
 
 function _makeCalloutLayers(s, container, enableDrag) {
+  if (!_validSourceCoords(_srcAnchor(s))) return [];
   _initCalloutPos(s);
-  if (!isFinite(s.calloutLat) || !isFinite(s.calloutLon)) return [];
+  if (!_validSourceCoords([s.calloutLat, s.calloutLon])) return [];
   const layer = new ShelfLeader(s, !!enableDrag);
   layer.addTo(container);
   return [layer];
@@ -1139,7 +1154,9 @@ function _renderSourcesList() {
       ? `${(s.points||[]).length} точек${s.radius ? ' · Δ=' + s.radius : ''}`
       : s.geomType === 'area'
       ? `Площадной · а=${s.radius}`
-      : `${(+s.lat).toFixed(5)}, ${(+s.lon).toFixed(5)}${s.radius ? ' · r=' + s.radius : ''}`;
+      : _validSourceCoords([s.lat, s.lon])
+      ? `${(+s.lat).toFixed(5)}, ${(+s.lon).toFixed(5)}${s.radius ? ' · r=' + s.radius : ''}`
+      : 'Нет координат';
     const pdfObj = (typeof pdfObjects !== 'undefined') ? pdfObjects.find(o => o.type === 'src-leader' && o.data.srcId === s.id) : null;
     const calloutOn  = pdfObj && pdfObj.visible !== false;
     const calloutOff = pdfObj && pdfObj.visible === false;
@@ -1254,7 +1271,7 @@ window.srcToggleCallout = (srcId) => {
 
 window.srcZoom = (id) => {
   const s = _sources.find(x => x.id === id);
-  if (!s) return;
+  if (!s || !_validSourceCoords(_srcAnchor(s))) return;
   if (s.geomType === 'line' && s.points && s.points.length >= 2) {
     map.fitBounds(L.latLngBounds(s.points), { padding: [60, 60] });
   } else if (s.geomType === 'area' && s.polygon && s.polygon.length >= 3) {
@@ -1290,6 +1307,7 @@ window.srcActivateMoveMode = (id) => {
     iconSize:[34,34], iconAnchor:[17,17], className:''
   });
   const center = _srcAnchor(s);
+  if (!_validSourceCoords(center)) { setSt('Укажите координаты источника', 'err'); return; }
   const marker = L.marker(center, { draggable: true, zIndexOffset: 2000, icon });
   let origLat = center[0], origLon = center[1];
   let origPoints  = s.points  ? s.points.map(p => [...p])  : null;
@@ -3122,6 +3140,7 @@ window._addSourcesToPdfMap = function(targetMap) {
   const cr = L.svg({ padding: 0.5 });
   const _vis = t => (typeof window._layerTypeVisible === 'function') ? window._layerTypeVisible(t) : true;
   _sources.forEach(s => {
+    if (s.hidden || !_validSourceCoords(_srcAnchor(s))) return;
     const defColor = s.color || SRC_COLORS[s.type] || '#6b7280';
     // Стиль из панели слоёв для соответствующего типа
     const typeLayerKey = `src-${s.type || 'emission'}`;
@@ -3151,6 +3170,8 @@ window._addSourcesToPdfMap = function(targetMap) {
         layers.push(L.circle([s.lat, s.lon], {
           radius: s.radius, color, fillColor, fillOpacity, weight, renderer: cr,
         }).addTo(targetMap));
+      } else {
+        layers.push(L.circleMarker([s.lat, s.lon], { ...bSt, radius: 5, fillOpacity: 0.85 }).addTo(targetMap));
       }
     }
 

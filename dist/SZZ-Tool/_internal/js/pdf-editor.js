@@ -291,21 +291,28 @@ function _pdfSheetVisible(l) {
 }
 window._pdfSheetVisiblePublic = _pdfSheetVisible;
 
+const _pdfMpCalloutsLayer = { type: 'mp-callouts' };
+const _pdfMpCalloutLayer = pt => ({ type: 'mp-callout:' + pt.id, visible: pt.pdfShowLabel === true });
+window._pdfMpCalloutsVisible = () => _pdfSheetVisible(_pdfMpCalloutsLayer);
+window._pdfMpCalloutVisible = pt => _pdfSheetVisible(_pdfMpCalloutLayer(pt));
+window._pdfSetMpCallouts = (points, visible) => _pdfSetSheetLayersVis(points.map(_pdfMpCalloutLayer), visible);
+
 // Записать видимость слоя для ТЕКУЩЕГО листа (не трогая общий l.visible) и
 // перестроить карту редактора/панель под новое состояние.
-window._pdfSetSheetVis = function(l, visible) {
-  if (!l) return;
+window._pdfSetSheetVis = (layer, visible) => _pdfSetSheetLayersVis([layer], visible);
+function _pdfSetSheetLayersVis(layers, visible) {
+  if (!layers.length) return;
   _sheetsInit();
   const sh = pdfSheets[pdfSheetIdx];
   if (!sh) return;
   if (!sh.layerVis) sh.layerVis = {};
-  const key = (typeof window.layerStableKey === 'function') ? window.layerStableKey(l) : null;
-  if (!key) return;
-  sh.layerVis[key] = !!visible;
+  layers.forEach(layer => {
+    if (layer) sh.layerVis[window.layerStableKey(layer)] = !!visible;
+  });
   if (typeof _rebuildPdfProjectLayers === 'function') _rebuildPdfProjectLayers();
   if (typeof _renderLayersList === 'function') _renderLayersList();
   if (typeof markDirty === 'function') markDirty();
-};
+}
 
 // Слой панели слоёв, который рисуется на карте редактора как полигон?
 function _pdfIsGeoLayer(l) {
@@ -747,17 +754,12 @@ function _getSrcById(id) {
 
 function _getSrcCenterLatLon(src) {
   if (!src) return null;
-  if (src.lat != null && src.lon != null) return { lat: src.lat, lon: src.lon };
-  if (src.points && src.points.length > 0) {
-    const sumLat = src.points.reduce((s, p) => s + p[0], 0);
-    const sumLon = src.points.reduce((s, p) => s + p[1], 0);
-    return { lat: sumLat / src.points.length, lon: sumLon / src.points.length };
-  }
-  return null;
+  const anchor = _srcAnchor(src);
+  return _validSourceCoords(anchor) ? { lat: anchor[0], lon: anchor[1] } : null;
 }
 
 function _getSrcBoundsOnCanvas(src) {
-  if (!pdfMap || !src) return null;
+  if (!pdfMap || !_getSrcCenterLatLon(src)) return null;
   let pts = [];
   if (src.polygon && src.polygon.length) {
     pts = src.polygon.map(p => pdfMap.latLngToContainerPoint(L.latLng(p[0], p[1])));
@@ -4666,10 +4668,14 @@ function renamePdfObj(event, id) {
 }
 
 // ── Переключатели видимости слоёв карты прямо из редактора ──────────────────
-// Работают с теми же записями mapLayers, что и панель слоёв главного окна,
-// поэтому состояние в обоих окнах всегда одинаковое.
+function _pdfLayersForVis(types) {
+  const list = mapLayers.filter(l => l.type !== 'mp-callouts' && types.includes(l.type));
+  if (types.includes('mp-callouts') && _monPoints.length) list.push(_pdfMpCalloutsLayer);
+  return list;
+}
+
 function _plVisChip(types, label) {
-  const list = (typeof mapLayers !== 'undefined' ? mapLayers : []).filter(l => types.includes(l.type));
+  const list = _pdfLayersForVis(types);
   if (!list.length) return '';
   const on = list.some(l => _pdfSheetVisible(l));
   const arg = types.map(t => `'${t}'`).join(',');
@@ -4683,11 +4689,8 @@ function _plVisChip(types, label) {
 // PDF-редактора — переключают видимость для ТЕКУЩЕГО листа (как и
 // toggleVis внутри этого режима), а не общий l.visible.
 window.togglePdfMapLayers = function(types) {
-  const list = (typeof mapLayers !== 'undefined' ? mapLayers : []).filter(l => types.includes(l.type));
-  if (!list.length) return;
-  const on = list.some(l => _pdfSheetVisible(l));
-  list.forEach(l => window._pdfSetSheetVis(l, !on));
-  _renderLayersList();
+  const list = _pdfLayersForVis(types);
+  _pdfSetSheetLayersVis(list, !list.some(_pdfSheetVisible));
 };
 
 const _SRC_CALLOUT_TYPES = ['src-callouts-emission', 'src-callouts-noise', 'src-callouts-other'];
@@ -4773,7 +4776,7 @@ window.plGroupMenu = function(e, gid) {
   const menu = document.createElement('div');
   menu.id = 'src-ctx-menu'; menu.className = 'src-ctx-menu';
   const close = "document.getElementById('src-ctx-menu')?.remove();_renderLayersList()";
-  const cs = (typeof _groupCalloutState === 'function') ? _groupCalloutState(gid) : { total: 0, on: 0 };
+  const cs = (typeof _groupCalloutState === 'function') ? _groupCalloutState(gid, true) : { total: 0, on: 0 };
   const _gLocked = !!g.locked;
   const _gNested = !!g.parent;
   const _gColor  = g.color || '#64748b';
@@ -4790,9 +4793,9 @@ window.plGroupMenu = function(e, gid) {
     </label>` +
     (_gNested ? `<button onclick="unnestGroup('${gid}');${close}">Вынести на верхний уровень</button>` : '') +
     (cs.total ? `<div class="src-ctx-sep"></div>
-    <button onclick="setGroupCallouts('${gid}', true);${close}">Выноски всей группе (${cs.total})</button>
-    <button onclick="openGroupCalloutStyle('${gid}');${close}">Один стиль выносок группе…</button>` +
-    (cs.on ? `<button onclick="setGroupCallouts('${gid}', false);${close}">Снять выноски (${cs.on})</button>` : '') : '') + `
+    <button onclick="setGroupCallouts('${gid}', true, true);${close}">Выноски всей группе (${cs.total})</button>
+    <button onclick="openGroupCalloutStyle('${gid}', true);${close}">Один стиль выносок группе…</button>` +
+    (cs.on ? `<button onclick="setGroupCallouts('${gid}', false, true);${close}">Снять выноски (${cs.on})</button>` : '') : '') + `
     <div class="src-ctx-sep"></div>
     <button onclick="newLayerGroup();${close}">Новая группа…</button>
     <button onclick="ungroupLayers('${gid}');${close}">Разобрать группу</button>`;
@@ -4820,7 +4823,7 @@ function _plGeoHtml() {
     const badge = l.type === 'szz' ? 'СЗЗ' : l.type === 'parcel' ? 'ЗУ' : '';
     return `<div class="pl-item pl-geo-item${cls}"${inGroup ? ' style="padding-left:18px"' : ''}
          onclick="selectLayerClick(event,${l.id});_renderLayersList()"
-         oncontextmenu="layerContextMenu(event,${l.id});return false"
+         oncontextmenu="layerContextMenu(event,${l.id},true);return false"
          title="${(l.name || '').replace(/"/g, '&quot;')} — клик выбрать, Shift диапазон, Ctrl добавить, ПКМ меню">
       <input type="checkbox" class="pl-chk" ${_pdfSheetVisible(l) ? 'checked' : ''}
              onclick="event.stopPropagation();toggleVis(event,${l.id});_renderLayersList()" title="Видимость">
@@ -5457,7 +5460,7 @@ function _renderLayersList() {
         return `<div class="pl-item pl-sub-item${sel ? ' sel' : ''}"
              style="${inGroup ? 'padding-left:18px;' : ''}${sel ? 'background:rgba(59,130,246,.18);box-shadow:inset 2px 0 0 var(--acc2);' : ''}${hidden ? 'opacity:.45;' : ''}"
              onclick="pdfMpClick(event,'${p.id}',${mpIdsAttr})"
-             oncontextmenu="layerContextMenu(event,${gl.id});return false"
+             oncontextmenu="layerContextMenu(event,${gl.id},true);return false"
              title="Клик — выбрать, Shift — диапазон, Ctrl — добавить, 2×клик — центрировать, ПКМ — меню"
              ondblclick="_pdfFocusMp('${p.id}')">
           <input type="checkbox" class="pl-chk" ${hidden ? '' : 'checked'}

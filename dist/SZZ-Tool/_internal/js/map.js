@@ -1019,7 +1019,7 @@ function renderLayers() {
                  onkeydown="handleLayerKey(event,${l.id})"
                  ${polyOp}>
       <input type="checkbox" class="li-chk" ${l.visible ? 'checked' : ''}
-             onclick="toggleVis(event,${l.id})" title="Видимость (Alt — показать только этот слой)">
+             onclick="toggleVis(event,${l.id},false)" title="Видимость (Alt — показать только этот слой)">
       ${thumbHtml}
       <span class="li-type ${badgeCls}">${badge}</span>
       <span class="li-name" id="lname-${l.id}"
@@ -1353,7 +1353,7 @@ window._canHaveCallout = function(l) {
 // раскрывается в носители выноски (l.callout / точка РТ / источники типа),
 // и все меню (группа, выделение, редактор PDF) работают через этот список.
 const _SRC_LAYER_TYPE = { 'src-emission': 'emission', 'src-noise': 'noise', 'src-other': 'other' };
-function _calloutCarriers(layers) {
+function _calloutCarriers(layers, fromPdf = false) {
   const out = [], seen = new Set();
   const mps  = typeof _monPoints !== 'undefined' ? _monPoints : [];
   const srcs = typeof _sources   !== 'undefined' ? _sources   : [];
@@ -1362,7 +1362,7 @@ function _calloutCarriers(layers) {
     if (!l) return;
     if (l.mpId) {
       const p = mps.find(x => x.id === l.mpId);
-      if (p) add('mp', l, p, !!p.showLabel);
+      if (p) add('mp', l, p, fromPdf ? window._pdfMpCalloutVisible(p) : !!p.showLabel);
     } else if (_SRC_LAYER_TYPE[l.type] || l.type === 'sources') {
       const t = _SRC_LAYER_TYPE[l.type];
       srcs.forEach(s => { if (!t || (s.type || 'emission') === t) add('src', l, s, !!s.showLabel); });
@@ -1374,15 +1374,17 @@ function _calloutCarriers(layers) {
   return out;
 }
 window._calloutCarriers = _calloutCarriers;
-window._calloutCarriersOfIds = ids => _calloutCarriers(mapLayers.filter(l => ids.includes(l.id)));
+window._calloutCarriersOfIds = (ids, fromPdf) => _calloutCarriers(mapLayers.filter(l => ids.includes(l.id)), fromPdf);
 
 // Включить/выключить выноски у набора носителей и обновить всё вокруг
-function _setCarriersCallout(cs, on) {
+function _setCarriersCallout(cs, on, fromPdf = false) {
   if (!cs.length) return;
   if (typeof window._primeMapScale === 'function') window._primeMapScale();
+  const pdfPoints = [];
   let mp = false, src = false;
   cs.forEach(c => {
     if (c.kind === 'layer') { c.l.callout.on = !!on; _drawLayerCallout(c.l); }
+    else if (c.kind === 'mp' && fromPdf) pdfPoints.push(c.obj);
     else if (c.kind === 'mp') {
       if (typeof _clearMpCallout === 'function') _clearMpCallout(c.obj);
       c.obj.showLabel = !!on;
@@ -1400,6 +1402,7 @@ function _setCarriersCallout(cs, on) {
     if (typeof _syncCalloutLayer === 'function') _syncCalloutLayer();
     if (typeof _renderSourcesList === 'function') _renderSourcesList();
   }
+  if (pdfPoints.length) window._pdfSetMpCallouts(pdfPoints, on);
   _syncPdfCallouts();
   if ((mp || src) && typeof pdfMap !== 'undefined' && pdfMap && typeof _refreshPdfMapLayers === 'function') _refreshPdfMapLayers();
   renderLayers();
@@ -1422,7 +1425,7 @@ window.layersCalloutMenu = function(e, ids, title) {
   document.getElementById('src-ctx-menu')?.remove();
   const layers = mapLayers.filter(l => ids.includes(l.id));
   if (!layers.length) return;
-  const cs = _calloutCarriers(layers);
+  const cs = _calloutCarriers(layers, true);
   const on = cs.filter(c => c.on).length;
   const anyVis = layers.some(l => l.visible !== false);
   const menu = document.createElement('div');
@@ -1433,19 +1436,19 @@ window.layersCalloutMenu = function(e, ids, title) {
     <button onclick="hideLayersByIds([${idList}], ${anyVis});${close}">${anyVis ? 'Скрыть' : 'Показать'} (${layers.length})</button>
     <button onclick="isolateLayers([${idList}], ${JSON.stringify(title || 'выбранное').replace(/"/g, '&quot;')});${close}">Показать только их</button>` +
     (cs.length ? `<div class="src-ctx-sep"></div>
-    <button onclick="setLayersCallouts([${idList}], true);${close}">
+    <button onclick="setLayersCallouts([${idList}], true, true);${close}">
       <svg class="icon icon-sm" style="margin-right:4px;vertical-align:middle"><use href="#ico-tag"/></svg>
       Включить выноски (${cs.length})</button>` +
-    (on ? `<button onclick="setLayersCallouts([${idList}], false);${close}">Снять выноски (${on})</button>` : '') +
-    `<button onclick="openCalloutStyleDialog([${idList}], ${JSON.stringify('Стиль выносок: ' + (title || 'выбранное')).replace(/"/g, '&quot;')});${close}">Один стиль выносок…</button>` : '');
+    (on ? `<button onclick="setLayersCallouts([${idList}], false, true);${close}">Снять выноски (${on})</button>` : '') +
+    `<button onclick="openCalloutStyleDialog([${idList}], ${JSON.stringify('Стиль выносок: ' + (title || 'выбранное')).replace(/"/g, '&quot;')}, true);${close}">Один стиль выносок…</button>` : '');
   _placeCtxMenu(menu, e);
 };
 
-window.setLayersCallouts = function(ids, on) {
-  const cs = window._calloutCarriersOfIds(ids);
+window.setLayersCallouts = function(ids, on, fromPdf = false) {
+  const cs = window._calloutCarriersOfIds(ids, fromPdf);
   if (!cs.length) { setSt('Нет объектов для выноски', 'err'); return; }
   if (typeof mapUndoPush === 'function') mapUndoPush(on ? 'выноски' : 'скрыть выноски');
-  _setCarriersCallout(cs, on);
+  _setCarriersCallout(cs, on, fromPdf);
   setSt(on ? `Выноски включены: ${cs.length}` : `Выноски скрыты: ${cs.length}`, 'ok');
 };
 
@@ -1545,11 +1548,11 @@ function _layerGroupMembers(gid) {
 }
 
 // Выноски всей группе разом — то, ради чего группы и собирают
-window.setGroupCallouts = function(gid, on) {
-  const cs = _calloutCarriers(_layerGroupMembers(gid));
+window.setGroupCallouts = function(gid, on, fromPdf = false) {
+  const cs = _calloutCarriers(_layerGroupMembers(gid), fromPdf);
   if (!cs.length) { setSt('В группе нет объектов для выноски', 'err'); return; }
   if (typeof mapUndoPush === 'function') mapUndoPush('выноски группы');
-  _setCarriersCallout(cs, on);
+  _setCarriersCallout(cs, on, fromPdf);
   const gname = (_layerGroups[gid] || {}).name || 'группа';
   setSt(`${on ? 'Выноски назначены' : 'Выноски сняты'}: «${gname}» (${cs.length})`, 'ok');
 };
@@ -1611,8 +1614,8 @@ window._applyLayerCalloutStyle = function(l, st) {
 // ── Один стиль выносок на группу (или на выделение) ─────────────────────────
 // Диалог собирает стиль один раз и раскатывает его на все слои сразу: по
 // отдельности выставлять цвет каждому участку в группе — то ещё занятие.
-window.openCalloutStyleDialog = function(ids, title) {
-  const targets = window._calloutCarriersOfIds(ids);
+window.openCalloutStyleDialog = function(ids, title, fromPdf = false) {
+  const targets = window._calloutCarriersOfIds(ids, fromPdf);
   if (!targets.length) { setSt('Нет объектов для выноски', 'err'); return; }
   document.getElementById('callout-style-modal')?.remove();
   // Стиль первой выноски — как отправная точка
@@ -1680,7 +1683,7 @@ window.openCalloutStyleDialog = function(ids, title) {
         </div>
         <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">
           <button class="btn" onclick="document.getElementById('callout-style-modal')?.remove()">Отмена</button>
-          <button class="btn pri" onclick="applyCalloutStyleDialog([${ids.join(',')}])">Применить ко всем (${targets.length})</button>
+          <button class="btn pri" onclick="applyCalloutStyleDialog([${ids.join(',')}], ${fromPdf})">Применить ко всем (${targets.length})</button>
         </div>
       </div>
     </div>`;
@@ -1688,7 +1691,7 @@ window.openCalloutStyleDialog = function(ids, title) {
   m.addEventListener('click', e => { if (e.target === m) m.remove(); });
 };
 
-window.applyCalloutStyleDialog = function(ids) {
+window.applyCalloutStyleDialog = function(ids, fromPdf = false) {
   const q = id => document.getElementById(id);
   const st = {
     calloutColor:       q('cs-color').value,
@@ -1701,14 +1704,14 @@ window.applyCalloutStyleDialog = function(ids) {
     showLeaderLine:     q('cs-leader').checked,
     showCalloutCircle:  q('cs-circle').checked,
   };
-  const targets = window._calloutCarriersOfIds(ids);
+  const targets = window._calloutCarriersOfIds(ids, fromPdf);
   if (typeof mapUndoPush === 'function') mapUndoPush('стиль выносок');
   // Стиль без выноски смысла не имеет: выключенные включаем, уже показанные
   // перерисовываем с новым стилем
   targets.forEach(c => Object.assign(c.obj, st));
   const off = targets.filter(c => !c.on), shown = targets.filter(c => c.on);
-  _redrawCarriers(shown);
-  if (off.length) _setCarriersCallout(off, true);
+  _redrawCarriers(targets);
+  if (off.length) _setCarriersCallout(off, true, fromPdf);
   else {
     if (shown.some(c => c.kind === 'mp') && typeof _saveMonPoints === 'function') _saveMonPoints();
     if (shown.some(c => c.kind === 'src') && typeof _saveSources === 'function') _saveSources();
@@ -1724,15 +1727,15 @@ window.applyCalloutStyleDialog = function(ids) {
 };
 
 // Стиль выносок всей группе
-window.openGroupCalloutStyle = function(gid) {
+window.openGroupCalloutStyle = function(gid, fromPdf = false) {
   const ids = _layerGroupMembers(gid).map(l => l.id);
   const gname = (_layerGroups[gid] || {}).name || 'группа';
-  window.openCalloutStyleDialog(ids, `Стиль выносок: ${gname}`);
+  window.openCalloutStyleDialog(ids, `Стиль выносок: ${gname}`, fromPdf);
 };
 
 // Сколько объектов группы с выносками — для подписи в меню
-function _groupCalloutState(gid) {
-  const cs = _calloutCarriers(_layerGroupMembers(gid));
+function _groupCalloutState(gid, fromPdf) {
+  const cs = _calloutCarriers(_layerGroupMembers(gid), fromPdf);
   return { total: cs.length, on: cs.filter(c => c.on).length };
 }
 
@@ -2658,7 +2661,7 @@ function saveLayerName(id) {
     if (typeof markDirty === 'function') markDirty();
   }
 }
-function toggleVis(e, id) {
+function toggleVis(e, id, fromPdf = document.getElementById('pdf-editor')?.style.display !== 'none') {
   e.stopPropagation();
   const l = mapLayers.find(x => x.id === id);
   // Alt — оставить видимым только этот слой; повторный Alt возвращает всё
@@ -2673,8 +2676,7 @@ function toggleVis(e, id) {
   // общий l.visible: иначе выключение на одном листе тут же меняло бы
   // картинку на всех остальных. На главной карте (вне режима PDF) поведение
   // не меняется — общий флаг, как и раньше.
-  const pdfEditorEl = document.getElementById('pdf-editor');
-  if (pdfEditorEl && pdfEditorEl.style.display !== 'none' && typeof window._pdfSetSheetVis === 'function') {
+  if (fromPdf && typeof window._pdfSetSheetVis === 'function') {
     window._pdfSetSheetVis(l, e.target.checked);
     return;
   }
@@ -3601,13 +3603,13 @@ window.deleteLayers = function(ids) {
 };
 
 // Блок команд «выделение / группа» для меню слоя (пусто, если не применимо)
-function _groupMenuHtml(l, id) {
+function _groupMenuHtml(l, id, fromPdf) {
   const close = "document.getElementById('src-ctx-menu')?.remove()";
   const sel = _targetLayers(id);
   let html = '';
   if (sel.length > 1) {
     const anyVis = sel.some(x => (mapLayers.find(m => m.id === x) || {}).visible !== false);
-    const selL    = window._calloutCarriersOfIds(sel);
+    const selL    = window._calloutCarriersOfIds(sel, fromPdf);
     const anyCall = selL.some(c => c.on);
     const allLocked = mapLayers.filter(x => sel.includes(x.id)).every(x => x.locked);
     // «Объединить выделенные» — прямое объединение без выбора второго слоя
@@ -3619,11 +3621,11 @@ function _groupMenuHtml(l, id) {
       <button onclick="isolateLayers([${sel.join(',')}], 'выделенное');${close}">Показать только выделенные</button>
       <button onclick="groupLayers(${id});${close}">Сгруппировать <span class="src-ctx-key">Ctrl+G</span></button>
       <button onclick="lpToggleLock();${close}">${allLocked ? 'Разблокировать выделенные' : 'Заблокировать выделенные'}</button>` +
-      (selL.length ? `<button onclick="setLayersCallouts([${sel.join(',')}], true);${close}">
+      (selL.length ? `<button onclick="setLayersCallouts([${sel.join(',')}], true, ${fromPdf});${close}">
         <svg class="icon icon-sm" style="margin-right:4px;vertical-align:middle"><use href="#ico-tag"/></svg>
         Выноски у выделенных (${selL.length})</button>` +
-      (anyCall ? `<button onclick="setLayersCallouts([${sel.join(',')}], false);${close}">Снять выноски (${selL.filter(c => c.on).length})</button>` : '') +
-      `<button onclick="openCalloutStyleDialog([${sel.join(',')}], 'Стиль выносок: выделено ${sel.length}');${close}">Один стиль выносок…</button>` : '') +
+      (anyCall ? `<button onclick="setLayersCallouts([${sel.join(',')}], false, ${fromPdf});${close}">Снять выноски (${selL.filter(c => c.on).length})</button>` : '') +
+      `<button onclick="openCalloutStyleDialog([${sel.join(',')}], 'Стиль выносок: выделено ${sel.length}', ${fromPdf});${close}">Один стиль выносок…</button>` : '') +
       `<button onclick="pickLayersColor([${sel.join(',')}]);${close}">Цвет выделенным…</button>` +
       (mergeableCnt >= 2 ? `<button onclick="mergeSelectedLayers([${sel.join(',')}]);${close}">⊕ Объединить выделенные (${mergeableCnt})</button>` : '') +
       `<div class="src-ctx-sep"></div>
@@ -3646,14 +3648,14 @@ function _groupMenuHtml(l, id) {
   return html ? html + '<div class="src-ctx-sep"></div>' : '';
 }
 
-window.layerContextMenu = (e, id) => {
+window.layerContextMenu = (e, id, fromPdf = false) => {
   e.preventDefault(); e.stopPropagation();
   document.getElementById('src-ctx-menu')?.remove();
   const l = mapLayers.find(x => x.id === id);
   if (!l) return;
 
   // Команды выделения и группы идут ПЕРВЫМ блоком, а не вместо остального меню
-  const groupHtml = _groupMenuHtml(l, id);
+  const groupHtml = _groupMenuHtml(l, id, fromPdf);
 
   // ── ПКМ на слое источников ──
   if (l.type === 'src-emission' || l.type === 'src-noise' || l.type === 'src-other') {
@@ -3681,15 +3683,16 @@ window.layerContextMenu = (e, id) => {
     const menu = document.createElement('div');
     menu.id = 'src-ctx-menu'; menu.className = 'src-ctx-menu';
     const close = "document.getElementById('src-ctx-menu')?.remove()";
+    const calloutOn = pt && (fromPdf ? window._pdfMpCalloutVisible(pt) : pt.showLabel);
     // Команды выделения (выноски, стиль, цвет, удаление) уже в groupHtml —
     // выделение РТ в окне РТ и в редакторе PDF отражается в выделение слоёв
     menu.innerHTML = groupHtml +
       `<button onclick="mpEditFromList('${l.mpId}');${close}">✎ Настройки РТ</button>
        <button onclick="mpActivateMoveMode('${l.mpId}');${close}">✥ Переместить</button>
-       <button onclick="mpToggleOneCallout('${l.mpId}');${close}">
+       <button onclick="mpToggleOneCallout('${l.mpId}', ${fromPdf});${close}">
          <svg class="icon icon-sm" style="margin-right:4px;vertical-align:middle"><use href="#ico-tag"/></svg>
-         ${pt && pt.showLabel ? 'Скрыть' : 'Включить'} выноску</button>
-       <button onclick="openCalloutStyleDialog([${id}], 'Стиль выноски: ${escapeHtml(l.name || 'РТ').replace(/'/g, '&#39;')}');${close}">Стиль выноски…</button>
+         ${calloutOn ? 'Скрыть' : 'Включить'} выноску</button>
+       <button onclick="openCalloutStyleDialog([${id}], 'Стиль выноски: ${escapeHtml(l.name || 'РТ').replace(/'/g, '&#39;')}', ${fromPdf});${close}">Стиль выноски…</button>
        <button onclick="pickLayersColor([${id}]);${close}">Цвет…</button>
        <button onclick="mpExportCoords('${l.mpId}');${close}"><svg class="icon icon-sm" style="margin-right:4px;vertical-align:middle"><use href="#ico-copy"/></svg>Экспорт координат</button>
        <div class="src-ctx-sep"></div>

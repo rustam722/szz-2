@@ -298,9 +298,11 @@
     const proj = (lat, lon) => { const p = M.latLngToContainerPoint(L.latLng(lat, lon)); return [c.mm(p.x), c.mm(p.y)]; };
     let n = 0;
     _pdfSourceLayers.forEach(layer => {
-      if (layer instanceof L.Circle) {
+      if (layer instanceof L.CircleMarker) {
         const center = layer.getLatLng();
-        const r = _pxRadiusForMeters(M, center.lat, center.lng, layer.getRadius(), c);
+        const r = layer instanceof L.Circle
+          ? _pxRadiusForMeters(M, center.lat, center.lng, layer.getRadius(), c)
+          : c.mm(layer.getRadius());
         if (!(r > 0)) return;
         const [cx, cy] = proj(center.lat, center.lng);
         const opt = layer.options || {};
@@ -378,9 +380,9 @@
         if (s.showLabel && _vis(`src-${s.type || 'emission'}`) && _vis(`src-callouts-${s.type || 'emission'}`)) add(s, null);
       });
     }
-    if (typeof _monPoints !== 'undefined' && _vis('mp-callouts')) {
+    if (typeof _monPoints !== 'undefined' && window._pdfMpCalloutsVisible()) {
       _monPoints.forEach(p => {
-        if (p.showLabel && _mpVisible(p)) add(p, [p.lat, p.lon]);
+        if (window._pdfMpCalloutVisible(p) && _mpVisible(p)) add(p, [p.lat, p.lon]);
       });
     }
     if (typeof mapLayers !== 'undefined') {
