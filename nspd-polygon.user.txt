@@ -1,0 +1,366 @@
+// ==UserScript==
+// @name         НСПД — Полигон по координатам
+// @namespace    http://tampermonkey.net/
+// @version      1.2
+// @description  Добавляет панель для построения полигона по координатам на портале nspd.gov.ru
+// @author       SZZ-Tool
+// @match        https://nspd.gov.ru/*
+// @grant        none
+// @run-at       document-start
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    let mapInstance = null;
+    let mapLib = null; // 'maplibre' | 'ol' | 'leaflet'
+
+    // =========================================================
+    // 1. Перехват инициализации карты
+    // =========================================================
+
+    function hookMapLibre() {
+        const t = setInterval(() => {
+            if (window.maplibregl) {
+                clearInterval(t);
+                mapLib = 'maplibre';
+                const Orig = window.maplibregl.Map;
+                window.maplibregl.Map = function (opts) {
+                    const map = new Orig(opts);
+                    map.once('load', () => { mapInstance = map; });
+                    return map;
+                };
+                Object.setPrototypeOf(window.maplibregl.Map, Orig);
+                window.maplibregl.Map.prototype = Orig.prototype;
+            }
+        }, 100);
+    }
+
+    function hookOpenLayers() {
+        const t = setInterval(() => {
+            if (window.ol && window.ol.Map) {
+                clearInterval(t);
+                mapLib = 'ol';
+                const Orig = window.ol.Map;
+                window.ol.Map = function (opts) {
+                    const map = new Orig(opts);
+                    mapInstance = map;
+                    return map;
+                };
+                window.ol.Map.prototype = Orig.prototype;
+            }
+        }, 100);
+    }
+
+    function hookLeaflet() {
+        const t = setInterval(() => {
+            if (window.L && window.L.map) {
+                clearInterval(t);
+                mapLib = 'leaflet';
+                const orig = window.L.map.bind(window.L);
+                window.L.map = function (el, opts) {
+                    const map = orig(el, opts);
+                    mapInstance = map;
+                    return map;
+                };
+            }
+        }, 100);
+    }
+
+    hookMapLibre();
+    hookOpenLayers();
+    hookLeaflet();
+
+    // =========================================================
+    // 2. UI — плавающая панель
+    // =========================================================
+
+    function createPanel() {
+        if (document.getElementById('nspd-poly-panel')) return;
+
+        const panel = document.createElement('div');
+        panel.id = 'nspd-poly-panel';
+        panel.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 99999;
+            background: #fff;
+            border: 1px solid #d0d7de;
+            border-radius: 10px;
+            padding: 14px 14px 10px;
+            width: 300px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            user-select: none;
+        `;
+
+        panel.innerHTML = `
+            <div id="nspd-poly-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;cursor:move;">
+                <span style="font-weight:600;font-size:14px;">📍 Полигон по координатам</span>
+                <button id="nspd-poly-toggle"
+                    style="border:none;background:none;cursor:pointer;font-size:18px;line-height:1;color:#555;padding:0 2px;">−</button>
+            </div>
+            <div id="nspd-poly-body">
+                <div style="color:#666;font-size:12px;margin-bottom:5px;">
+                    По одной точке в строке — <b>широта, долгота</b> (WGS84):
+                </div>
+                <textarea id="nspd-poly-input"
+                    style="width:100%;height:130px;box-sizing:border-box;font-size:12px;
+                           font-family:monospace;border:1px solid #ccc;border-radius:5px;
+                           padding:7px;resize:vertical;outline:none;"
+                    placeholder="55.7558, 37.6173&#10;55.7560, 37.6200&#10;55.7540, 37.6210&#10;55.7538, 37.6175"></textarea>
+
+                <div style="display:flex;gap:6px;margin-top:8px;">
+                    <button id="nspd-poly-draw"
+                        style="flex:1;padding:7px;background:#0057b7;color:#fff;
+                               border:none;border-radius:5px;cursor:pointer;font-size:13px;">
+                        ▶ Нарисовать
+                    </button>
+                    <button id="nspd-poly-fit"
+                        style="flex:1;padding:7px;background:#e8f0fe;color:#0057b7;
+                               border:1px solid #b3c8f5;border-radius:5px;cursor:pointer;font-size:13px;">
+                        ⊕ К полигону
+                    </button>
+                </div>
+                <div style="display:flex;gap:6px;margin-top:6px;">
+                    <button id="nspd-poly-clear"
+                        style="flex:1;padding:6px;background:#f5f5f5;color:#555;
+                               border:1px solid #ccc;border-radius:5px;cursor:pointer;font-size:13px;">
+                        ✕ Очистить
+                    </button>
+                    <button id="nspd-poly-copy-geojson"
+                        style="flex:1;padding:6px;background:#f5f5f5;color:#555;
+                               border:1px solid #ccc;border-radius:5px;cursor:pointer;font-size:13px;">
+                        {} GeoJSON
+                    </button>
+                </div>
+                <div id="nspd-poly-status"
+                    style="margin-top:8px;min-height:16px;font-size:12px;color:#666;"></div>
+            </div>
+        `;
+
+        document.body.appendChild(panel);
+
+        // Drag
+        let dragging = false, ox, oy, pl, pt;
+        document.getElementById('nspd-poly-header').addEventListener('mousedown', e => {
+            if (e.target.id === 'nspd-poly-toggle') return;
+            dragging = true;
+            ox = e.clientX; oy = e.clientY;
+            const r = panel.getBoundingClientRect();
+            pl = r.left; pt = r.top;
+        });
+        document.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            panel.style.left = (pl + e.clientX - ox) + 'px';
+            panel.style.top  = (pt + e.clientY - oy) + 'px';
+            panel.style.right = 'auto';
+        });
+        document.addEventListener('mouseup', () => { dragging = false; });
+
+        // Toggle collapse
+        document.getElementById('nspd-poly-toggle').addEventListener('click', () => {
+            const body = document.getElementById('nspd-poly-body');
+            const btn  = document.getElementById('nspd-poly-toggle');
+            const collapsed = body.style.display === 'none';
+            body.style.display = collapsed ? '' : 'none';
+            btn.textContent = collapsed ? '−' : '+';
+        });
+
+        document.getElementById('nspd-poly-draw').addEventListener('click', drawPolygon);
+        document.getElementById('nspd-poly-fit').addEventListener('click', fitToPolygon);
+        document.getElementById('nspd-poly-clear').addEventListener('click', clearPolygon);
+        document.getElementById('nspd-poly-copy-geojson').addEventListener('click', copyGeoJSON);
+    }
+
+    // =========================================================
+    // 3. Разбор координат
+    // =========================================================
+
+    function parseCoords() {
+        const raw = document.getElementById('nspd-poly-input').value.trim();
+        const result = [];
+        for (const line of raw.split('\n')) {
+            const parts = line.trim().split(/[\s,;]+/);
+            if (parts.length >= 2) {
+                const lat = parseFloat(parts[0]);
+                const lon = parseFloat(parts[1]);
+                if (!isNaN(lat) && !isNaN(lon)) result.push([lon, lat]); // [lon,lat] — GeoJSON
+            }
+        }
+        return result;
+    }
+
+    function setStatus(msg, color = '#555') {
+        const el = document.getElementById('nspd-poly-status');
+        if (el) { el.textContent = msg; el.style.color = color; }
+    }
+
+    // =========================================================
+    // 4. MapLibre GL JS
+    // =========================================================
+    const ML_SOURCE = 'nspd-poly-src';
+    const ML_FILL   = 'nspd-poly-fill';
+    const ML_LINE   = 'nspd-poly-line';
+
+    function drawMapLibre(coords) {
+        const ring = [...coords, coords[0]];
+        const data = { type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] } };
+        if (mapInstance.getSource(ML_SOURCE)) {
+            mapInstance.getSource(ML_SOURCE).setData(data);
+        } else {
+            mapInstance.addSource(ML_SOURCE, { type: 'geojson', data });
+            mapInstance.addLayer({ id: ML_FILL, type: 'fill', source: ML_SOURCE,
+                paint: { 'fill-color': '#0057b7', 'fill-opacity': 0.18 } });
+            mapInstance.addLayer({ id: ML_LINE, type: 'line', source: ML_SOURCE,
+                paint: { 'line-color': '#0033aa', 'line-width': 2.5 } });
+        }
+    }
+    function clearMapLibre() {
+        if (!mapInstance) return;
+        [ML_FILL, ML_LINE].forEach(id => { try { mapInstance.removeLayer(id); } catch(e){} });
+        try { mapInstance.removeSource(ML_SOURCE); } catch(e){}
+    }
+    function fitMapLibre(coords) {
+        const lons = coords.map(c => c[0]), lats = coords.map(c => c[1]);
+        mapInstance.fitBounds(
+            [[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]],
+            { padding: 60, duration: 600 }
+        );
+    }
+
+    // =========================================================
+    // 5. OpenLayers
+    // =========================================================
+    let olLayer = null;
+
+    function drawOpenLayers(coords) {
+        const olCoords = coords.map(([lon, lat]) => window.ol.proj.fromLonLat([lon, lat]));
+        olCoords.push(olCoords[0]);
+        const feature = new window.ol.Feature(new window.ol.geom.Polygon([olCoords]));
+        if (olLayer) mapInstance.removeLayer(olLayer);
+        olLayer = new window.ol.layer.Vector({
+            source: new window.ol.source.Vector({ features: [feature] }),
+            style: new window.ol.style.Style({
+                fill:   new window.ol.style.Fill({ color: 'rgba(0,87,183,0.18)' }),
+                stroke: new window.ol.style.Stroke({ color: '#0033aa', width: 2.5 })
+            })
+        });
+        mapInstance.addLayer(olLayer);
+    }
+    function clearOpenLayers() {
+        if (olLayer) { mapInstance.removeLayer(olLayer); olLayer = null; }
+    }
+    function fitOpenLayers(coords) {
+        const pts = coords.map(([lon, lat]) => window.ol.proj.fromLonLat([lon, lat]));
+        mapInstance.getView().fit(window.ol.extent.boundingExtent(pts), { padding: [60, 60, 60, 60], duration: 600 });
+    }
+
+    // =========================================================
+    // 6. Leaflet
+    // =========================================================
+    let lfPoly = null;
+
+    function drawLeaflet(coords) {
+        if (lfPoly) mapInstance.removeLayer(lfPoly);
+        lfPoly = window.L.polygon(coords.map(([lon, lat]) => [lat, lon]), {
+            color: '#0033aa', fillColor: '#0057b7', fillOpacity: 0.18, weight: 2.5
+        }).addTo(mapInstance);
+    }
+    function clearLeaflet() {
+        if (lfPoly) { mapInstance.removeLayer(lfPoly); lfPoly = null; }
+    }
+    function fitLeaflet(coords) {
+        mapInstance.fitBounds(coords.map(([lon, lat]) => [lat, lon]));
+    }
+
+    // =========================================================
+    // 7. Fallback — поиск карты если не поймали при init
+    // =========================================================
+    function tryFindMap() {
+        // MapLibre: canvas элемент хранит ссылку на карту
+        for (const c of document.querySelectorAll('canvas')) {
+            if (c._maplibreglMap) { mapInstance = c._maplibreglMap; mapLib = 'maplibre'; return true; }
+        }
+        // OpenLayers
+        const vp = document.querySelector('.ol-viewport');
+        if (vp) {
+            for (const key of Object.keys(vp)) {
+                if (key.startsWith('ol_uid') || key.includes('map')) {
+                    const candidate = vp[key];
+                    if (candidate && typeof candidate.getView === 'function') {
+                        mapInstance = candidate; mapLib = 'ol'; return true;
+                    }
+                }
+            }
+        }
+        // Leaflet
+        const lmap = document.querySelector('.leaflet-container');
+        if (lmap && lmap._leaflet_map) { mapInstance = lmap._leaflet_map; mapLib = 'leaflet'; return true; }
+        return false;
+    }
+
+    // =========================================================
+    // 8. Dispatcher
+    // =========================================================
+    function drawPolygon() {
+        const coords = parseCoords();
+        if (coords.length < 3) { setStatus('Нужно минимум 3 точки!', '#c0392b'); return; }
+        if (!mapInstance) tryFindMap();
+        if (!mapInstance) { setStatus('Карта не найдена. Обновите страницу.', '#c0392b'); return; }
+        try {
+            if (mapLib === 'maplibre')   drawMapLibre(coords);
+            else if (mapLib === 'ol')    drawOpenLayers(coords);
+            else if (mapLib === 'leaflet') drawLeaflet(coords);
+            else { setStatus('Неизвестная библиотека карт: ' + mapLib, '#c0392b'); return; }
+            setStatus(`✓ Полигон построен (${coords.length} точек)`, '#197a4d');
+        } catch(e) {
+            setStatus('Ошибка: ' + e.message, '#c0392b');
+            console.error('[НСПД-poly]', e);
+        }
+    }
+
+    function clearPolygon() {
+        if (!mapInstance && !tryFindMap()) return;
+        if (mapLib === 'maplibre')   clearMapLibre();
+        else if (mapLib === 'ol')    clearOpenLayers();
+        else if (mapLib === 'leaflet') clearLeaflet();
+        setStatus('Полигон удалён', '#555');
+    }
+
+    function fitToPolygon() {
+        const coords = parseCoords();
+        if (coords.length === 0) { setStatus('Сначала введите координаты', '#c0392b'); return; }
+        if (!mapInstance && !tryFindMap()) { setStatus('Карта не найдена', '#c0392b'); return; }
+        if (mapLib === 'maplibre')   fitMapLibre(coords);
+        else if (mapLib === 'ol')    fitOpenLayers(coords);
+        else if (mapLib === 'leaflet') fitLeaflet(coords);
+    }
+
+    function copyGeoJSON() {
+        const coords = parseCoords();
+        if (coords.length < 3) { setStatus('Нужно минимум 3 точки', '#c0392b'); return; }
+        const ring = [...coords, coords[0]];
+        const gj = JSON.stringify({
+            type: 'Feature',
+            geometry: { type: 'Polygon', coordinates: [ring] },
+            properties: {}
+        }, null, 2);
+        navigator.clipboard.writeText(gj).then(
+            () => setStatus('GeoJSON скопирован в буфер', '#197a4d'),
+            () => { document.getElementById('nspd-poly-input').value = gj; setStatus('GeoJSON вставлен в поле', '#197a4d'); }
+        );
+    }
+
+    // =========================================================
+    // 9. Запуск
+    // =========================================================
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(createPanel, 1200));
+    } else {
+        setTimeout(createPanel, 1200);
+    }
+
+})();

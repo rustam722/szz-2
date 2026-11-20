@@ -1,0 +1,379 @@
+// ==UserScript==
+// @name         НСПД — Поиск по координатам
+// @namespace    http://tampermonkey.net/
+// @version      3.0
+// @description  Перехватывает API НСПД и позволяет искать участки по введённым координатам
+// @author       SZZ-Tool
+// @match        https://nspd.gov.ru/*
+// @grant        none
+// @run-at       document-start
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    // =========================================================
+    // Хранилище перехваченных запросов
+    // =========================================================
+    let captured = [];        // все пойманные пространственные запросы
+    let selected = null;      // выбранный запрос для повтора
+
+    // =========================================================
+    // Перехват fetch
+    // =========================================================
+    const _fetch = window.fetch;
+    window.fetch = async function (input, init) {
+        const url    = input instanceof Request ? input.url : String(input);
+        const method = (init?.method || (input instanceof Request ? input.method : 'GET')).toUpperCase();
+        let rawBody  = null;
+
+        if (init?.body) {
+            rawBody = init.body;
+        } else if (input instanceof Request) {
+            try { rawBody = await input.clone().text(); } catch(e) {}
+        }
+
+        if (rawBody && typeof rawBody === 'string') {
+            tryCapture(url, method, rawBody, init?.headers || {});
+        }
+
+        return _fetch.apply(this, arguments);
+    };
+
+    // =========================================================
+    // Перехват XHR
+    // =========================================================
+    const _open = XMLHttpRequest.prototype.open;
+    const _send = XMLHttpRequest.prototype.send;
+
+    XMLHttpRequest.prototype.open = function (method, url) {
+        this._nspd_url    = url;
+        this._nspd_method = method;
+        return _open.apply(this, arguments);
+    };
+    XMLHttpRequest.prototype.send = function (body) {
+        if (body && typeof body === 'string') {
+            tryCapture(this._nspd_url, this._nspd_method, body, {});
+        }
+        return _send.apply(this, arguments);
+    };
+
+    // =========================================================
+    // Анализ тела запроса — поиск геометрии
+    // =========================================================
+    function tryCapture(url, method, rawBody, headers) {
+        let parsed;
+        try { parsed = JSON.parse(rawBody); } catch(e) { return; }
+
+        const path = findGeomPath(parsed, []);
+        if (!path) return;
+
+        const entry = {
+            url,
+            method,
+            headers,
+            bodyTemplate: JSON.parse(rawBody), // deep copy
+            geomPath: path,
+            label: url.split('/').slice(-2).join('/') + (url.includes('?') ? '?' : ''),
+            ts: new Date().toLocaleTimeString()
+        };
+
+        captured.push(entry);
+        if (!selected) selected = entry;
+        refreshCaptureList();
+        setStatus(`✓ API перехвачен: ${entry.label}`, true);
+    }
+
+    // Рекурсивный поиск пути к геометрии (GeoJSON Polygon / Feature)
+    function findGeomPath(obj, path) {
+        if (!obj || typeof obj !== 'object') return null;
+        if (isGeometry(obj)) return path;
+
+        const priority = ['geometry', 'geom', 'polygon', 'area', 'shape', 'extent', 'bbox', 'filter'];
+        const keys = [...new Set([...priority, ...Object.keys(obj)])];
+
+        for (const key of keys) {
+            if (!(key in obj)) continue;
+            const val = obj[key];
+            if (!val || typeof val !== 'object') continue;
+            const found = findGeomPath(val, [...path, key]);
+            if (found) return found;
+        }
+        return null;
+    }
+
+    function isGeometry(v) {
+        if (!v || typeof v !== 'object') return false;
+        const t = v.type;
+        return t === 'Polygon' || t === 'MultiPolygon' || t === 'Feature' ||
+               t === 'FeatureCollection' || t === 'GeometryCollection' ||
+               (Array.isArray(v.coordinates) && Array.isArray(v.coordinates[0]));
+    }
+
+    // =========================================================
+    // Установка значения по пути
+    // =========================================================
+    function setAtPath(obj, path, value) {
+        const o = JSON.parse(JSON.stringify(obj));
+        let cur = o;
+        for (let i = 0; i < path.length - 1; i++) cur = cur[path[i]];
+        cur[path[path.length - 1]] = value;
+        return o;
+    }
+
+    // =========================================================
+    // Разбор координат из поля ввода
+    // =========================================================
+    function parseCoords() {
+        const raw = document.getElementById('nspd-poly-input')?.value?.trim() || '';
+        const result = [];
+        for (const line of raw.split('\n')) {
+            const p = line.trim().split(/[\s,;]+/);
+            if (p.length >= 2) {
+                const lat = parseFloat(p[0]), lon = parseFloat(p[1]);
+                if (!isNaN(lat) && !isNaN(lon)) result.push([lon, lat]);
+            }
+        }
+        return result;
+    }
+
+    // =========================================================
+    // Поиск — повтор перехваченного запроса с новой геометрией
+    // =========================================================
+    async function doSearch() {
+        const coords = parseCoords();
+        if (coords.length < 3) { setStatus('Нужно минимум 3 точки', false); return; }
+        if (!selected) { setStatus('Сначала нарисуйте ЛЮБОЙ полигон вручную (шаг 1)', false); return; }
+
+        const ring   = [...coords, coords[0]];
+        const newGeom = { type: 'Polygon', coordinates: [ring] };
+        const newBody = setAtPath(selected.bodyTemplate, selected.geomPath, newGeom);
+
+        setStatus('Выполняю запрос…', null);
+
+        try {
+            const resp = await fetch(selected.url, {
+                method:  selected.method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(selected.headers || {})
+                },
+                body: JSON.stringify(newBody),
+                credentials: 'same-origin'
+            });
+
+            if (!resp.ok) { setStatus(`Ошибка сервера: ${resp.status}`, false); return; }
+
+            const data = await resp.json();
+            handleResponse(data, coords.length);
+        } catch(e) {
+            setStatus('Ошибка: ' + e.message, false);
+            console.error('[НСПД]', e);
+        }
+    }
+
+    // =========================================================
+    // Обработка ответа
+    // =========================================================
+    function handleResponse(data, pointCount) {
+        // Собираем массив объектов из разных форматов
+        let features = [];
+        if (Array.isArray(data))               features = data;
+        else if (data.features)                features = data.features;
+        else if (data.data?.features)          features = data.data.features;
+        else if (data.objects)                 features = data.objects;
+        else if (data.items)                   features = data.items;
+        else if (data.result?.features)        features = data.result.features;
+
+        if (features.length === 0) {
+            // Неизвестный формат — скопировать сырой ответ
+            setStatus(`Ответ: ${JSON.stringify(Object.keys(data))} — скопирован в буфер`, null);
+            navigator.clipboard.writeText(JSON.stringify(data, null, 2)).catch(() => {});
+            showRaw(data);
+            return;
+        }
+
+        setStatus(`✓ Найдено объектов: ${features.length}`, true);
+
+        // Извлекаем кадастровые номера
+        const rows = features.map(f => {
+            const p = f.properties || f.attrs || f;
+            const cn = p.cadastral_number || p.cadNumber || p.cad_num || p.cn ||
+                       p.CADNUM || p.CadNum || p.number || p.id || '';
+            const addr = p.address || p.addr || p.ADDRESS || '';
+            return { cn, addr, raw: p };
+        });
+
+        // Показать в панели
+        const resultsEl = document.getElementById('nspd-results-body');
+        if (resultsEl) {
+            resultsEl.innerHTML = rows.slice(0, 50).map(r =>
+                `<div style="padding:2px 0;border-bottom:1px solid #eee;">
+                    <b>${r.cn || '—'}</b>${r.addr ? ` <span style="color:#888">${r.addr}</span>` : ''}
+                </div>`
+            ).join('') + (rows.length > 50 ? `<div style="color:#888">...ещё ${rows.length-50}</div>` : '');
+        }
+
+        // Копировать в буфер (TSV)
+        const tsv = 'Кадастровый номер\tАдрес\n' +
+                    rows.map(r => `${r.cn}\t${r.addr}`).join('\n');
+        navigator.clipboard.writeText(tsv).catch(() => {});
+
+        // Показать панель результатов
+        const res = document.getElementById('nspd-results');
+        if (res) res.style.display = '';
+    }
+
+    function showRaw(data) {
+        const resultsEl = document.getElementById('nspd-results-body');
+        if (resultsEl) {
+            resultsEl.innerHTML = `<pre style="font-size:10px;max-height:150px;overflow:auto;">${
+                JSON.stringify(data, null, 2).substring(0, 2000)
+            }</pre>`;
+        }
+        const res = document.getElementById('nspd-results');
+        if (res) res.style.display = '';
+    }
+
+    // =========================================================
+    // UI
+    // =========================================================
+    function setStatus(msg, ok) {
+        const el = document.getElementById('nspd-status');
+        if (!el) return;
+        el.textContent = msg;
+        el.style.color = ok === true ? '#197a4d' : ok === false ? '#c0392b' : '#555';
+    }
+
+    function refreshCaptureList() {
+        const el = document.getElementById('nspd-capture-list');
+        if (!el) return;
+        el.innerHTML = captured.map((c, i) =>
+            `<label style="display:flex;align-items:center;gap:4px;padding:2px 0;cursor:pointer;font-size:11px;">
+                <input type="radio" name="nspd-api" ${selected===c?'checked':''} onchange="window.__nspdSelect(${i})">
+                <span title="${c.url}">${c.ts} — ${c.label}</span>
+            </label>`
+        ).join('') || '<span style="color:#888;font-size:11px;">Нет перехваченных запросов</span>';
+    }
+
+    window.__nspdSelect = function(i) { selected = captured[i]; };
+
+    function createPanel() {
+        if (document.getElementById('nspd-poly-panel')) return;
+
+        const panel = document.createElement('div');
+        panel.id = 'nspd-poly-panel';
+        panel.style.cssText = `
+            position:fixed; top:80px; right:20px; z-index:99999;
+            background:#fff; border:1px solid #d0d7de; border-radius:10px;
+            padding:14px; width:320px;
+            box-shadow:0 4px 18px rgba(0,0,0,0.2);
+            font-family:Arial,sans-serif; font-size:13px;
+        `;
+
+        panel.innerHTML = `
+            <div id="nspd-hdr" style="display:flex;justify-content:space-between;
+                 align-items:center;margin-bottom:10px;cursor:move;">
+                <span style="font-weight:700;font-size:13px;">📍 Поиск участков по координатам</span>
+                <button id="nspd-tog" style="border:none;background:none;cursor:pointer;
+                    font-size:18px;line-height:1;color:#666;">−</button>
+            </div>
+
+            <div id="nspd-body">
+                <!-- Шаг 1 -->
+                <div style="background:#fff8e1;border:1px solid #ffc107;border-radius:6px;padding:8px;margin-bottom:10px;font-size:12px;">
+                    <b>Шаг 1:</b> Нарисуйте <b>любой</b> полигон штатным инструментом НСПД.<br>
+                    Скрипт перехватит API автоматически.
+                    <div id="nspd-capture-list" style="margin-top:6px;"></div>
+                </div>
+
+                <!-- Шаг 2 -->
+                <div style="color:#666;font-size:12px;margin-bottom:4px;">
+                    <b>Шаг 2:</b> Введите точные координаты (широта, долгота):
+                </div>
+                <textarea id="nspd-poly-input" rows="5"
+                    style="width:100%;box-sizing:border-box;font-size:12px;font-family:monospace;
+                           border:1px solid #ccc;border-radius:5px;padding:7px;resize:vertical;outline:none;"
+                    placeholder="55.7558, 37.6173&#10;55.7560, 37.6200&#10;55.7540, 37.6210"></textarea>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;">
+                    <button id="nspd-search-btn" style="padding:8px;background:#0057b7;color:#fff;
+                        border:none;border-radius:5px;cursor:pointer;font-size:13px;font-weight:600;
+                        grid-column:1/-1;">🔍 Найти участки в полигоне</button>
+                    <button id="nspd-geojson-btn" style="padding:6px;background:#f0f4ff;color:#0057b7;
+                        border:1px solid #b3c8f5;border-radius:5px;cursor:pointer;font-size:12px;">
+                        {} GeoJSON</button>
+                    <button id="nspd-reset-btn" style="padding:6px;background:#f5f5f5;color:#666;
+                        border:1px solid #ccc;border-radius:5px;cursor:pointer;font-size:12px;">
+                        ↺ Сбросить</button>
+                </div>
+
+                <div id="nspd-status" style="margin-top:8px;min-height:16px;font-size:12px;color:#555;"></div>
+
+                <!-- Результаты -->
+                <div id="nspd-results" style="display:none;margin-top:8px;border-top:1px solid #eee;padding-top:8px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                        <b style="font-size:12px;">Результаты</b>
+                        <button id="nspd-copy-btn" style="padding:3px 8px;font-size:11px;background:#f0f4ff;
+                            color:#0057b7;border:1px solid #b3c8f5;border-radius:4px;cursor:pointer;">
+                            Копировать TSV</button>
+                    </div>
+                    <div id="nspd-results-body"
+                        style="max-height:160px;overflow:auto;font-size:11px;font-family:monospace;
+                               border:1px solid #eee;border-radius:4px;padding:4px;"></div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(panel);
+
+        // Drag
+        let drag=false,ox,oy,pl,pt;
+        document.getElementById('nspd-hdr').addEventListener('mousedown', e=>{
+            if(e.target.id==='nspd-tog')return;
+            drag=true; ox=e.clientX; oy=e.clientY;
+            const r=panel.getBoundingClientRect(); pl=r.left; pt=r.top;
+        });
+        document.addEventListener('mousemove',e=>{
+            if(!drag)return;
+            panel.style.left=(pl+e.clientX-ox)+'px'; panel.style.top=(pt+e.clientY-oy)+'px'; panel.style.right='auto';
+        });
+        document.addEventListener('mouseup',()=>{drag=false;});
+
+        // Toggle
+        document.getElementById('nspd-tog').addEventListener('click',()=>{
+            const b=document.getElementById('nspd-body'),btn=document.getElementById('nspd-tog');
+            const c=b.style.display==='none'; b.style.display=c?'':'none'; btn.textContent=c?'−':'+';
+        });
+
+        document.getElementById('nspd-search-btn').addEventListener('click', doSearch);
+
+        document.getElementById('nspd-geojson-btn').addEventListener('click',()=>{
+            const coords=parseCoords();
+            if(coords.length<3){setStatus('Нужно минимум 3 точки',false);return;}
+            const gj=JSON.stringify({type:'Feature',geometry:{type:'Polygon',coordinates:[[...coords,coords[0]]]},properties:{}},null,2);
+            navigator.clipboard.writeText(gj).then(()=>setStatus('GeoJSON скопирован',true));
+        });
+
+        document.getElementById('nspd-reset-btn').addEventListener('click',()=>{
+            captured=[]; selected=null; refreshCaptureList();
+            document.getElementById('nspd-results').style.display='none';
+            setStatus('Сброшено',null);
+        });
+
+        document.getElementById('nspd-copy-btn')?.addEventListener('click',()=>{
+            const rows=document.getElementById('nspd-results-body')?.innerText||'';
+            navigator.clipboard.writeText(rows).then(()=>setStatus('Скопировано',true));
+        });
+
+        refreshCaptureList();
+    }
+
+    // Запуск панели
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ()=>setTimeout(createPanel, 1500));
+    } else {
+        setTimeout(createPanel, 1500);
+    }
+
+})();

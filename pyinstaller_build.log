@@ -1,0 +1,324 @@
+﻿py : 136 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.7
+At line:1 char:339
++ ... \SZZ-Tool"; py -m PyInstaller SZZ-Tool.spec -y --noconfirm *> pyinsta ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (136 INFO: PyIns...b hooks: 2026.7:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+136 INFO: Python: 3.13.6
+164 INFO: Platform: Windows-11-10.0.22000-SP0
+164 INFO: Python environment: C:\Users\User\AppData\Local\Programs\Python\Python313
+131 WARNING: Failed to collect submodules for 'webview.platforms.android' because importing 'webview.platforms.android'
+ raised: ModuleNotFoundError: No module named 'android'
+6932 INFO: Module search paths (PYTHONPATH):
+['C:\\Users\\User\\Desktop\\SZZ-Tool',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\DLLs',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages',
+ 'C:\\Users\\User\\Desktop\\SZZ-Tool']
+7317 INFO: Appending 'binaries' from .spec
+7319 INFO: Appending 'datas' from .spec
+7392 INFO: checking Analysis
+7392 INFO: Building Analysis because Analysis-00.toc is non existent
+7392 INFO: Looking for Python shared library...
+7392 INFO: Using Python shared library: C:\Users\User\AppData\Local\Programs\Python\Python313\python313.dll
+7392 INFO: Running Analysis Analysis-00.toc
+7392 INFO: Target bytecode optimization level: 0
+7393 INFO: Initializing module dependency graph...
+7394 INFO: Initializing module graph hook caches...
+7410 INFO: Analyzing modules for base_library.zip ...
+8370 INFO: Processing standard module hook 'hook-math.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyth
+on313\\Lib\\site-packages\\PyInstaller\\hooks'
+8380 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyt
+hon313\\Lib\\site-packages\\PyInstaller\\hooks'
+8462 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\
+\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+10116 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\P
+ython313\\Lib\\site-packages\\PyInstaller\\hooks'
+11137 INFO: Caching module dependency graph...
+11166 INFO: Analyzing C:\Users\User\Desktop\SZZ-Tool\app.py
+11205 INFO: Processing standard module hook 'hook-_ctypes.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+11520 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\User\\AppData\\Local\\Progr
+ams\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+11591 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyth
+on313\\Lib\\site-packages\\PyInstaller\\hooks'
+12120 INFO: Processing standard module hook 'hook-sqlite3.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+12853 INFO: Processing standard module hook 'hook-certifi.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+12950 INFO: Processing standard module hook 'hook-anyio.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Py
+thon313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+13378 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\User\\AppData\\Local\\P
+rograms\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+13379 INFO: SetuptoolsInfo: initializing cached setuptools info...
+14633 INFO: Processing standard module hook 'hook-platform.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\
+\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+14688 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+14744 INFO: Processing standard module hook 'hook-webbrowser.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pytho
+n\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+14835 INFO: Processing standard module hook 'hook-numpy.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Py
+thon313\\Lib\\site-packages\\PyInstaller\\hooks'
+15706 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python
+\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+16827 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'C:\\Users\\User\\AppData\\Local\\Program
+s\\Python\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+17209 INFO: Processing standard module hook 'hook-shapely.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+17499 INFO: Processing standard module hook 'hook-pydantic.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\
+\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+18196 INFO: Processing standard module hook 'hook-zoneinfo.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\
+\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+18948 INFO: Processing standard module hook 'hook-pyproj.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\P
+ython313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+18992 WARNING: Datas for pyproj not found at:
+C:\Users\User\AppData\Local\Programs\Python\Python313\Library\share\proj
+19582 INFO: Processing standard module hook 'hook-cryptography.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pyt
+hon\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+20549 INFO: hook-cryptography: cryptography does not seem to be using dynamically linked OpenSSL.
+21056 INFO: Processing standard module hook 'hook-jinja2.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\P
+ython313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+21538 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from 'C:\\Users\\User\\AppData\\Local\\
+Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21539 INFO: Setuptools: 'importlib_metadata' appears to be a setuptools-vendored copy - creating alias to 'setuptools._
+vendor.importlib_metadata'!
+21544 INFO: Processing standard module hook 'hook-setuptools.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pytho
+n\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+21556 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\
+\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21582 INFO: Processing pre-safe-import-module hook 'hook-jaraco.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Py
+thon\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21582 INFO: Setuptools: 'jaraco' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.
+jaraco'!
+21592 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from 'C:\\Users\\User\\AppData\\Local\\Prog
+rams\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21592 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vend
+or.more_itertools'!
+21772 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\
+\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21988 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from 'C:\\Users\\User\\AppData\\Lo
+cal\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+21989 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'C:\\Users\\User\\AppData\\Local\
+\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21996 INFO: Processing pre-safe-import-module hook 'hook-backports.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\
+\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+21997 INFO: Setuptools: 'backports' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vend
+or.backports'!
+22332 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pyt
+hon\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+22333 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'
+!
+22742 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pyt
+hon\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+22743 INFO: Setuptools: 'wheel' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.wheel'
+!
+22826 INFO: Processing standard module hook 'hook-setuptools._vendor.importlib_metadata.py' from 'C:\\Users\\User\\AppD
+ata\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+22850 INFO: Processing pre-safe-import-module hook 'hook-zipp.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pyth
+on\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+22851 INFO: Setuptools: 'zipp' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.zipp'!
+22874 INFO: Processing standard module hook 'hook-docx.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyt
+hon313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+23068 INFO: Processing standard module hook 'hook-lxml.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyt
+hon313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+23373 INFO: Processing standard module hook 'hook-lxml.etree.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pytho
+n\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+23727 INFO: Processing standard module hook 'hook-openpyxl.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\
+\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+24094 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'C:\\Users\\User\\AppData\\Local\\Pro
+grams\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+24442 INFO: Processing standard module hook 'hook-PIL.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyth
+on313\\Lib\\site-packages\\PyInstaller\\hooks'
+24531 INFO: Processing standard module hook 'hook-PIL.Image.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python
+\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+24974 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\
+Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+25554 INFO: Processing standard module hook 'hook-webview.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\
+Python313\\Lib\\site-packages\\webview\\__pyinstaller'
+25955 INFO: Processing pre-safe-import-module hook 'hook-gi.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python
+\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+26073 INFO: Processing standard module hook 'hook-clr.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pyth
+on313\\Lib\\site-packages\\pythonnet\\_pyinstaller'
+26154 INFO: Processing standard module hook 'hook-clr_loader.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pytho
+n\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+26250 INFO: Processing standard module hook 'hook-pycparser.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python
+\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+26923 INFO: Analyzing hidden import 'webview.__pyinstaller'
+26924 INFO: Analyzing hidden import 'webview.__pyinstaller.hook-webview'
+26954 INFO: Processing standard module hook 'hook-win32ctypes.core.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\
+\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+28125 INFO: Analyzing hidden import 'webview._version'
+28126 INFO: Analyzing hidden import 'pynspd.cli'
+28141 INFO: Analyzing hidden import 'hishel.beta'
+28265 INFO: Analyzing hidden import 'hishel.beta._async_cache'
+28273 INFO: Analyzing hidden import 'hishel.beta._sync_cache'
+28279 INFO: Analyzing hidden import 'hishel.beta.httpx'
+28288 INFO: Analyzing hidden import 'hishel.beta.requests'
+28295 INFO: Analyzing hidden import 'shapely._geos'
+28295 INFO: Analyzing hidden import 'shapely.conftest'
+28298 INFO: Analyzing hidden import 'shapely.geos'
+28299 INFO: Analyzing hidden import 'shapely.plotting'
+28303 INFO: Analyzing hidden import 'shapely.speedups'
+28304 INFO: Analyzing hidden import 'shapely.testing'
+28309 INFO: Analyzing hidden import 'shapely.tests'
+28309 INFO: Analyzing hidden import 'shapely.tests.common'
+28317 INFO: Analyzing hidden import 'shapely.tests.geometry'
+28317 INFO: Analyzing hidden import 'shapely.tests.geometry.test_collection'
+28322 INFO: Analyzing hidden import 'shapely.tests.geometry.test_coords'
+28328 INFO: Analyzing hidden import 'shapely.tests.geometry.test_decimal'
+28332 INFO: Analyzing hidden import 'shapely.tests.geometry.test_emptiness'
+28337 INFO: Analyzing hidden import 'shapely.tests.geometry.test_equality'
+28345 INFO: Analyzing hidden import 'shapely.tests.geometry.test_format'
+28349 INFO: Analyzing hidden import 'shapely.tests.geometry.test_geometry_base'
+28362 INFO: Analyzing hidden import 'shapely.tests.geometry.test_hash'
+28364 INFO: Analyzing hidden import 'shapely.tests.geometry.test_linestring'
+28372 INFO: Analyzing hidden import 'shapely.tests.geometry.test_multi'
+28373 INFO: Analyzing hidden import 'shapely.tests.geometry.test_multilinestring'
+28377 INFO: Analyzing hidden import 'shapely.tests.geometry.test_multipoint'
+28382 INFO: Analyzing hidden import 'shapely.tests.geometry.test_multipolygon'
+28387 INFO: Analyzing hidden import 'shapely.tests.geometry.test_point'
+28394 INFO: Analyzing hidden import 'shapely.tests.geometry.test_polygon'
+28413 INFO: Analyzing hidden import 'shapely.tests.legacy'
+28413 INFO: Analyzing hidden import 'shapely.tests.legacy.conftest'
+28415 INFO: Analyzing hidden import 'shapely.tests.legacy.test_affinity'
+28424 INFO: Analyzing hidden import 'shapely.tests.legacy.test_box'
+28426 INFO: Analyzing hidden import 'shapely.tests.legacy.test_buffer'
+28433 INFO: Analyzing hidden import 'shapely.tests.legacy.test_cga'
+28436 INFO: Analyzing hidden import 'shapely.tests.legacy.test_clip_by_rect'
+28439 INFO: Analyzing hidden import 'shapely.tests.legacy.test_create_inconsistent_dimensionality'
+28444 INFO: Analyzing hidden import 'shapely.tests.legacy.test_delaunay'
+28446 INFO: Analyzing hidden import 'shapely.tests.legacy.test_empty_polygons'
+28448 INFO: Analyzing hidden import 'shapely.tests.legacy.test_equality'
+28449 INFO: Analyzing hidden import 'shapely.tests.legacy.test_geointerface'
+28453 INFO: Analyzing hidden import 'shapely.tests.legacy.test_invalid_geometries'
+28455 INFO: Analyzing hidden import 'shapely.tests.legacy.test_linear_referencing'
+28459 INFO: Analyzing hidden import 'shapely.tests.legacy.test_linemerge'
+28461 INFO: Analyzing hidden import 'shapely.tests.legacy.test_locale'
+28463 INFO: Analyzing hidden import 'shapely.tests.legacy.test_make_valid'
+28465 INFO: Analyzing hidden import 'shapely.tests.legacy.test_mapping'
+28466 INFO: Analyzing hidden import 'shapely.tests.legacy.test_minimum_clearance'
+28467 INFO: Analyzing hidden import 'shapely.tests.legacy.test_ndarrays'
+28469 INFO: Analyzing hidden import 'shapely.tests.legacy.test_nearest'
+28471 INFO: Analyzing hidden import 'shapely.tests.legacy.test_operations'
+28475 INFO: Analyzing hidden import 'shapely.tests.legacy.test_operators'
+28478 INFO: Analyzing hidden import 'shapely.tests.legacy.test_orient'
+28483 INFO: Analyzing hidden import 'shapely.tests.legacy.test_parallel_offset'
+28486 INFO: Analyzing hidden import 'shapely.tests.legacy.test_persist'
+28488 INFO: Analyzing hidden import 'shapely.tests.legacy.test_pickle'
+28492 INFO: Analyzing hidden import 'shapely.tests.legacy.test_polygonize'
+28495 INFO: Analyzing hidden import 'shapely.tests.legacy.test_polylabel'
+28498 INFO: Analyzing hidden import 'shapely.tests.legacy.test_predicates'
+28502 INFO: Analyzing hidden import 'shapely.tests.legacy.test_prepared'
+28505 INFO: Analyzing hidden import 'shapely.tests.legacy.test_products_z'
+28506 INFO: Analyzing hidden import 'shapely.tests.legacy.test_shape'
+28509 INFO: Analyzing hidden import 'shapely.tests.legacy.test_shared_paths'
+28512 INFO: Analyzing hidden import 'shapely.tests.legacy.test_singularity'
+28513 INFO: Analyzing hidden import 'shapely.tests.legacy.test_snap'
+28515 INFO: Analyzing hidden import 'shapely.tests.legacy.test_split'
+28526 INFO: Analyzing hidden import 'shapely.tests.legacy.test_substring'
+28535 INFO: Analyzing hidden import 'shapely.tests.legacy.test_svg'
+28545 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\P
+ython\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+28677 INFO: Analyzing hidden import 'shapely.tests.legacy.test_transform'
+28683 INFO: Analyzing hidden import 'shapely.tests.legacy.test_union'
+28687 INFO: Analyzing hidden import 'shapely.tests.legacy.test_validation'
+28688 INFO: Analyzing hidden import 'shapely.tests.legacy.test_vectorized'
+28695 INFO: Analyzing hidden import 'shapely.tests.legacy.test_voronoi_diagram'
+28699 INFO: Analyzing hidden import 'shapely.tests.legacy.test_wkb'
+28705 INFO: Analyzing hidden import 'shapely.tests.legacy.test_wkt'
+28709 INFO: Analyzing hidden import 'shapely.tests.legacy.threading_test'
+28711 INFO: Analyzing hidden import 'shapely.tests.test_constructive'
+28763 INFO: Analyzing hidden import 'shapely.tests.test_coordinates'
+28780 INFO: Analyzing hidden import 'shapely.tests.test_coverage'
+28794 INFO: Analyzing hidden import 'shapely.tests.test_creation'
+28818 INFO: Analyzing hidden import 'shapely.tests.test_creation_indices'
+28837 INFO: Analyzing hidden import 'shapely.tests.test_decorators'
+28841 INFO: Analyzing hidden import 'shapely.tests.test_geometry'
+28865 INFO: Analyzing hidden import 'shapely.tests.test_io'
+28901 INFO: Analyzing hidden import 'shapely.tests.test_linear'
+28909 INFO: Analyzing hidden import 'shapely.tests.test_measurement'
+28920 INFO: Analyzing hidden import 'shapely.tests.test_misc'
+28926 INFO: Analyzing hidden import 'shapely.tests.test_plotting'
+28932 INFO: Analyzing hidden import 'shapely.tests.test_predicates'
+28949 INFO: Analyzing hidden import 'shapely.tests.test_ragged_array'
+28966 INFO: Analyzing hidden import 'shapely.tests.test_set_operations'
+28982 INFO: Analyzing hidden import 'shapely.tests.test_strtree'
+29049 INFO: Analyzing hidden import 'shapely.tests.test_testing'
+29052 INFO: Analyzing hidden import 'flask.__main__'
+29053 INFO: Analyzing hidden import 'flask.views'
+29057 INFO: Analyzing hidden import 'openpyxl.compat.abc'
+29058 INFO: Analyzing hidden import 'openpyxl.compat.product'
+29059 INFO: Analyzing hidden import 'openpyxl.compat.singleton'
+29060 INFO: Analyzing hidden import 'openpyxl.descriptors.slots'
+29062 INFO: Analyzing hidden import 'openpyxl.packaging.interface'
+29063 INFO: Analyzing hidden import 'openpyxl.utils.dataframe'
+29066 INFO: Analyzing hidden import 'openpyxl.utils.inference'
+29068 INFO: Analyzing hidden import 'openpyxl.worksheet.cell_watch'
+29069 INFO: Analyzing hidden import 'openpyxl.worksheet.controls'
+29076 INFO: Analyzing hidden import 'openpyxl.worksheet.custom'
+29078 INFO: Analyzing hidden import 'openpyxl.worksheet.errors'
+29080 INFO: Analyzing hidden import 'openpyxl.worksheet.picture'
+29081 INFO: Analyzing hidden import 'openpyxl.worksheet.smart_tag'
+29083 INFO: Processing module hooks (post-graph stage)...
+29434 INFO: Processing standard module hook 'hook-lxml.isoschematron.py' from 'C:\\Users\\User\\AppData\\Local\\Program
+s\\Python\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+29456 WARNING: Hidden import "pycparser.lextab" not found!
+29456 WARNING: Hidden import "pycparser.yacctab" not found!
+29580 WARNING: Hidden import "tzdata" not found!
+29823 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from 'C:\\Users\\User\\AppData\\Local\\Prog
+rams\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+29931 INFO: Processing standard module hook 'hook-lxml.objectify.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\P
+ython\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+29948 INFO: Performing binary vs. data reclassification (903 entries)
+30173 INFO: Looking for ctypes DLLs
+30265 INFO: Analyzing run-time hooks ...
+30272 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pytho
+n313\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+30275 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Pytho
+n313\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+30277 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Pytho
+n\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+30280 INFO: Including run-time hook 'pyi_rth_cryptography_openssl.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\
+Python\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks'
+30281 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Py
+thon313\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+30282 INFO: Including run-time hook 'pyi_rth_pyproj.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python
+313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks'
+30311 INFO: Creating base_library.zip...
+30329 INFO: Looking for dynamic libraries
+32179 INFO: Extra DLL search directories (AddDllDirectory): ['C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python
+313\\Lib\\site-packages\\numpy.libs', 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages
+\\shapely.libs', 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pyproj.libs']
+32180 INFO: Extra DLL search directories (PATH): []
+33088 INFO: Warnings written to C:\Users\User\Desktop\SZZ-Tool\build\SZZ-Tool\warn-SZZ-Tool.txt
+33189 INFO: Graph cross-reference written to C:\Users\User\Desktop\SZZ-Tool\build\SZZ-Tool\xref-SZZ-Tool.html
+33248 INFO: checking PYZ
+33248 INFO: Building PYZ because PYZ-00.toc is non existent
+33249 INFO: Building PYZ (ZlibArchive) C:\Users\User\Desktop\SZZ-Tool\build\SZZ-Tool\PYZ-00.pyz
+34310 INFO: Building PYZ (ZlibArchive) C:\Users\User\Desktop\SZZ-Tool\build\SZZ-Tool\PYZ-00.pyz completed successfully.
+34337 INFO: checking PKG
+34337 INFO: Building PKG because PKG-00.toc is non existent
+34337 INFO: Building PKG (CArchive) SZZ-Tool.pkg
+34374 INFO: Building PKG (CArchive) SZZ-Tool.pkg completed successfully.
+34375 INFO: Bootloader C:\Users\User\AppData\Local\Programs\Python\Python313\Lib\site-packages\PyInstaller\bootloader\W
+indows-64bit-intel\runw.exe
+34375 INFO: checking EXE
+34375 INFO: Building EXE because EXE-00.toc is non existent
+34375 INFO: Building EXE from EXE-00.toc
+34376 INFO: Copying bootloader EXE to C:\Users\User\Desktop\SZZ-Tool\build\SZZ-Tool\SZZ-Tool.exe
+34379 INFO: Copying icon to EXE
+34381 INFO: Copying 0 resources to EXE
+34382 INFO: Embedding manifest in EXE
+34384 INFO: Appending PKG archive to EXE
+34385 WARNING: Execution of '_append_data_to_exe' failed on attempt #1 / 20: PermissionError(13, 'Permission denied'). 
+Retrying in 0.05 second(s)...
+34446 INFO: Fixing EXE headers
+34544 INFO: Building EXE from EXE-00.toc completed successfully.
+34551 INFO: checking COLLECT
+34551 INFO: Building COLLECT because COLLECT-00.toc is non existent
+34552 INFO: Building COLLECT COLLECT-00.toc
+35434 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+35449 INFO: Build complete! The results are available in: C:\Users\User\Desktop\SZZ-Tool\dist

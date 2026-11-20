@@ -1,0 +1,39 @@
+73 DEPRECATION: Running PyInstaller as admin is not necessary nor sensible. Run PyInstaller from a non-administrator terminal. PyInstaller 7.0 will block this.
+253 INFO: PyInstaller: 6.21.0, contrib hooks: 2026.6
+253 INFO: Python: 3.13.6
+293 INFO: Platform: Windows-11-10.0.22000-SP0
+293 INFO: Python environment: C:\Users\User\AppData\Local\Programs\Python\Python313
+221 WARNING: Failed to collect submodules for 'webview.platforms.android' because importing 'webview.platforms.android' raised: ModuleNotFoundError: No module named 'android'
+5342 INFO: Module search paths (PYTHONPATH):
+['C:\\Users\\User\\Desktop\\SZZ-Tool',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\DLLs',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313',
+ 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages',
+ 'C:\\Users\\User\\Desktop\\SZZ-Tool']
+5874 INFO: Appending 'binaries' from .spec
+5874 INFO: Appending 'datas' from .spec
+5894 INFO: checking Analysis
+5895 INFO: Building Analysis because Analysis-00.toc is non existent
+5895 INFO: Looking for Python shared library...
+5895 INFO: Using Python shared library: C:\Users\User\AppData\Local\Programs\Python\Python313\python313.dll
+5895 INFO: Running Analysis Analysis-00.toc
+5895 INFO: Target bytecode optimization level: 0
+5895 INFO: Initializing module dependency graph...
+5897 INFO: Initializing module graph hook caches...
+5976 INFO: Analyzing modules for base_library.zip ...
+7440 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+7946 INFO: Processing standard module hook 'hook-math.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+8215 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+9646 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+11180 INFO: Caching module dependency graph...
+11222 INFO: Analyzing C:\Users\User\Desktop\SZZ-Tool\app.py
+11702 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+11803 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+12082 INFO: Processing standard module hook 'hook-_ctypes.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+12531 INFO: Processing standard module hook 'hook-sqlite3.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks'
+13680 INFO: Processing standard module hook 'hook-certifi.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+13808 INFO: Processing standard module hook 'hook-anyio.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+14415 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+14417 INFO: SetuptoolsInfo: initializing cached setuptools info...

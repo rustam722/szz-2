@@ -1,0 +1,5662 @@
+{
+ "811-97-2": {
+  "rfc": 80.0,
+  "organ_chr": "Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "630-20-6": {
+  "rfc": 0.1,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.007429,
+  "sfi": 0.026,
+  "iarc": null,
+  "epa": null
+ },
+ "71-55-6": {
+  "rfc": 0.2,
+  "organ_chr": "Печень",
+  "arfci": 68.0,
+  "organ_acu": "Нервная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "79-00-5": {
+  "rfc": 0.0002,
+  "organ_chr": "Системное действие, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.016286,
+  "sfi": 0.057,
+  "iarc": null,
+  "epa": null
+ },
+ "57-14-7": {
+  "rfc": 1e-05,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 157.142857,
+  "sfi": 550.0,
+  "iarc": null,
+  "epa": null
+ },
+ "75-68-3": {
+  "rfc": 50.0,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-37-6": {
+  "rfc": 40.0,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-34-3": {
+  "rfc": 0.5,
+  "organ_chr": "Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001629,
+  "sfi": 0.0057,
+  "iarc": null,
+  "epa": null
+ },
+ "75-35-4": {
+  "rfc": 0.2,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.051429,
+  "sfi": 0.18,
+  "iarc": null,
+  "epa": null
+ },
+ "76-13-1": {
+  "rfc": 5.0,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "96-18-4": {
+  "rfc": 0.0003,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.0,
+  "sfi": 7.0,
+  "iarc": null,
+  "epa": null
+ },
+ "96-19-5": {
+  "rfc": 0.0004,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "95-63-6": {
+  "rfc": 0.006,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "120-82-1": {
+  "rfc": 0.002,
+  "organ_chr": "Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "106-93-4": {
+  "rfc": 0.0008,
+  "organ_chr": "Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.6,
+  "sfi": 2.1,
+  "iarc": null,
+  "epa": null
+ },
+ "95-50-1": {
+  "rfc": 0.2,
+  "organ_chr": "Селезенка",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "78-87-5": {
+  "rfc": 0.004,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.010286,
+  "sfi": 0.036,
+  "iarc": null,
+  "epa": null
+ },
+ "107-06-2": {
+  "rfc": 0.007,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.026,
+  "sfi": 0.091,
+  "iarc": null,
+  "epa": null
+ },
+ "6423-43-4": {
+  "rfc": 0.0003,
+  "organ_chr": "Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-67-8": {
+  "rfc": 0.06,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "106-99-0": {
+  "rfc": 0.002,
+  "organ_chr": "Репродуктивная система",
+  "arfci": 0.66,
+  "organ_acu": "Развитие",
+  "uri": 0.171429,
+  "sfi": 0.6,
+  "iarc": null,
+  "epa": null
+ },
+ "541-73-1": {
+  "rfc": 0.008,
+  "organ_chr": "Почки, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "542-75-6": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001143,
+  "sfi": 0.004,
+  "iarc": null,
+  "epa": null
+ },
+ "123-91-1": {
+  "rfc": 0.03,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": 3.0,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": 0.007714,
+  "sfi": 0.027,
+  "iarc": null,
+  "epa": null
+ },
+ "106-46-7": {
+  "rfc": 0.8,
+  "organ_chr": "Нервная система, Органы дыхания, Печень, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.011429,
+  "sfi": 0.04,
+  "iarc": null,
+  "epa": null
+ },
+ "111-30-8": {
+  "rfc": 8e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "106-88-7": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "107-98-2": {
+  "rfc": 2.0,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "112-34-5": {
+  "rfc": 0.0001,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "111-90-0": {
+  "rfc": 0.0003,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1746-01-6": {
+  "rfc": 4e-08,
+  "organ_chr": "Печень, Репродуктивная система, Эндокринная система, Органы дыхания, Кровь, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 42857.142857,
+  "sfi": 150000.0,
+  "iarc": "1",
+  "epa": null
+ },
+ "51207-31-9": {
+  "rfc": 4e-08,
+  "organ_chr": "Печень, Репродуктивная система, Эндокринная система, Кровь, Органы дыхания, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "765-34-4": {
+  "rfc": 0.001,
+  "organ_chr": "Иммунная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "121-14-2": {
+  "rfc": 0.007,
+  "organ_chr": "ЦНС, Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.088571,
+  "sfi": 0.31,
+  "iarc": null,
+  "epa": null
+ },
+ "78-92-2": {
+  "rfc": 30.0,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "78-93-3": {
+  "rfc": 5.0,
+  "organ_chr": "Развитие",
+  "arfci": 13.0,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "111-76-2": {
+  "rfc": 1.6,
+  "organ_chr": "Кровь",
+  "arfci": 4.7,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "591-78-6": {
+  "rfc": 0.03,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "107-83-5": {
+  "rfc": 0.35,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "95-48-7": {
+  "rfc": 0.6,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "109-86-4": {
+  "rfc": 0.02,
+  "organ_chr": "Репродуктивная система",
+  "arfci": 0.093,
+  "organ_acu": "Репродуктивная система, Развитие",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "110-49-6": {
+  "rfc": 0.001,
+  "organ_chr": "Эндокринная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "88-74-4": {
+  "rfc": 0.0002,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "79-46-9": {
+  "rfc": 0.02,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.685714,
+  "sfi": 9.4,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "126-99-8": {
+  "rfc": 0.02,
+  "organ_chr": "Нервная система, Иммунная система, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-29-6": {
+  "rfc": 0.1,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "110-80-5": {
+  "rfc": 0.07,
+  "organ_chr": "Репродуктивная система, Кровь",
+  "arfci": 0.37,
+  "organ_acu": "Репродуктивная система, Развитие",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "111-15-9": {
+  "rfc": 0.3,
+  "organ_chr": "Развитие",
+  "arfci": 0.14,
+  "organ_acu": "Репродуктивная система, Развитие, Нервная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-39-4": {
+  "rfc": 0.6,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "99-09-2": {
+  "rfc": 0.0002,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "96-12-8": {
+  "rfc": 0.0002,
+  "organ_chr": "Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.0,
+  "sfi": 7.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "101-77-9": {
+  "rfc": 0.02,
+  "organ_chr": "Глаза, Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.457143,
+  "sfi": 1.6,
+  "iarc": "2B",
+  "epa": null
+ },
+ "101-68-8": {
+  "rfc": 8e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.012,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-10-1": {
+  "rfc": 3.0,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "106-44-5": {
+  "rfc": 0.6,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "100-01-6": {
+  "rfc": 0.006,
+  "organ_chr": "Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "68-12-2": {
+  "rfc": 0.03,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "86-50-0": {
+  "rfc": 0.01,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10102-44-0": {
+  "rfc": 0.04,
+  "organ_chr": "Органы дыхания, Кровь",
+  "arfci": 0.47,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10102-43-9": {
+  "rfc": 0.06,
+  "organ_chr": "Органы дыхания, Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7697-37-2": {
+  "rfc": 0.04,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.086,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "79-06-1": {
+  "rfc": 0.006,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.285714,
+  "sfi": 4.5,
+  "iarc": "2A",
+  "epa": "B1"
+ },
+ "79-10-7": {
+  "rfc": 0.001,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": 6.0,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "107-13-1": {
+  "rfc": 0.002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.068571,
+  "sfi": 0.24,
+  "iarc": "2B",
+  "epa": "B1"
+ },
+ "107-02-8": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.0025,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "309-00-2": {
+  "rfc": 0.0001,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.857143,
+  "sfi": 17.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "107-05-1": {
+  "rfc": 0.001,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.006,
+  "sfi": 0.021,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "107-18-6": {
+  "rfc": 0.0003,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "319-84-6": {
+  "rfc": 0.02,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.8,
+  "sfi": 6.3,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "532-27-4": {
+  "rfc": 3e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7429-90-5": {
+  "rfc": 0.005,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1344-28-1": {
+  "rfc": 0.005,
+  "organ_chr": "Органы дыхания, Масса тела",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7664-41-7": {
+  "rfc": 0.04,
+  "organ_chr": "Органы дыхания",
+  "arfci": 3.2,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "62-53-3": {
+  "rfc": 0.001,
+  "organ_chr": "Кровь, Селезенка",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001629,
+  "sfi": 0.0057,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "7784-42-1": {
+  "rfc": 1.5e-05,
+  "organ_chr": "Развитие, ССС, Нервная система, Органы дыхания, Кожа",
+  "arfci": 0.0002,
+  "organ_acu": "Репродуктивная система, Развитие, ССС, Нервная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-07-0": {
+  "rfc": 0.009,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": 0.47,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": 0.0022,
+  "sfi": 0.0077,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "67-64-1": {
+  "rfc": 31.0,
+  "organ_chr": "Печень, Почки, Кровь, ЦНС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-05-8": {
+  "rfc": 0.06,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-86-5": {
+  "rfc": 0.01,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "543-80-6": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10048-98-3": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "17194-00-2": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1304-29-6": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10361-37-2": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "513-77-9": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10022-31-8": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1304-28-5": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7727-43-7": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10326-27-9": {
+  "rfc": 0.0005,
+  "organ_chr": "Репродуктивная система, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "92-87-5": {
+  "rfc": 0.01,
+  "organ_chr": "ЦНС, Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 66.857143,
+  "sfi": 234.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "100-44-7": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.24,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": 0.048571,
+  "sfi": 0.17,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "50-32-8": {
+  "rfc": 1e-06,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.114286,
+  "sfi": 3.9,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "71-43-2": {
+  "rfc": 0.005,
+  "organ_chr": "Иммунная система, Кровь",
+  "arfci": 0.027,
+  "organ_acu": "Репродуктивная система, Развитие, Иммунная система, Кровь",
+  "uri": 0.007714,
+  "sfi": 0.027,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "7440-41-7": {
+  "rfc": 1e-05,
+  "organ_chr": "Органы дыхания, Иммунная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.4,
+  "sfi": 8.4,
+  "iarc": "1",
+  "epa": "B1"
+ },
+ "7440-42-8": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания, Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10043-11-5": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания, Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7637-07-2": {
+  "rfc": 0.0007,
+  "organ_chr": "Репродуктивная система, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-86-1": {
+  "rfc": 0.06,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "74-83-9": {
+  "rfc": 0.005,
+  "organ_chr": "Органы дыхания, Нервная система, Развитие",
+  "arfci": 3.9,
+  "organ_acu": "ЦНС, Органы дыхания, Репродуктивная система, Развитие",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-25-2": {
+  "rfc": 0.05,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001114,
+  "sfi": 0.0039,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "593-60-2": {
+  "rfc": 0.003,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.031429,
+  "sfi": 0.11,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "7440-62-2": {
+  "rfc": 0.0001,
+  "organ_chr": "Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-05-4": {
+  "rfc": 0.2,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "25013-15-4": {
+  "rfc": 0.04,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-01-4": {
+  "rfc": 0.1,
+  "organ_chr": "Печень",
+  "arfci": 180.0,
+  "organ_acu": "Нервная система, Органы дыхания, Глаза",
+  "uri": 0.0088,
+  "sfi": 0.0308,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "7783-06-4": {
+  "rfc": 0.002,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": 0.042,
+  "organ_acu": "ЦНС",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10035-10-6": {
+  "rfc": 0.025,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "74-90-8": {
+  "rfc": 0.0008,
+  "organ_chr": "Эндокринная система",
+  "arfci": 0.34,
+  "organ_acu": "ЦНС",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "822-06-0": {
+  "rfc": 1e-05,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": 0.0003,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "110-54-3": {
+  "rfc": 0.7,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "118-74-1": {
+  "rfc": 0.003,
+  "organ_chr": "Печень, Гормон, Иммунная система, Почки, Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.457143,
+  "sfi": 1.6,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "87-68-3": {
+  "rfc": 0.09,
+  "organ_chr": "Развитие, Системное действие, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.022,
+  "sfi": 0.077,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "77-47-4": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "67-72-1": {
+  "rfc": 0.03,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.004,
+  "sfi": 0.014,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "142-82-5": {
+  "rfc": 0.4,
+  "organ_chr": "Нервная система, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "302-01-2": {
+  "rfc": 3e-05,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.885714,
+  "sfi": 17.1,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "7803-57-8": {
+  "rfc": 3e-05,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10034-93-2": {
+  "rfc": 3e-05,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.857143,
+  "sfi": 17.0,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "117-81-7": {
+  "rfc": 0.01,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0024,
+  "sfi": 0.0084,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "1314-62-1": {
+  "rfc": 0.0001,
+  "organ_chr": "Органы дыхания, ЖКТ",
+  "arfci": 0.03,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1317-34-6": {
+  "rfc": 9e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "124-40-3": {
+  "rfc": 2e-05,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "131-11-3": {
+  "rfc": 0.007,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "109-89-7": {
+  "rfc": 0.02,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-71-8": {
+  "rfc": 0.2,
+  "organ_chr": "Масса тела, Развитие, Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-09-2": {
+  "rfc": 0.4,
+  "organ_chr": "Печень",
+  "arfci": 14.0,
+  "organ_acu": "ССС, Нервная система",
+  "uri": 0.000457,
+  "sfi": 0.0016,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "62-73-7": {
+  "rfc": 0.0005,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.082857,
+  "sfi": 0.29,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "77-73-6": {
+  "rfc": 0.0003,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "111-42-2": {
+  "rfc": 0.0002,
+  "organ_chr": "ЖКТ",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "67-63-0": {
+  "rfc": 0.2,
+  "organ_chr": "Эндокринная система",
+  "arfci": 3.2,
+  "organ_acu": "Глаза, Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "98-82-8": {
+  "rfc": 0.4,
+  "organ_chr": "Почки, Эндокринная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "78-59-1": {
+  "rfc": 2.0,
+  "organ_chr": "Развитие, Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000271,
+  "sfi": 0.00095,
+  "iarc": null,
+  "epa": "C"
+ },
+ "7440-43-9": {
+  "rfc": 2e-05,
+  "organ_chr": "Почки, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.8,
+  "sfi": 6.3,
+  "iarc": "1",
+  "epa": "B1"
+ },
+ "13765-19-0": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "105-60-2": {
+  "rfc": 0.0022,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.05,
+  "organ_acu": "Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-48-4": {
+  "rfc": 6e-06,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.8,
+  "sfi": 9.8,
+  "iarc": null,
+  "epa": "B1"
+ },
+ "1319-77-3": {
+  "rfc": 0.6,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "14464-46-1": {
+  "rfc": 0.075,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "60676-86-0": {
+  "rfc": 0.075,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "14808-60-7": {
+  "rfc": 0.003,
+  "organ_chr": "Органы дыхания, Иммунная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1330-20-7": {
+  "rfc": 0.1,
+  "organ_chr": "Нервная система",
+  "arfci": 22.0,
+  "organ_acu": "Нервная система, Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "58-89-9": {
+  "rfc": 0.0003,
+  "organ_chr": "Почки, Эндокринная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.314286,
+  "sfi": 1.1,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "14307-35-8": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-31-6": {
+  "rfc": 0.0007,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7439-96-5": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1313-13-9": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "598-62-9": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1317-35-7": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7773-01-5": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1344-43-0": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "17141-63-8": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "15244-36-7": {
+  "rfc": 5e-05,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-50-8": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": 0.1,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1317-38-0": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "142-71-2": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7447-39-4": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7758-98-7": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "14013-02-6": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "22205-45-4": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7758-89-6": {
+  "rfc": 5e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1317-40-4": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "126-98-7": {
+  "rfc": 0.03,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "74-82-8": {
+  "rfc": 50.0,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "67-56-1": {
+  "rfc": 0.2,
+  "organ_chr": "Развитие",
+  "arfci": 28.0,
+  "organ_acu": "ЦНС",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "96-33-3": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "9016-87-9": {
+  "rfc": 8e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.012,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "624-83-9": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания, Системное действие, Развитие, Репродуктивная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "80-62-6": {
+  "rfc": 0.7,
+  "organ_chr": "Органы дыхания, ЦНС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1634-04-4": {
+  "rfc": 3.0,
+  "organ_chr": "Печень, Почки, Глаза",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.3e-05,
+  "sfi": 0.00015,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "108-87-2": {
+  "rfc": 3.0,
+  "organ_chr": "Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-38-3": {
+  "rfc": 0.1,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7439-98-7": {
+  "rfc": 0.002,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-38-2": {
+  "rfc": 1.5e-05,
+  "organ_chr": "Развитие, ССС, Нервная система, Органы дыхания, Кожа",
+  "arfci": 0.0002,
+  "organ_acu": "Репродуктивная система, Развитие, ССС, Нервная система",
+  "uri": 3.428571,
+  "sfi": 12.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "10588-01-9": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7681-49-4": {
+  "rfc": 0.013,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "91-20-3": {
+  "rfc": 0.003,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.034286,
+  "sfi": 0.12,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "7440-02-0": {
+  "rfc": 1.4e-05,
+  "organ_chr": "Органы дыхания, Кровь",
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": 0.24,
+  "sfi": 0.84,
+  "iarc": "2B",
+  "epa": "A"
+ },
+ "1313-99-1": {
+  "rfc": 2e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "98-95-3": {
+  "rfc": 0.009,
+  "organ_chr": "Органы дыхания, ЦНС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "111-84-2": {
+  "rfc": 0.02,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "95-47-6": {
+  "rfc": 0.1,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10028-15-6": {
+  "rfc": 0.03,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.18,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7664-38-2": {
+  "rfc": 0.007,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "109-66-0": {
+  "rfc": 1.0,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "87-86-5": {
+  "rfc": 0.1,
+  "organ_chr": "Печень, Почки, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005143,
+  "sfi": 0.018,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "106-42-3": {
+  "rfc": 0.1,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "100-00-5": {
+  "rfc": 0.002,
+  "organ_chr": "Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005143,
+  "sfi": 0.018,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "1336-36-3": {
+  "rfc": 4e-05,
+  "organ_chr": "Печень, Репродуктивная система, Развитие, Эндокринная система, Органы дыхания, Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.114286,
+  "sfi": 0.4,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "57-55-6": {
+  "rfc": 0.003,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "115-07-1": {
+  "rfc": 3.0,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-56-9": {
+  "rfc": 0.03,
+  "organ_chr": "Органы дыхания",
+  "arfci": 3.1,
+  "organ_acu": "Репродуктивная система, Развитие, Органы дыхания, Глаза",
+  "uri": 0.003714,
+  "sfi": 0.013,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "98-56-6": {
+  "rfc": 0.3,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7439-97-6": {
+  "rfc": 0.0003,
+  "organ_chr": "Нервная система",
+  "arfci": 0.0006,
+  "organ_acu": "Репродуктивная система, Развитие",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7487-94-7": {
+  "rfc": 3e-05,
+  "organ_chr": "Нервная система, Развитие, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7439-92-1": {
+  "rfc": 0.00015,
+  "organ_chr": "ЦНС, Кровь, Развитие, Репродуктивная система, Эндокринная система, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.012,
+  "sfi": 0.042,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "1335-32-6": {
+  "rfc": 0.00015,
+  "organ_chr": "ЦНС, Кровь, Развитие, Репродуктивная система, Эндокринная система, Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.010857,
+  "sfi": 0.038,
+  "iarc": "3",
+  "epa": null
+ },
+ "7782-49-2": {
+  "rfc": 0.02,
+  "organ_chr": "ЖКТ, ССС, Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7446-34-6": {
+  "rfc": 0.02,
+  "organ_chr": "Печень, ССС, Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7446-09-5": {
+  "rfc": 0.05,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.66,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-22-4": {
+  "rfc": 0.02,
+  "organ_chr": "Кожа",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7664-93-9": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.12,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-15-0": {
+  "rfc": 0.005,
+  "organ_chr": "Нервная система",
+  "arfci": 6.2,
+  "organ_acu": "Репродуктивная система, Развитие, Нервная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "100-42-5": {
+  "rfc": 1.0,
+  "organ_chr": "Нервная система",
+  "arfci": 21.0,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": 0.000571,
+  "sfi": 0.002,
+  "iarc": "2A",
+  "epa": "C"
+ },
+ "96-09-3": {
+  "rfc": 0.006,
+  "organ_chr": "Органы дыхания, Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.045714,
+  "sfi": 0.16,
+  "iarc": "2A",
+  "epa": null
+ },
+ "7440-36-0": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1309-64-4": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "109-99-9": {
+  "rfc": 2.0,
+  "organ_chr": "Печень, ЦНС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001943,
+  "sfi": 0.0068,
+  "iarc": "2B",
+  "epa": null
+ },
+ "56-23-5": {
+  "rfc": 0.017,
+  "organ_chr": "ЖКТ, Нервная система, Развитие",
+  "arfci": 1.9,
+  "organ_acu": "Репродуктивная система, Развитие, Печень, Нервная система",
+  "uri": 0.015143,
+  "sfi": 0.053,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "127-18-4": {
+  "rfc": 0.04,
+  "organ_chr": "Нервная система, Глаза",
+  "arfci": 20.0,
+  "organ_acu": "Нервная система, Органы дыхания, Глаза",
+  "uri": 0.000571,
+  "sfi": 0.002,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "7550-45-0": {
+  "rfc": 0.0001,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-88-3": {
+  "rfc": 0.4,
+  "organ_chr": "ЦНС",
+  "arfci": 5.0,
+  "organ_acu": "Нервная система, Глаза, Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "91-08-7": {
+  "rfc": 8e-06,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.011143,
+  "sfi": 0.039,
+  "iarc": "2B",
+  "epa": null
+ },
+ "26471-62-5": {
+  "rfc": 7e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.011143,
+  "sfi": 0.039,
+  "iarc": "2B",
+  "epa": null
+ },
+ "156-60-5": {
+  "rfc": 0.04,
+  "organ_chr": "Иммунная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "79-01-6": {
+  "rfc": 0.6,
+  "organ_chr": "Нервная система, Глаза",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0018,
+  "sfi": 0.0063,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "121-44-8": {
+  "rfc": 0.007,
+  "organ_chr": "Органы дыхания",
+  "arfci": 2.8,
+  "organ_acu": "Нервная система, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "630-08-0": {
+  "rfc": 3.0,
+  "organ_chr": "Кровь, ССС, Развитие, ЦНС",
+  "arfci": 23.0,
+  "organ_acu": "ССС",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "463-58-1": {
+  "rfc": 0.01,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-61-1": {
+  "rfc": 4e-05,
+  "organ_chr": "Почки",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-95-2": {
+  "rfc": 0.006,
+  "organ_chr": "Печень, ССС, Нервная система, Почки",
+  "arfci": 5.8,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "50-00-0": {
+  "rfc": 0.003,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.05,
+  "organ_acu": "Глаза",
+  "uri": 0.013143,
+  "sfi": 0.046,
+  "iarc": "1",
+  "epa": "B1"
+ },
+ "75-44-5": {
+  "rfc": 0.0003,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.004,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7803-51-2": {
+  "rfc": 0.0003,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7723-14-0": {
+  "rfc": 7e-05,
+  "organ_chr": "Репродуктивная система, Системное действие, Алопеция",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "85-44-9": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7782-41-4": {
+  "rfc": 0.013,
+  "organ_chr": "Костная система, Органы дыхания, Зубы",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "98-01-1": {
+  "rfc": 0.04,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7782-50-5": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.21,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10049-04-4": {
+  "rfc": 0.0002,
+  "organ_chr": "Органы дыхания, ССС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-90-7": {
+  "rfc": 0.05,
+  "organ_chr": "Печень, МПС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "57-74-9": {
+  "rfc": 0.0007,
+  "organ_chr": "Печень, Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.342857,
+  "sfi": 1.2,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "12789-03-6": {
+  "rfc": 0.0007,
+  "organ_chr": "Печень",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.1,
+  "sfi": 0.35,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "75-45-6": {
+  "rfc": 50.0,
+  "organ_chr": "Почки, Эндокринная система, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "5120-73-9": {
+  "rfc": 4e-08,
+  "organ_chr": "Печень, Репродуктивная система, Эндокринная система, Кровь, Органы дыхания, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7647-01-0": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания",
+  "arfci": 2.1,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "74-87-3": {
+  "rfc": 0.09,
+  "organ_chr": "ЦНС",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0018,
+  "sfi": 0.0063,
+  "iarc": "3",
+  "epa": "E"
+ },
+ "67-66-3": {
+  "rfc": 0.3,
+  "organ_chr": "ЖКТ, Почки, Развитие",
+  "arfci": 0.15,
+  "organ_acu": "Репродуктивная система, Развитие, Нервная система, Органы дыхания",
+  "uri": 0.002286,
+  "sfi": 0.008,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "76-06-2": {
+  "rfc": 0.0004,
+  "organ_chr": "Органы дыхания",
+  "arfci": 0.029,
+  "organ_acu": "Раздражение дыхательных путей и глаз",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-00-3": {
+  "rfc": 10.0,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-47-3": {
+  "rfc": 0.0001,
+  "organ_chr": "Органы дыхания, Печень, Почки, Иммунная система, ЖКТ",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 12.0,
+  "sfi": 42.0,
+  "iarc": "3",
+  "epa": "A"
+ },
+ "18540-29-9": {
+  "rfc": 0.0001,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 12.0,
+  "sfi": 42.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "1333-82-0": {
+  "rfc": 8e-06,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 12.0,
+  "sfi": 42.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "7738-94-5": {
+  "rfc": 8e-06,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 12.0,
+  "sfi": 42.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "7440-45-1": {
+  "rfc": 0.0009,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "110-82-7": {
+  "rfc": 6.0,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "108-94-1": {
+  "rfc": 0.7,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-66-6": {
+  "rfc": 0.0009,
+  "organ_chr": "Органы дыхания, Иммунная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1314-13-2": {
+  "rfc": 0.035,
+  "organ_chr": "ССС, Кровь, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7733-02-0": {
+  "rfc": 0.0009,
+  "organ_chr": "Органы дыхания, Иммунная система, Кровь",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "106-89-8": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания",
+  "arfci": 1.3,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": 0.0012,
+  "sfi": 0.0042,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "140-88-5": {
+  "rfc": 0.008,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.013714,
+  "sfi": 0.048,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "141-78-6": {
+  "rfc": 0.07,
+  "organ_chr": "Системное действие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "100-41-4": {
+  "rfc": 1.0,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0011,
+  "sfi": 0.00385,
+  "iarc": "2B",
+  "epa": "D"
+ },
+ "107-21-1": {
+  "rfc": 0.4,
+  "organ_chr": "Органы дыхания, Почки, Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-21-8": {
+  "rfc": 0.03,
+  "organ_chr": "Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.1,
+  "sfi": 0.35,
+  "iarc": "1",
+  "epa": "B1"
+ },
+ "96-45-7": {
+  "rfc": 0.003,
+  "organ_chr": "Печень, Эндокринная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.012857,
+  "sfi": 0.045,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "75-08-1": {
+  "rfc": 0.001,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "97-63-2": {
+  "rfc": 0.3,
+  "organ_chr": "Развитие",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1306-38-3": {
+  "rfc": 0.0009,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "526-73-8": {
+  "rfc": 0.06,
+  "organ_chr": "ЦНС, Нервная система",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "123-38-6": {
+  "rfc": 0.008,
+  "organ_chr": "ЦНС, Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1318-09-8": {
+  "rfc": 9e-05,
+  "organ_chr": "Органы дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1271-28-9": {
+  "rfc": 1.4e-05,
+  "organ_chr": "Органы дыхания, Кровь",
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1330-78-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.02,
+  "organ_acu": "Репродуктивная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "13674-87-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.02,
+  "organ_acu": "Почки",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "13674-84-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.01,
+  "organ_acu": "Печень",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7440-67-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 8e-05,
+  "organ_acu": "МПС, Кровь",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "584-84-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.002,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1310-73-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.008,
+  "organ_acu": "Глаза, Кожа, Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "13463-39-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": 0.26,
+  "sfi": 0.91,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "7664-39-3": {
+  "rfc": 0.005,
+  "organ_chr": "Костная система, Зубы, Органы дыхания",
+  "arfci": 0.24,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "7783-07-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.005,
+  "organ_acu": "Органы дыхания, Глаза",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "373-02-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "3333-67-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "12035-72-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.0002,
+  "organ_acu": "Иммунная система",
+  "uri": 0.48,
+  "sfi": 1.68,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "8014-95-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": 0.12,
+  "organ_acu": "Органы дыхания",
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "79-34-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.057143,
+  "sfi": 0.2,
+  "iarc": null,
+  "epa": null
+ },
+ "542-88-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 62.0,
+  "sfi": 217.0,
+  "iarc": null,
+  "epa": null
+ },
+ "39001-02-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.714286,
+  "sfi": 13.0,
+  "iarc": null,
+  "epa": null
+ },
+ "67562-39-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 457.142857,
+  "sfi": 1600.0,
+  "iarc": null,
+  "epa": null
+ },
+ "55673-89-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 371.428571,
+  "sfi": 1300.0,
+  "iarc": null,
+  "epa": null
+ },
+ "70648-26-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4571.428571,
+  "sfi": 16000.0,
+  "iarc": null,
+  "epa": null
+ },
+ "57653-85-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4571.428571,
+  "sfi": 16000.0,
+  "iarc": null,
+  "epa": null
+ },
+ "57117-44-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4571.428571,
+  "sfi": 16000.0,
+  "iarc": null,
+  "epa": null
+ },
+ "72918-21-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4571.428571,
+  "sfi": 16000.0,
+  "iarc": null,
+  "epa": null
+ },
+ "109719-77-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2285.714286,
+  "sfi": 8000.0,
+  "iarc": null,
+  "epa": null
+ },
+ "540-73-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 157.142857,
+  "sfi": 550.0,
+  "iarc": null,
+  "epa": null
+ },
+ "122-66-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.22,
+  "sfi": 0.77,
+  "iarc": null,
+  "epa": null
+ },
+ "1120-71-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.685714,
+  "sfi": 2.4,
+  "iarc": null,
+  "epa": null
+ },
+ "2475-45-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001286,
+  "sfi": 0.0045,
+  "iarc": null,
+  "epa": null
+ },
+ "123-31-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.016,
+  "sfi": 0.056,
+  "iarc": null,
+  "epa": null
+ },
+ "42397-64-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": null,
+  "epa": null
+ },
+ "117-10-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.021714,
+  "sfi": 0.076,
+  "iarc": null,
+  "epa": null
+ },
+ "42397-65-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.114286,
+  "sfi": 3.9,
+  "iarc": null,
+  "epa": null
+ },
+ "5522-43-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": null,
+  "epa": null
+ },
+ "1116-54-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.8,
+  "sfi": 2.8,
+  "iarc": null,
+  "epa": null
+ },
+ "72-55-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.097143,
+  "sfi": 0.34,
+  "iarc": null,
+  "epa": null
+ },
+ "118-96-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.008571,
+  "sfi": 0.03,
+  "iarc": null,
+  "epa": null
+ },
+ "88-06-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.003143,
+  "sfi": 0.011,
+  "iarc": null,
+  "epa": null
+ },
+ "94-75-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005429,
+  "sfi": 0.019,
+  "iarc": null,
+  "epa": null
+ },
+ "615-05-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.006571,
+  "sfi": 0.023,
+  "iarc": null,
+  "epa": null
+ },
+ "95-68-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.214286,
+  "sfi": 0.75,
+  "iarc": null,
+  "epa": null
+ },
+ "606-20-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.194286,
+  "sfi": 0.68,
+  "iarc": null,
+  "epa": null
+ },
+ "68006-83-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.342857,
+  "sfi": 1.2,
+  "iarc": null,
+  "epa": null
+ },
+ "67730-11-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.371429,
+  "sfi": 4.8,
+  "iarc": null,
+  "epa": null
+ },
+ "26148-68-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.114286,
+  "sfi": 0.4,
+  "iarc": null,
+  "epa": null
+ },
+ "117-79-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.009429,
+  "sfi": 0.033,
+  "iarc": null,
+  "epa": null
+ },
+ "67730-10-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.4,
+  "sfi": 1.4,
+  "iarc": null,
+  "epa": null
+ },
+ "132-27-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000857,
+  "sfi": 0.003,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "149-30-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.008286,
+  "sfi": 0.029,
+  "iarc": "2A",
+  "epa": "C"
+ },
+ "129-15-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.228571,
+  "sfi": 4.3,
+  "iarc": "2B",
+  "epa": null
+ },
+ "513-37-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.012857,
+  "sfi": 0.045,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "563-47-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.04,
+  "sfi": 0.14,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "99-55-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.009429,
+  "sfi": 0.033,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "75-55-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "95-53-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.051429,
+  "sfi": 0.18,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "636-21-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.037143,
+  "sfi": 0.13,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "99-59-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.014,
+  "sfi": 0.049,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "90-04-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.04,
+  "sfi": 0.14,
+  "iarc": "2A",
+  "epa": "C"
+ },
+ "134-29-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.031429,
+  "sfi": 0.11,
+  "iarc": "2A",
+  "epa": null
+ },
+ "91-59-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.514286,
+  "sfi": 1.8,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "88-72-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "607-57-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.011143,
+  "sfi": 0.039,
+  "iarc": "2B",
+  "epa": null
+ },
+ "25013-16-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 5.7e-05,
+  "sfi": 0.0002,
+  "iarc": "2B",
+  "epa": null
+ },
+ "90-43-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000543,
+  "sfi": 0.0019,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "32774-16-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.714286,
+  "sfi": 13.0,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "57465-28-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3714.285714,
+  "sfi": 13000.0,
+  "iarc": "1",
+  "epa": null
+ },
+ "32598-13-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 21.428571,
+  "sfi": 75.0,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "119-93-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.628571,
+  "sfi": 9.2,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "119-90-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.004,
+  "sfi": 0.014,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "91-94-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.342857,
+  "sfi": 1.2,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "70362-50-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.714286,
+  "sfi": 13.0,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "56-49-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 6.285714,
+  "sfi": 22.0,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "76180-96-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.4,
+  "sfi": 1.4,
+  "iarc": "2A",
+  "epa": null
+ },
+ "101-14-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.037143,
+  "sfi": 0.13,
+  "iarc": "1",
+  "epa": "B2"
+ },
+ "101-80-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.04,
+  "sfi": 0.14,
+  "iarc": "2B",
+  "epa": null
+ },
+ "101-61-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.013143,
+  "sfi": 0.046,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "72-54-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.068571,
+  "sfi": 0.24,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "139-65-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.285714,
+  "sfi": 15.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "92-67-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 6.0,
+  "sfi": 21.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "60-11-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.3,
+  "sfi": 4.55,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "106-49-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.054286,
+  "sfi": 0.19,
+  "iarc": null,
+  "epa": "C"
+ },
+ "57835-92-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": null
+ },
+ "99-99-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "95-69-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.165714,
+  "sfi": 0.58,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "106-47-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.018229,
+  "sfi": 0.0638,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "95-83-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.004571,
+  "sfi": 0.016,
+  "iarc": "2B",
+  "epa": null
+ },
+ "120-71-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.042857,
+  "sfi": 0.15,
+  "iarc": "2B",
+  "epa": null
+ },
+ "3697-24-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.114286,
+  "sfi": 3.9,
+  "iarc": "2B",
+  "epa": null
+ },
+ "602-87-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.037143,
+  "sfi": 0.13,
+  "iarc": "2B",
+  "epa": null
+ },
+ "7496-02-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": "2A",
+  "epa": null
+ },
+ "57-97-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 71.428571,
+  "sfi": 250.0,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "194-59-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": null
+ },
+ "156-10-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.006286,
+  "sfi": 0.022,
+  "iarc": "3",
+  "epa": null
+ },
+ "90-94-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.245714,
+  "sfi": 0.86,
+  "iarc": "2B",
+  "epa": null
+ },
+ "148-18-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.077143,
+  "sfi": 0.27,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "70-25-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.371429,
+  "sfi": 8.3,
+  "iarc": "2A",
+  "epa": null
+ },
+ "684-93-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 34.285714,
+  "sfi": 120.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "615-53-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 31.428571,
+  "sfi": 110.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "759-73-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 7.714286,
+  "sfi": 27.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "924-16-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.6,
+  "sfi": 5.6,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "62-75-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 14.0,
+  "sfi": 49.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "621-64-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.0,
+  "sfi": 7.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "86-30-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.002571,
+  "sfi": 0.009,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "55-18-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 42.857143,
+  "sfi": 150.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "10595-95-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 6.285714,
+  "sfi": 22.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "59-89-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.914286,
+  "sfi": 6.7,
+  "iarc": "2B",
+  "epa": null
+ },
+ "16543-55-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.4,
+  "sfi": 1.4,
+  "iarc": "1",
+  "epa": null
+ },
+ "100-75-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.685714,
+  "sfi": 9.4,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "930-55-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.6,
+  "sfi": 2.1,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "115-02-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.142857,
+  "sfi": 11.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "446-86-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.514286,
+  "sfi": 1.8,
+  "iarc": "1",
+  "epa": null
+ },
+ "103-33-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.031429,
+  "sfi": 0.11,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "140-57-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.007143,
+  "sfi": 0.025,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "1332-21-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 6.285714,
+  "sfi": 22.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "492-80-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.251429,
+  "sfi": 0.88,
+  "iarc": "2B",
+  "epa": null
+ },
+ "60-35-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.02,
+  "sfi": 0.07,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "56-55-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "205-99-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "205-82-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": null
+ },
+ "207-08-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "98-07-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.714286,
+  "sfi": 13.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "319-85-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.528571,
+  "sfi": 1.85,
+  "iarc": "1",
+  "epa": "C"
+ },
+ "57-57-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.0,
+  "sfi": 14.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "111-44-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.328571,
+  "sfi": 1.15,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "15541-45-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "75-27-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.037143,
+  "sfi": 0.13,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "78-48-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "608-73-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.508571,
+  "sfi": 1.78,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "76-44-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.285714,
+  "sfi": 4.5,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "1024-57-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.6,
+  "sfi": 9.1,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "50-29-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.097143,
+  "sfi": 0.34,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "103-23-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000343,
+  "sfi": 0.0012,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "224-42-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2A",
+  "epa": null
+ },
+ "226-36-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.111429,
+  "sfi": 0.39,
+  "iarc": "2B",
+  "epa": null
+ },
+ "53-70-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.885714,
+  "sfi": 3.1,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "189-64-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "189-55-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "191-30-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": "2A",
+  "epa": null
+ },
+ "124-48-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.026857,
+  "sfi": 0.094,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "94-58-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.012571,
+  "sfi": 0.044,
+  "iarc": "2B",
+  "epa": null
+ },
+ "101-90-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.485714,
+  "sfi": 1.7,
+  "iarc": "2B",
+  "epa": null
+ },
+ "79-44-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.714286,
+  "sfi": 13.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "77-78-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 9.714286,
+  "sfi": 34.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "79-43-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "60-57-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.571429,
+  "sfi": 16.0,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "56-53-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 140.0,
+  "sfi": 490.0,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "193-39-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.088571,
+  "sfi": 0.31,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "505-60-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "75-60-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "7758-01-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.14,
+  "sfi": 0.49,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "65996-93-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.2,
+  "sfi": 0.7,
+  "iarc": "1",
+  "epa": null
+ },
+ "133-06-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000657,
+  "sfi": 0.0023,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "2425-06-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.042857,
+  "sfi": 0.15,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "143-50-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.571429,
+  "sfi": 16.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "123-73-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.542857,
+  "sfi": 1.9,
+  "iarc": "2B",
+  "epa": "C"
+ },
+ "135-20-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.062857,
+  "sfi": 0.22,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "303-34-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.228571,
+  "sfi": 7.8,
+  "iarc": "2B",
+  "epa": null
+ },
+ "66-27-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.028286,
+  "sfi": 0.099,
+  "iarc": "2A",
+  "epa": null
+ },
+ "56-04-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.114286,
+  "sfi": 0.4,
+  "iarc": "2B",
+  "epa": null
+ },
+ "51218-45-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.002617,
+  "sfi": 0.00916,
+  "iarc": null,
+  "epa": "C"
+ },
+ "2385-85-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 5.142857,
+  "sfi": 18.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "50-07-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2342.857143,
+  "sfi": 8200.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "315-22-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.857143,
+  "sfi": 10.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "192-65-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.114286,
+  "sfi": 3.9,
+  "iarc": "3",
+  "epa": null
+ },
+ "55-63-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.004,
+  "sfi": 0.014,
+  "iarc": null,
+  "epa": null
+ },
+ "1836-75-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.023429,
+  "sfi": 0.082,
+  "iarc": "2B",
+  "epa": null
+ },
+ "555-84-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.514286,
+  "sfi": 1.8,
+  "iarc": "2B",
+  "epa": null
+ },
+ "3570-75-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.657143,
+  "sfi": 2.3,
+  "iarc": "2B",
+  "epa": null
+ },
+ "51-98-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "78-42-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "64-67-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.342857,
+  "sfi": 1.2,
+  "iarc": "2A",
+  "epa": null
+ },
+ "97-56-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.085714,
+  "sfi": 3.8,
+  "iarc": "2B",
+  "epa": null
+ },
+ "77732-09-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "42874-03-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "88-73-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.007143,
+  "sfi": 0.025,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "19044-88-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "569-61-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.071429,
+  "sfi": 0.25,
+  "iarc": "2B",
+  "epa": null
+ },
+ "62-44-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000629,
+  "sfi": 0.0022,
+  "iarc": "1",
+  "epa": null
+ },
+ "87-84-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.006571,
+  "sfi": 0.023,
+  "iarc": null,
+  "epa": "C"
+ },
+ "82-68-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.074286,
+  "sfi": 0.26,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "52645-53-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005257,
+  "sfi": 0.0184,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "121-21-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B"
+ },
+ "123343-16-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "120-80-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.002571,
+  "sfi": 0.009,
+  "iarc": "2B",
+  "epa": null
+ },
+ "1694-09-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005714,
+  "sfi": 0.02,
+  "iarc": "2B",
+  "epa": null
+ },
+ "3761-53-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001286,
+  "sfi": 0.0045,
+  "iarc": "2B",
+  "epa": null
+ },
+ "366-70-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.428571,
+  "sfi": 12.0,
+  "iarc": "2A",
+  "epa": null
+ },
+ "23950-58-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0044,
+  "sfi": 0.0154,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "139-40-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "2312-35-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "60207-90-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "51-52-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.285714,
+  "sfi": 1.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "114-26-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001054,
+  "sfi": 0.00369,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "67747-09-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.042857,
+  "sfi": 0.15,
+  "iarc": null,
+  "epa": "C"
+ },
+ "16071-86-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.914286,
+  "sfi": 6.7,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "2602-46-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.114286,
+  "sfi": 7.4,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "1937-37-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.114286,
+  "sfi": 7.4,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "5216-25-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 5.714286,
+  "sfi": 20.0,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "50-55-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.142857,
+  "sfi": 11.0,
+  "iarc": "3",
+  "epa": null
+ },
+ "50471-44-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "19666-30-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "78587-05-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "94-59-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.062857,
+  "sfi": 0.22,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "301-04-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.08,
+  "sfi": 0.28,
+  "iarc": "3",
+  "epa": null
+ },
+ "7758-97-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2A",
+  "epa": null
+ },
+ "7446-27-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.012,
+  "sfi": 0.042,
+  "iarc": "2A",
+  "epa": null
+ },
+ "122-34-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.034286,
+  "sfi": 0.12,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "2784-94-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.014571,
+  "sfi": 0.051,
+  "iarc": "2B",
+  "epa": null
+ },
+ "55283-68-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "10048-13-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 10.0,
+  "sfi": 35.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "95-06-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.054286,
+  "sfi": 0.19,
+  "iarc": "2B",
+  "epa": null
+ },
+ "141776-32-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "32809-16-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "33089-61-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "2593-15-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "112281-77-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "118-75-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.114286,
+  "sfi": 0.4,
+  "iarc": null,
+  "epa": "C"
+ },
+ "111988-49-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0116,
+  "sfi": 0.0406,
+  "iarc": null,
+  "epa": null
+ },
+ "153719-23-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "62-55-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.742857,
+  "sfi": 6.1,
+  "iarc": "2B",
+  "epa": "A"
+ },
+ "59669-26-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "62-56-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.020571,
+  "sfi": 0.072,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "52-24-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.428571,
+  "sfi": 12.0,
+  "iarc": "1",
+  "epa": null
+ },
+ "8001-35-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.342857,
+  "sfi": 1.2,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "87820-88-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001371,
+  "sfi": 0.0048,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "764-41-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.657143,
+  "sfi": 9.3,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "25962-77-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "55738-54-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.125714,
+  "sfi": 0.44,
+  "iarc": "2B",
+  "epa": null
+ },
+ "75-65-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "1582-09-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.0022,
+  "sfi": 0.0077,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "115-96-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "2303-17-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.023771,
+  "sfi": 0.0832,
+  "iarc": null,
+  "epa": "C"
+ },
+ "712-68-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 4.571429,
+  "sfi": 16.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "126-73-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "512-56-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.010571,
+  "sfi": 0.037,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "62450-06-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 7.428571,
+  "sfi": 26.0,
+  "iarc": "2B",
+  "epa": null
+ },
+ "62450-07-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.914286,
+  "sfi": 3.2,
+  "iarc": "2B",
+  "epa": null
+ },
+ "126-72-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.657143,
+  "sfi": 2.3,
+  "iarc": "2A",
+  "epa": "B2"
+ },
+ "76-87-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "1333-86-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.004857,
+  "sfi": 0.017,
+  "iarc": "2B",
+  "epa": null
+ },
+ "51-79-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.285714,
+  "sfi": 1.0,
+  "iarc": "2A",
+  "epa": null
+ },
+ "136-40-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.042857,
+  "sfi": 0.15,
+  "iarc": "2B",
+  "epa": null
+ },
+ "114369-43-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "3546-10-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 42.857143,
+  "sfi": 150.0,
+  "iarc": null,
+  "epa": null
+ },
+ "95-54-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "95-80-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.142857,
+  "sfi": 4.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "50-06-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.131429,
+  "sfi": 0.46,
+  "iarc": "2B",
+  "epa": null
+ },
+ "63-92-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.771429,
+  "sfi": 2.7,
+  "iarc": "2B",
+  "epa": null
+ },
+ "79622-59-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "D"
+ },
+ "2164-17-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "3",
+  "epa": "C"
+ },
+ "117337-19-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.162857,
+  "sfi": 0.57,
+  "iarc": null,
+  "epa": "B"
+ },
+ "17337-19-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B1"
+ },
+ "72178-02-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.054286,
+  "sfi": 0.19,
+  "iarc": null,
+  "epa": "C"
+ },
+ "67-45-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 1.085714,
+  "sfi": 3.8,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "59-87-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 2.685714,
+  "sfi": 9.4,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "3688-53-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.068571,
+  "sfi": 0.24,
+  "iarc": "2B",
+  "epa": null
+ },
+ "531-82-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.428571,
+  "sfi": 1.5,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "60568-05-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.008571,
+  "sfi": 0.03,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "91-22-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 3.428571,
+  "sfi": 12.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "510-15-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.077143,
+  "sfi": 0.27,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "305-03-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 125.714286,
+  "sfi": 440.0,
+  "iarc": "1",
+  "epa": null
+ },
+ "73506-94-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": 0.0,
+  "iarc": null,
+  "epa": null
+ },
+ "6164-98-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "3",
+  "epa": "B2"
+ },
+ "108171-26-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.025429,
+  "sfi": 0.089,
+  "iarc": "2B",
+  "epa": null
+ },
+ "107-30-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.685714,
+  "sfi": 2.4,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "1897-45-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000886,
+  "sfi": 0.0031,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "61788-33-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": 0.0,
+  "iarc": null,
+  "epa": null
+ },
+ "569-57-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 68.571429,
+  "sfi": 240.0,
+  "iarc": null,
+  "epa": null
+ },
+ "25167-80-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": null
+ },
+ "115-28-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.026,
+  "sfi": 0.091,
+  "iarc": "2B",
+  "epa": "D"
+ },
+ "218-01-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000886,
+  "sfi": 0.0031,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "21725-46-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.24,
+  "sfi": 0.84,
+  "iarc": null,
+  "epa": "C"
+ },
+ "420-04-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": 0.0,
+  "iarc": null,
+  "epa": "C"
+ },
+ "121-82-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.031429,
+  "sfi": 0.11,
+  "iarc": null,
+  "epa": "C"
+ },
+ "6055-19-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.162857,
+  "sfi": 0.57,
+  "iarc": "1",
+  "epa": null
+ },
+ "50-18-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.174286,
+  "sfi": 0.61,
+  "iarc": "1",
+  "epa": null
+ },
+ "87-29-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.001314,
+  "sfi": 0.0046,
+  "iarc": "3",
+  "epa": null
+ },
+ "52315-07-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.005429,
+  "sfi": 0.019,
+  "iarc": null,
+  "epa": "C"
+ },
+ "113096-99-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.022857,
+  "sfi": 0.08,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "94361-06-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "B2"
+ },
+ "66215-27-8": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.000686,
+  "sfi": 0.0024,
+  "iarc": null,
+  "epa": "E"
+ },
+ "8007-45-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.62,
+  "sfi": 2.17,
+  "iarc": "1",
+  "epa": "A"
+ },
+ "50-28-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 11.142857,
+  "sfi": 39.0,
+  "iarc": null,
+  "epa": null
+ },
+ "151-56-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 18.571429,
+  "sfi": 65.0,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "62-50-0": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": "2B",
+  "epa": "B2"
+ },
+ "13194-48-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": 0.008029,
+  "sfi": 0.0281,
+  "iarc": null,
+  "epa": "B1"
+ },
+ "80844-07-1": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": "C"
+ },
+ "64-39-3": {
+  "rfc": 0.005,
+  "organ_chr": "Костная система, Зубы, Органы Фтористоводородная кислота дыхания",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "647-01-0": {
+  "rfc": 0.02,
+  "organ_chr": "Органы дыхания Хлористоводородная кислота",
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "35822-46-9": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "39227-28-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "634-66-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "19408-74-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "40321-76-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "87-61-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "65510-44-3": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "69782-90-7": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "38380-08-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "32598-14-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "31508-00-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "60851-34-5": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "58-90-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "57117-31-4": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "10137-73-2": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ },
+ "52663-72-6": {
+  "rfc": null,
+  "organ_chr": null,
+  "arfci": null,
+  "organ_acu": null,
+  "uri": null,
+  "sfi": null,
+  "iarc": null,
+  "epa": null
+ }
+}

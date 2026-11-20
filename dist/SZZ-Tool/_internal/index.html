@@ -1,0 +1,2359 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СЗЗ Инструмент</title>
+<link rel="icon" type="image/x-icon" href="main_icon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="main_icon.ico">
+<link rel="stylesheet" href="lib/leaflet.css">
+<link rel="stylesheet" href="css/main.css?v=81">
+<link rel="stylesheet" href="css/pdf-editor.css?v=39">
+<link rel="stylesheet" href="css/workspace.css?v=8">
+<link rel="stylesheet" href="css/risk.css?v=3">
+<link rel="stylesheet" href="css/noise-converter.css?v=7">
+<link rel="stylesheet" href="lib/uicons-rr.css">
+<style>.leaflet-control-attribution { display: none !important; }</style>
+</head>
+<body>
+
+<!-- ══ SVG ICON SPRITE ══ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-map" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 3.5l4-2 6 2 4-2v11l-4 2-6-2-4 2V3.5z"/>
+    <path d="M5 1.5v11M11 3.5v11"/>
+  </symbol>
+  <symbol id="ico-app" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2.5 1.5"/>
+    <circle cx="8" cy="8" r="4.3" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2.5 1.5"/>
+    <circle cx="8" cy="8" r="1.6" fill="currentColor"/>
+  </symbol>
+  <symbol id="ico-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M8 3v10M3 8h10"/>
+  </symbol>
+  <symbol id="ico-search" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="7" cy="7" r="4.5"/>
+    <path d="M10.5 10.5l3 3"/>
+  </symbol>
+  <symbol id="ico-doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V5.5L9.5 2z"/>
+    <path d="M9.5 2v3.5H13M5.5 8.5h5M5.5 11h3.5"/>
+  </symbol>
+  <symbol id="ico-save" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 3a1 1 0 011-1h7l2 2v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3z"/>
+    <path d="M11 2v3H6V2"/>
+    <rect x="5" y="9" width="6" height="4" rx="0.5"/>
+  </symbol>
+  <symbol id="ico-folder" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 5a1 1 0 011-1h3.5l1.5 1.5H13a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1V5z"/>
+  </symbol>
+  <symbol id="ico-x" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M4 4l8 8M12 4l-8 8"/>
+  </symbol>
+  <symbol id="ico-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8l4 4 6-6"/>
+  </symbol>
+  <symbol id="ico-undo" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 7H9.5a3.5 3.5 0 110 7H7"/>
+    <path d="M3 7L5.5 4.5M3 7L5.5 9.5"/>
+  </symbol>
+  <symbol id="ico-build" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="5"/>
+    <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+    <path d="M8 3v2M8 11v2M3 8h2M11 8h2"/>
+  </symbol>
+  <symbol id="ico-cut" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="4.5" cy="4.5" r="2"/>
+    <circle cx="4.5" cy="11.5" r="2"/>
+    <path d="M6 5.5L14 9.5M6 10.5L14 6.5"/>
+  </symbol>
+  <symbol id="ico-pin" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 2a3.5 3.5 0 013.5 3.5C11.5 8.5 8 14 8 14S4.5 8.5 4.5 5.5A3.5 3.5 0 018 2z"/>
+    <circle cx="8" cy="5.5" r="1.25"/>
+  </symbol>
+  <symbol id="ico-pushpin" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5.5 2.5l8 8-3 .5-2 3.5-1-3.5-3.5.5z"/>
+    <path d="M2 14l3-3"/>
+  </symbol>
+  <symbol id="ico-sat" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 14l3.5-3.5M4 10l2-2 2 2-2 2zM6 8l4-4M8 6l2-2 2 2-2 2z"/>
+    <path d="M12 1.5a3 3 0 013 3M12 3.5a1 1 0 011 1"/>
+  </symbol>
+  <symbol id="ico-cad" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1.5 4.5h13M1.5 10.5h13M6 1.5v13M11 1.5v9"/>
+    <rect x="1.5" y="1.5" width="13" height="13" rx="1.5"/>
+  </symbol>
+  <!-- иконка слоёв (стопка) -->
+  <!-- иконка ЗОУИТ — зона с ограничениями -->
+  <symbol id="ico-zone" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="1.5" width="13" height="13" rx="2"/>
+    <path d="M5 5h6M5 8h6M5 11h4" stroke-dasharray="2 1.5"/>
+  </symbol>
+  <!-- иконка зданий ОКС -->
+  <symbol id="ico-building" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="5" width="8" height="9" rx="1"/>
+    <path d="M10 8h3.5v6H10M5 14v-3h2v3M4.5 8h1M7.5 8h1M4.5 11h1M7.5 11h1"/>
+  </symbol>
+  <!-- ПЗЗ — территориальные зоны -->
+  <symbol id="ico-pzz" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="1.5" width="13" height="13" rx="1.5"/>
+    <path d="M1.5 8.5h7M8.5 1.5v7M8.5 8.5h6M8.5 8.5v6"/>
+  </symbol>
+  <!-- Красные линии -->
+  <symbol id="ico-redlines" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 5h12M2 11h12"/>
+    <path d="M5 2v3M5 11v3M11 2v3M11 11v3"/>
+  </symbol>
+  <!-- Населённые пункты -->
+  <symbol id="ico-np" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 13h12M4 13V9l4-3.5L12 9v4M6.5 13v-2.5h3V13"/>
+    <path d="M1.5 9 Q4 6 8 5.5 Q12 5 14.5 7"/>
+  </symbol>
+  <!-- Кадастровые кварталы -->
+  <symbol id="ico-kvartal" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/>
+    <rect x="9"   y="1.5" width="5.5" height="5.5" rx="1"/>
+    <rect x="1.5" y="9"   width="5.5" height="5.5" rx="1"/>
+    <rect x="9"   y="9"   width="5.5" height="5.5" rx="1"/>
+  </symbol>
+  <symbol id="ico-zoom-rect" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 2h4.5M10 2H13.5a.5.5 0 01.5.5V6M14 10v3.5a.5.5 0 01-.5.5H10M5.5 14H2.5a.5.5 0 01-.5-.5V10M2 5.5V2.5a.5.5 0 01.5-.5" stroke-dasharray="3,2"/>
+    <path d="M9 9l3.5 3.5"/>
+    <circle cx="8" cy="8" r="2.5"/>
+  </symbol>
+  <symbol id="ico-target" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="5"/>
+    <circle cx="8" cy="8" r="2"/>
+    <path d="M8 1v2.5M8 12.5V15M1 8h2.5M12.5 8H15"/>
+  </symbol>
+  <symbol id="ico-zoom-in" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="7" cy="7" r="4.75"/>
+    <path d="M10.6 10.6L14 14"/>
+    <path d="M5 7h4M7 5v4"/>
+  </symbol>
+  <symbol id="ico-zoom-out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="7" cy="7" r="4.75"/>
+    <path d="M10.6 10.6L14 14"/>
+    <path d="M5 7h4"/>
+  </symbol>
+  <symbol id="ico-fit" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 5V2h3M14 5V2h-3M2 11v3h3M14 11v3h-3"/>
+    <rect x="5" y="5" width="6" height="6" rx="0.5" stroke-dasharray="2,1.5"/>
+  </symbol>
+  <symbol id="ico-image" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="3" width="13" height="10" rx="1"/>
+    <path d="M1.5 10.5l3-3 3 2.5 2.5-3 4 4"/>
+    <circle cx="5.5" cy="6.5" r="1.25"/>
+  </symbol>
+  <symbol id="ico-list" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M5.5 4h7M5.5 8h7M5.5 12h5"/>
+    <circle cx="2.5" cy="4" r="0.75" fill="currentColor" stroke="none"/>
+    <circle cx="2.5" cy="8" r="0.75" fill="currentColor" stroke="none"/>
+    <circle cx="2.5" cy="12" r="0.75" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-bolt" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 1.5L5.5 9h4l-3 5.5L13.5 7H9.5z"/>
+  </symbol>
+  <symbol id="ico-gear" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="2.5"/>
+    <path d="M8 2v1.5M8 12.5V14M2 8h1.5M12.5 8H14M3.76 3.76l1.06 1.06M11.18 11.18l1.06 1.06M3.76 12.24l1.06-1.06M11.18 4.82l1.06-1.06"/>
+  </symbol>
+  <symbol id="ico-wind" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 7h8a2.5 2.5 0 000-5"/>
+    <path d="M2 10.5h5a2 2 0 010 4"/>
+  </symbol>
+  <symbol id="ico-speaker" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 6H1v4h2l4 3V3L3 6z"/>
+    <path d="M11.5 4.5a5 5 0 010 7M9.5 6.5a2.5 2.5 0 010 3"/>
+  </symbol>
+  <symbol id="ico-pen" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.5 2L14 5.5 5.5 14 1.5 14.5 2 10.5z"/>
+    <path d="M9 3.5l3.5 3.5"/>
+  </symbol>
+  <symbol id="ico-cursor" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 2L13 8l-5.5 1.5L6 14z"/>
+  </symbol>
+  <symbol id="ico-tag" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 8V3h5l6.5 6.5-5 5z"/>
+    <circle cx="5.2" cy="5.7" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-trash" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 5h11M6 5V3h4v2M5 5l.8 8.5h4.4L11 5"/>
+  </symbol>
+  <symbol id="ico-refresh" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 3.5a6 6 0 11-10.5 5"/>
+    <path d="M2 2v4h4"/>
+  </symbol>
+  <symbol id="ico-layers" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1.5 5.5L8 2l6.5 3.5L8 9z"/>
+    <path d="M1.5 10l6.5 3.5L14.5 10"/>
+    <path d="M1.5 7.5L8 11l6.5-3.5"/>
+  </symbol>
+  <symbol id="ico-hand" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5.5 6V3a1 1 0 012 0v3M7.5 6V2.5a1 1 0 012 0V6M9.5 6V3.5a1 1 0 012 0v4"/>
+    <path d="M5.5 6a1 1 0 00-2 0v4c0 2.5 1.5 4 4.5 4h.5a4 4 0 004-4V7.5a1 1 0 00-2 0"/>
+  </symbol>
+  <symbol id="ico-download" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 2v8M5 7.5l3 3.5 3-3.5"/>
+    <path d="M2.5 13h11"/>
+  </symbol>
+  <symbol id="ico-word" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="12" height="12" rx="1"/>
+    <path d="M5 5l1.5 6L8 8l1.5 3L11 5"/>
+  </symbol>
+  <symbol id="ico-ruler" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="4.75" width="13" height="6.5" rx="1"/>
+    <path d="M4.5 4.75v2.25M7 4.75v3.25M9.5 4.75v2.25M12 4.75v3.25"/>
+  </symbol>
+  <symbol id="ico-area" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 4.5l8-1.5 1.5 8-8.5 1.5z"/>
+    <circle cx="3.5" cy="4.5" r="1.2" fill="currentColor" stroke="none"/>
+    <circle cx="11.5" cy="3" r="1.2" fill="currentColor" stroke="none"/>
+    <circle cx="13" cy="11" r="1.2" fill="currentColor" stroke="none"/>
+    <circle cx="4.5" cy="12.5" r="1.2" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-coords" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8h10M8 3v10"/>
+    <circle cx="8" cy="8" r="2.5"/>
+    <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15"/>
+  </symbol>
+  <symbol id="ico-back" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 3L5 8l5 5"/>
+  </symbol>
+  <symbol id="ico-eye" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1.5 8s2.5-5 6.5-5 6.5 5 6.5 5-2.5 5-6.5 5-6.5-5-6.5-5z"/>
+    <circle cx="8" cy="8" r="2"/>
+  </symbol>
+  <symbol id="ico-eye-off" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 2l12 12M6.7 6.8A2 2 0 008 10a2 2 0 002-2 2 2 0 00-.7-1.5"/>
+    <path d="M4.1 4.2A7.2 7.2 0 001.5 8s2.5 5 6.5 5a7 7 0 003.5-1M6.5 3.2A7 7 0 018 3c4 0 6.5 5 6.5 5a9.4 9.4 0 01-1.5 2.1"/>
+  </symbol>
+  <symbol id="ico-lock" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7" width="10" height="7" rx="1.5"/>
+    <path d="M5 7V5a3 3 0 016 0v2"/>
+  </symbol>
+  <symbol id="ico-text" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 4h12M8 4v9M5 13h6"/>
+  </symbol>
+  <symbol id="ico-rect" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.5" y="4" width="11" height="8" rx="1"/>
+  </symbol>
+  <symbol id="ico-circle" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="5.5"/>
+  </symbol>
+  <symbol id="ico-line" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2.5 13.5l11-11"/>
+  </symbol>
+  <symbol id="ico-north" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 3.2L11 13 8 10.6 5 13z" fill="currentColor" fill-opacity=".28"/>
+    <path d="M8 3.2L11 13 8 10.6 5 13z"/>
+  </symbol>
+  <symbol id="ico-scale" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="6" width="13" height="4.5" rx="0.6"/>
+    <path d="M1.5 6h3.25v4.5H1.5zM8 6h3.25v4.5H8z" fill="currentColor" stroke="none" opacity=".85"/>
+    <path d="M4.75 6v4.5M8 6v4.5M11.25 6v4.5"/>
+  </symbol>
+  <symbol id="ico-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="3.1"/>
+    <path d="M8 1.4v1.6M8 13v1.6M1.4 8h1.6M13 8h1.6M3.3 3.3l1.1 1.1M11.6 11.6l1.1 1.1M12.7 3.3l-1.1 1.1M4.4 11.6l-1.1 1.1"/>
+  </symbol>
+  <symbol id="ico-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13.4 9.6A5.8 5.8 0 0 1 6.4 2.6a5.9 5.9 0 1 0 7 7z"/>
+  </symbol>
+  <symbol id="ico-sliders" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 4.5h8M12.5 4.5H14M2 11.5h3M7.5 11.5H14"/>
+    <circle cx="11" cy="4.5" r="1.6"/><circle cx="6" cy="11.5" r="1.6"/>
+  </symbol>
+  <symbol id="ico-help" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="8" cy="8" r="6.2"/>
+    <path d="M6.3 6.1a1.8 1.8 0 1 1 2.4 1.7c-.5.2-.7.6-.7 1.1v.3"/>
+    <circle cx="8" cy="11.6" r=".6" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-table" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <rect x="2" y="3" width="12" height="10" rx="1"/>
+    <path d="M2 6.5h12M2 9.8h12M6.5 6.5V13"/>
+  </symbol>
+  <symbol id="ico-legend" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <rect x="2" y="2" width="5" height="4" rx="0.5"/>
+    <path d="M9 4h5M2 9h3M9 9h5M2 12h3M9 12h5"/>
+    <rect x="2" y="7.5" width="5" height="5.5" rx="0.5"/>
+  </symbol>
+  <symbol id="ico-pointer" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 12L11.5 4.5"/>
+    <path d="M14 3l-1 4.5L8.5 4z" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-redo" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 7H6.5a3.5 3.5 0 100 7H9"/>
+    <path d="M13 7L10.5 4.5M13 7L10.5 9.5"/>
+  </symbol>
+  <symbol id="ico-bezier" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M3 13C5 13 11 3 13 3"/>
+    <path d="M1.5 11.5h3v3" stroke-width="1.2"/>
+    <path d="M11.5 1.5v3h3" stroke-width="1.2"/>
+  </symbol>
+  <symbol id="ico-pencil" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 13.5l1-4 8-8 3 3-8 8z"/>
+    <path d="M3.5 9.5l3 3"/>
+  </symbol>
+  <symbol id="ico-hex" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 2L13 5v6L8 14 3 11V5z"/>
+  </symbol>
+  <symbol id="ico-bubble" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v5A1.5 1.5 0 0112.5 10H7L4 13V10H3.5A1.5 1.5 0 012 8.5z"/>
+  </symbol>
+  <symbol id="ico-leader" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 13.5L7.5 8"/>
+    <path d="M1.5 14.5l1-3.2 2.2 2.2z" fill="currentColor" stroke="none"/>
+    <path d="M7.5 8h7"/>
+    <path d="M9 5.5h4.5" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-grid" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+    <path d="M2 5.5h12M2 8h12M2 10.5h12M5.5 2v12M8 2v12M10.5 2v12"/>
+  </symbol>
+  <symbol id="ico-magnet" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 2v6a3.5 3.5 0 007 0V2"/>
+    <path d="M2.5 2h4M9.5 2h4"/>
+  </symbol>
+  <symbol id="ico-align-l" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 2v12"/>
+    <rect x="4" y="3.5" width="9" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="4" y="9" width="6" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-align-cx" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M8 2v12"/>
+    <rect x="3.5" y="3.5" width="9" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="5.5" y="9" width="5" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-align-r" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M14 2v12"/>
+    <rect x="3" y="3.5" width="9" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="6" y="9" width="6" height="3.5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-align-t" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 2h12"/>
+    <rect x="3.5" y="4" width="3.5" height="9" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="9" y="4" width="3.5" height="6" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-align-cy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 8h12"/>
+    <rect x="3.5" y="3.5" width="3.5" height="9" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="9" y="5.5" width="3.5" height="5" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-align-b" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <path d="M2 14h12"/>
+    <rect x="3.5" y="3" width="3.5" height="9" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+    <rect x="9" y="6" width="3.5" height="6" rx="0.5" fill="currentColor" stroke="none" opacity=".45"/>
+  </symbol>
+  <symbol id="ico-landscape" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="4" width="13" height="8" rx="1.5"/>
+  </symbol>
+  <symbol id="ico-portrait" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="1.5" width="8" height="13" rx="1.5"/>
+  </symbol>
+  <symbol id="ico-inset" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/>
+    <circle cx="7" cy="7.5" r="2.8"/>
+    <path d="M9.2 9.7l2.6 2.6"/>
+  </symbol>
+  <symbol id="ico-map-scheme" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6.2c0 3.8 4.5 8.3 4.5 8.3s4.5-4.5 4.5-8.3C12.5 3.5 10.5 1.5 8 1.5z"/>
+    <circle cx="8" cy="6" r="1.5"/>
+  </symbol>
+  <symbol id="ico-path-pen" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 13L8 4l5 9"/>
+    <circle cx="3" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="13" cy="13" r="1.5" fill="currentColor" stroke="none"/>
+    <circle cx="8" cy="4" r="1.5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ico-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="5" width="8" height="9" rx="1.5"/>
+    <path d="M3 11V3a1 1 0 0 1 1-1h7"/>
+  </symbol>
+  <symbol id="ico-paste" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="4" width="9" height="10" rx="1.5"/>
+    <path d="M6 4V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1"/>
+    <path d="M7 9h2M7 12h2"/>
+  </symbol>
+  <symbol id="ico-duplicate" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="5" width="8" height="8" rx="1.5"/>
+    <rect x="3" y="3" width="8" height="8" rx="1.5"/>
+  </symbol>
+  <symbol id="ico-layer-up" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="7" width="8" height="6" rx="1"/>
+    <rect x="2" y="5" width="8" height="6" rx="1" opacity=".5"/>
+    <path d="M11 4l-3-3-3 3"/>
+    <path d="M8 1v5"/>
+  </symbol>
+  <symbol id="ico-layer-down" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="3" width="8" height="6" rx="1" opacity=".5"/>
+    <rect x="4" y="5" width="8" height="6" rx="1"/>
+    <path d="M11 12l-3 3-3-3"/>
+    <path d="M8 15v-5"/>
+  </symbol>
+  <symbol id="ico-unlock" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="8" width="10" height="6" rx="1.5"/>
+    <path d="M5 8V5a3 3 0 0 1 6 0"/>
+    <circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+</svg>
+
+<!-- ══ ОСНОВНОЙ ИНТЕРФЕЙС ══ -->
+<div id="app">
+
+  <!-- Вкладки проектов -->
+  <div id="titlebar">
+    <img src="main_icon.ico" class="tb-logo" alt="" draggable="false">
+    <button class="ptabs-new" onclick="_ptabNew()" title="Новый проект">+</button>
+    <div class="ptabs-track" id="ptabs-track"></div>
+    <span id="tb-version" style="align-self:center;margin-right:8px;font-size:var(--fs-1);opacity:.45;user-select:none;white-space:nowrap"></span>
+    <div class="tb-wins" id="tb-wins">
+      <button class="tb-btn tb-min"   id="tb-min"   title="Свернуть">&#x2013;</button>
+      <button class="tb-btn tb-max"   id="tb-max"   title="Развернуть"></button>
+      <button class="tb-btn tb-close" id="tb-close" title="Закрыть">&#x2715;</button>
+    </div>
+  </div>
+
+  <!-- Меню-бар -->
+  <div class="menubar">
+    <div class="mb-tabs">
+      <div class="mb-tab active" data-tab="home" onclick="_tabSwitch(this)" title="Файл проекта, отмена, измерения"><svg class="icon icon-sm"><use href="#ico-save"/></svg> Главная</div>
+      <div class="mb-tab" data-tab="poly" id="t-poly" onclick="_tabSwitch(this)" title="Нарисовать участок по карте"><svg class="icon icon-sm"><use href="#ico-hex"/></svg> Полигон</div>
+      <div class="mb-tab" data-tab="coords" id="t-coords" onclick="_tabSwitch(this)" title="Построить участок по координатам"><svg class="icon icon-sm"><use href="#ico-coords"/></svg> Координаты</div>
+      <div class="mb-tab" data-tab="szz" onclick="_tabSwitch(this)" title="Параметры и построение СЗЗ"><svg class="icon icon-sm"><use href="#ico-build"/></svg> Параметры СЗЗ</div>
+      <div class="mb-tab" data-tab="search" onclick="_tabSwitch(this)" title="Поиск земельных участков и выгрузка"><svg class="icon icon-sm"><use href="#ico-search"/></svg> Поиск ЗУ</div>
+      <div class="mb-sep-h"></div>
+      <div class="mb-tab mb-pdf-tab" onclick="enterPdfMode()" title="Редактор карты для печати"><svg class="icon icon-sm"><use href="#ico-doc"/></svg> Карта PDF</div>
+      <div class="mb-tab mb-risk-tab" onclick="enterRiskMode()" title="Оценка риска для здоровья населения (Р 2.1.10.3968-23)"><svg class="icon icon-sm"><use href="#ico-doc"/></svg> Оценка риска</div>
+      <div class="mb-tab mb-noise-tab" onclick="enterNoiseMode()" title="Конвертеры данных для Интеграл: источники шума → INT, УПРЗА Эколог → XML"><svg class="icon icon-sm"><use href="#ico-doc"/></svg> Конвертер</div>
+      <!-- Прокси раньше показывался только во вкладке «Поиск ЗУ»: если он падал,
+           пока работаешь на другой вкладке, узнать об этом было неоткуда.
+           Теперь он на виду всегда, а строка вкладок всё равно пустовала справа. -->
+      <div class="mb-proxy" id="mb-proxy" onclick="checkProxy()" style="margin-left:auto" title="Состояние прокси Росреестра — нажми, чтобы проверить">
+        <div class="proxy-dot" id="rb-proxy-dot"></div>
+        <span id="rb-proxy-label">Проверка…</span>
+      </div>
+      <div class="mb-theme" id="mb-theme" onclick="toggleTheme()" title="Светлая тема" style="margin-left:auto"><svg class="icon icon-sm"><use id="theme-ico" href="#ico-sun"/></svg></div>
+      <div class="mb-tab" onclick="showHotkeys()" title="Горячие клавиши (F1)" style="padding:0 14px"><svg class="icon icon-sm"><use href="#ico-help"/></svg></div>
+    </div>
+  </div>
+
+  <!-- Риббон -->
+  <div class="ribbon">
+    <!-- Главная -->
+    <div class="rb-panel" id="ribbon-home">
+      <!-- Новый, Открыть, Сохранить, Сохранить как и Недавние были разбросаны
+           по трём местам ленты и по кнопке быстрого доступа. Теперь это один
+           список файловых команд. -->
+      <div class="rb-group">
+        <button class="rb-btn" id="rb-file-btn" onclick="_fileMenuToggle(event)" title="Файловые команды проекта"><svg class="icon icon-lg"><use href="#ico-folder"/></svg><span>Файл ▾</span></button>
+        <button class="rb-btn" id="rb-add-btn" onclick="_mbAddToggle(event)" title="Добавить в проект: источники, расчётные точки, участки по КН"><svg class="icon icon-lg"><use href="#ico-plus"/></svg><span>Объекты ▾</span></button>
+      </div>
+      <div class="rb-sep-v"></div>
+      <!-- Выноски — подписи на карте, а не файловая или объектная команда,
+           поэтому стоят своей группой, а не в списке «Объекты». -->
+      <div class="rb-group">
+        <button class="rb-btn" onclick="toggleAllCalloutsUnified()" title="Показать или скрыть выноски всех источников и расчётных точек"><svg class="icon icon-lg"><use href="#ico-tag"/></svg><span>Выноски</span></button>
+        <button class="rb-btn" onclick="openCalloutArrangeDialog()" title="Авто-расстановка: что расставить и вокруг какого слоя"><svg class="icon icon-lg"><use href="#ico-bolt"/></svg><span>Расставить</span></button>
+      </div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <button class="rb-btn" id="rb-btn-ms-dist" onclick="toggleMeasure('dist')" title="Линейка: клик — точка, двойной клик — завершить&#10;Esc — выход. Полигоны не мешают кликам"><svg class="icon icon-lg"><use href="#ico-ruler"/></svg><span>Линейка</span></button>
+        <button class="rb-btn" id="rb-btn-ms-area" onclick="toggleMeasure('area')" title="Площадь: клик — вершина, двойной клик — завершить&#10;Esc — выход"><svg class="icon icon-lg"><use href="#ico-area"/></svg><span>Площадь</span></button>
+      </div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <button class="rb-btn" onclick="clearAll()" title="Удалить все слои и результаты поиска"><svg class="icon icon-lg"><use href="#ico-trash"/></svg><span>Очистить всё</span></button>
+      </div>
+    </div>
+    <!-- Полигон -->
+    <div class="rb-panel" id="ribbon-poly" style="display:none">
+      <div class="rb-hint">Кликай на карту — добавляй вершины &nbsp;·&nbsp; двойной клик — завершить</div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <button class="rb-btn" onclick="closePoly()" id="btn-close-poly" disabled><svg class="icon icon-lg"><use href="#ico-check"/></svg><span>Замкнуть</span></button>
+        <button class="rb-btn" onclick="undoPolyPt()"><svg class="icon icon-lg"><use href="#ico-undo"/></svg><span>Отменить</span></button>
+      </div>
+    </div>
+    <!-- Координаты -->
+    <div class="rb-panel" id="ribbon-coords" style="display:none">
+      <div class="rb-hint">Введи координаты в левой панели</div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <button class="rb-btn rb-btn-pri" onclick="buildFromCoords()"><svg class="icon icon-lg"><use href="#ico-check"/></svg><span>Построить</span></button>
+      </div>
+    </div>
+    <!-- Параметры СЗЗ -->
+    <div class="rb-panel" id="ribbon-szz" style="display:none">
+      <!-- Метки стояли над полями: 16 px подписи + 4 зазора + 30 поля = 50 px
+           в полосе высотой 48 — поля вылезали за низ ленты, а подписи, поля и
+           кнопка сидели на пяти разных вертикальных центрах. Подпись и поле
+           теперь в одну строку, всё на одной оси. -->
+      <div class="rb-group">
+        <label class="rb-field" for="szz-buffer-m">
+          <span class="rb-field-lbl">Буфер, м</span>
+          <input class="rb-inp" type="number" id="szz-buffer-m" value="1000" min="10" max="50000"
+                 oninput="szzSyncClass()" style="width:74px">
+        </label>
+        <!-- Классы СанПиН 2.2.1/2.1.1.1200-03. Буфер почти всегда равен одному
+             из пяти нормативных значений — набирать их руками незачем. -->
+        <div class="rb-classes" id="szz-classes">
+          <button type="button" class="rb-cls" data-m="1000" onclick="szzSetClass(1000)" title="Класс I — 1000 м">I</button>
+          <button type="button" class="rb-cls" data-m="500"  onclick="szzSetClass(500)"  title="Класс II — 500 м">II</button>
+          <button type="button" class="rb-cls" data-m="300"  onclick="szzSetClass(300)"  title="Класс III — 300 м">III</button>
+          <button type="button" class="rb-cls" data-m="100"  onclick="szzSetClass(100)"  title="Класс IV — 100 м">IV</button>
+          <button type="button" class="rb-cls" data-m="50"   onclick="szzSetClass(50)"   title="Класс V — 50 м">V</button>
+        </div>
+      </div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <button class="rb-btn rb-btn-pri" id="btn-gen-szz" onclick="generateSzz()" disabled><svg class="icon icon-lg"><use href="#ico-target"/></svg><span>Построить СЗЗ</span></button>
+        <span class="rb-need" id="szz-need-hint">нужен слой ЗУ</span>
+      </div>
+      <div class="rb-sep-v"></div>
+      <!-- Тип и толщина линий — оформление, а не параметры расчёта: стоят
+           после действия, а не перед ним. -->
+      <div class="rb-group">
+        <label class="rb-field" for="szz-line-type">
+          <span class="rb-field-lbl">Линия</span>
+          <select class="rb-inp" id="szz-line-type">
+            <option value="solid">Сплошная</option>
+            <option value="dashed" selected>Пунктир</option>
+            <option value="dotted">Точки</option>
+          </select>
+        </label>
+        <label class="rb-field" for="szz-line-width" title="Толщина линии СЗЗ">
+          <span class="rb-field-lbl">Толщ. СЗЗ</span>
+          <input class="rb-inp" type="number" id="szz-line-width" value="3" min="1" max="12" style="width:46px">
+        </label>
+        <label class="rb-field" for="parcel-line-width" title="Толщина линии земельного участка">
+          <span class="rb-field-lbl">Толщ. ЗУ</span>
+          <input class="rb-inp" type="number" id="parcel-line-width" value="2" min="1" max="12" style="width:46px">
+        </label>
+      </div>
+    </div>
+    <!-- Добавить: объекты проекта -->
+    <!-- Поиск ЗУ -->
+    <div class="rb-panel" id="ribbon-search" style="display:none">
+      <div class="rb-group">
+        <span class="rb-label">Область поиска</span>
+        <button class="rb-btn" id="rb-btn-area-rect" onclick="startSearchArea('rect')" title="Область поиска рамкой: зажать и растянуть" style="flex-direction:row;gap:4px;min-width:74px"><svg class="icon icon-sm"><use href="#ico-rect"/></svg><span style="font-size:var(--fs-1)">Рамка</span></button>
+        <button class="rb-btn" id="rb-btn-area-poly" onclick="startSearchArea('poly')" title="Область поиска контуром: клики по вершинам, двойной клик — искать" style="flex-direction:row;gap:4px;min-width:74px"><svg class="icon icon-sm"><use href="#ico-hex"/></svg><span style="font-size:var(--fs-1)">Контур</span></button>
+        <button class="rb-btn rb-btn-pri" id="rb-btn-find" onclick="_rbFindToggle(event)" disabled style="min-width:110px;flex-direction:row;gap:6px"><svg class="icon icon-md"><use href="#ico-search"/></svg><span>Найти ▾</span></button>
+        <button class="rb-btn" id="rb-btn-cancel" onclick="cancelSearch()" style="display:none;min-width:100px;flex-direction:row;gap:6px"><svg class="icon icon-md"><use href="#ico-x"/></svg><span>Отмена</span></button>
+      </div>
+      <div class="rb-search-progress" style="margin-left:8px;width:120px;height:4px;background:var(--bd);border-radius:var(--r-xs);overflow:hidden;display:none" id="rb-progress-bar">
+        <div id="rb-progress-fill" style="height:100%;background:var(--acc);width:0%;transition:width .2s"></div>
+      </div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <span class="rb-label">Результаты</span>
+        <button class="rb-btn" id="rb-btn-toggle-zu" onclick="toggleParcelsVisibility()" style="flex-direction:row;gap:5px;min-width:90px"><svg class="icon icon-sm"><use href="#ico-eye-off"/></svg><span style="font-size:var(--fs-1)">Скрыть ЗУ</span></button>
+      </div>
+      <div class="rb-sep-v"></div>
+      <div class="rb-group">
+        <span class="rb-label">Выгрузка</span>
+        <button class="rb-btn" id="btn-export" onclick="exportCSV()" disabled style="flex-direction:row;gap:4px"><svg class="icon icon-sm"><use href="#ico-download"/></svg><span style="font-size:var(--fs-1)">CSV</span></button>
+        <button class="rb-btn" id="btn-export-word" onclick="exportWord()" disabled style="flex-direction:row;gap:4px"><svg class="icon icon-sm"><use href="#ico-word"/></svg><span style="font-size:var(--fs-1)">Word</span></button>
+        <button class="rb-btn" id="btn-export-geojson" onclick="exportGeoJSON()" disabled style="flex-direction:row;gap:4px"><svg class="icon icon-sm"><use href="#ico-download"/></svg><span style="font-size:var(--fs-1)">GeoJSON</span></button>
+      </div>
+    </div>
+    <!-- Отмена, повтор и сохранение нужны постоянно, а лежали только во
+         вкладке «Главная»: отменить обводку с вкладки «Добавить» было нельзя
+         без переключения. Справа в ленте всё равно пусто на всех вкладках. -->
+    <div class="rb-quick">
+      <button class="rb-qbtn" id="rb-btn-undo" onclick="mapUndo()" disabled title="Отменить последнее действие&#10;Ctrl+Z"><svg class="icon icon-sm"><use href="#ico-undo"/></svg></button>
+      <button class="rb-qbtn" id="rb-btn-redo" onclick="mapRedo()" disabled title="Повторить отменённое&#10;Ctrl+Y"><svg class="icon icon-sm"><use href="#ico-redo"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Файловые команды проекта -->
+  <div id="rb-file-panel" class="pop-panel" style="display:none;min-width:250px">
+    <button onclick="_fileMenuClose();newProject()"><svg class="icon icon-sm"><use href="#ico-plus"/></svg>Новый проект<span class="src-ctx-key">Ctrl+N</span></button>
+    <button onclick="_fileMenuClose();openProjectFile()"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Открыть…<span class="src-ctx-key">Ctrl+O</span></button>
+    <div class="src-ctx-sep"></div>
+    <button onclick="_fileMenuClose();saveProject()"><svg class="icon icon-sm"><use href="#ico-save"/></svg>Сохранить<span class="src-ctx-key">Ctrl+S</span></button>
+    <button onclick="_fileMenuClose();saveProjectAs()"><svg class="icon icon-sm"><use href="#ico-save"/></svg>Сохранить как…<span class="src-ctx-key">Ctrl+Shift+S</span></button>
+    <div class="src-ctx-sep"></div>
+    <div class="src-ctx-hdr">Недавние проекты</div>
+    <div id="rb-file-recent"></div>
+  </div>
+
+  <!-- Выпадающий список "Добавить" -->
+  <div id="rb-add-panel" class="pop-panel" style="display:none;min-width:250px">
+    <button onclick="_rbAddClose();openSourcesModal()"><svg class="icon icon-sm"><use href="#ico-pin"/></svg>Источники выбросов и шума</button>
+    <button onclick="_rbAddClose();openMonPointsModal()"><svg class="icon icon-sm"><use href="#ico-pushpin"/></svg>Расчётные точки</button>
+    <button onclick="_rbAddClose();mpAddByClick()"><svg class="icon icon-sm"><use href="#ico-target"/></svg>Расчётные точки кликом по карте</button>
+    <div class="src-ctx-sep"></div>
+    <button onclick="_rbAddClose();openCnImportModal()"><svg class="icon icon-sm"><use href="#ico-list"/></svg>Участки по кадастровым номерам</button>
+  </div>
+
+  <!-- Выпадающий список "Найти" -->
+  <div id="rb-find-panel" class="pop-panel" style="display:none;min-width:160px">
+    <div class="rbap-add" onclick="searchParcels();_rbFindClose()"><svg class="icon icon-sm" style="margin-right:4px"><use href="#ico-search"/></svg>Найти ЗУ</div>
+    <div class="rbap-add" onclick="searchSettlements();_rbFindClose()"><svg class="icon icon-sm" style="margin-right:4px"><use href="#ico-map"/></svg>Найти НП</div>
+  </div>
+  <!-- Выпадающий список "Недавние проекты" -->
+
+  <!-- Скрытые счётчики для совместимости с sources/monpoints -->
+  <span id="top-src-count" style="display:none"></span>
+  <span id="top-mp-count" style="display:none"></span>
+  <div id="top-src-list" style="display:none"></div>
+  <div id="top-mp-list" style="display:none"></div>
+
+  <!-- Скрытый элемент для хранения имени проекта -->
+  <span id="tb-project-name" style="display:none">Новый проект</span>
+
+  <!-- Основной контент -->
+  <div class="app-body">
+
+    <!-- ── ЛЕВАЯ ПАНЕЛЬ ── -->
+    <div class="sidebar" id="sidebar">
+
+      <!-- Слои -->
+      <div class="section section-grow">
+        <div class="section-hdr" onclick="toggleSection(this)">
+          <svg class="icon icon-sm" style="flex-shrink:0;opacity:.6"><use href="#ico-layers"/></svg>
+          <span class="section-title">Слои</span>
+          <span class="section-arrow">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="prow" style="gap:4px;margin-bottom:4px">
+            <input type="text" id="layer-search" oninput="renderLayers()" placeholder="Поиск по слоям…"
+                   autocomplete="off" spellcheck="false"
+                   style="flex:1;min-width:0;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:3px 6px">
+            <select id="layer-type-filter" onchange="renderLayers()" title="Фильтр по типу"
+                    style="width:96px;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:3px 4px">
+              <option value="">Все типы</option>
+              <option value="parcel">ЗУ</option>
+              <option value="szz">СЗЗ</option>
+              <option value="search-area">Область</option>
+              <option value="src">Источники</option>
+              <option value="mp">РТ</option>
+              <option value="callouts">Выноски</option>
+            </select>
+            <button class="btn warn" style="width:auto;padding:3px 8px;font-size:var(--fs-1);min-height:0;display:flex;align-items:center;gap:4px" onclick="clearAll()" title="Очистить всё"><svg class="icon icon-sm"><use href="#ico-x"/></svg></button>
+          </div>
+          <div class="prow lb-tools" style="gap:4px;margin-bottom:4px">
+            <button class="btn lb-tool" onclick="newLayerGroup()" title="Новая группа (Ctrl+G собирает выделенные)"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Группа</button>
+            <button class="btn lb-tool" onclick="groupLayersByType()" title="Разложить слои без группы по типам"><svg class="icon icon-sm"><use href="#ico-layers"/></svg>По типу</button>
+            <button class="btn lb-tool" id="ux-isolate-badge" style="display:none" onclick="clearIsolate()" title="Сейчас показан только изолированный слой — вернуть остальные (Esc)"><svg class="icon icon-sm"><use href="#ico-eye"/></svg>Снять изоляцию</button>
+          </div>
+          <div class="layer-box" id="layer-box">
+            <div class="empty">Нет слоёв</div>
+          </div>
+          <div class="layer-resize-handle" id="layer-resize-handle" title="Потяни — высота списка. Двойной клик — во всю панель"></div>
+        </div>
+      </div>
+
+
+      <!-- Стиль слоя -->
+      <div id="layer-props-panel" class="section layer-props" style="display:none">
+        <div class="section-hdr" onclick="toggleSection(this)">
+          <svg class="icon icon-sm" style="flex-shrink:0;opacity:.6"><use href="#ico-gear"/></svg>
+          <span class="section-title">Стиль: <span id="layer-props-name"></span></span>
+          <button class="lp-hdr-btn" id="lp-lock-btn" onclick="event.stopPropagation();lpToggleLock()" title="Заблокировать от правок и удаления"><svg class="icon icon-sm"><use href="#ico-lock"/></svg></button>
+          <button class="lp-hdr-btn" id="lp-dock-btn" onclick="event.stopPropagation();toggleLayerPropsDock()" title="Открепить панель в отдельное окно (F4)"><svg class="icon icon-sm"><use href="#ico-pin"/></svg></button>
+          <span class="section-arrow">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="lp-row lp-clip-row">
+            <button class="btn lp-clip-btn" onclick="lpCopyStyle()" title="Скопировать оформление активного слоя"><svg class="icon icon-sm"><use href="#ico-copy"/></svg>Копировать стиль</button>
+            <button class="btn lp-clip-btn" id="lp-paste-style" disabled onclick="lpPasteStyle()" title="Применить скопированное оформление ко всему выделению"><svg class="icon icon-sm"><use href="#ico-paste"/></svg>Вставить</button>
+          </div>
+          <div class="lp-row" id="lp-opacity-all-row">
+            <span class="lp-lbl" title="Приглушает слой целиком, не меняя соотношение заливки и обводки">Прозрачн.</span>
+            <input type="range" id="lp-opacity-all" min="0" max="100" value="100" oninput="setLayerOpacity(this.value)">
+            <span class="lp-val" id="lp-opacity-all-val">100%</span>
+          </div>
+          <div class="lp-row" id="lp-fill-row">
+            <span class="lp-lbl">Заливка</span>
+            <input type="range" id="lp-fill-opacity" min="0" max="100" value="15" oninput="applyLayerProps('fillOpacity')">
+            <span class="lp-val" id="lp-fill-val">15%</span>
+            <input type="color" class="lp-color" id="lp-fill-color" value="#f59e0b" oninput="applyLayerProps('fillColor')">
+          </div>
+          <!-- Тип заливки -->
+          <div class="lp-row" id="lp-fill-pattern-row" style="display:none">
+            <span class="lp-lbl">Тип</span>
+            <div style="display:flex;gap:2px;flex:1">
+              <button id="lp-fpat-solid"   onclick="setLayerFillPattern('solid')"   title="Сплошная" class="active" style="flex:1;padding:1px 2px;height:24px;min-height:0"><span style="display:inline-block;width:18px;height:11px;vertical-align:middle;background:var(--tx2);border-radius:var(--r-xs)"></span></button>
+              <button id="lp-fpat-hatch-l" onclick="setLayerFillPattern('hatch-l')" title="╲" style="flex:1;padding:1px 2px;height:24px;min-height:0"><span style="display:inline-block;width:18px;height:11px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(45deg,var(--tx2) 0,var(--tx2) 3px,transparent 3px,transparent 6px)"></span></button>
+              <button id="lp-fpat-hatch-r" onclick="setLayerFillPattern('hatch-r')" title="╱" style="flex:1;padding:1px 2px;height:24px;min-height:0"><span style="display:inline-block;width:18px;height:11px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(135deg,var(--tx2) 0,var(--tx2) 3px,transparent 3px,transparent 6px)"></span></button>
+              <button id="lp-fpat-grid"    onclick="setLayerFillPattern('grid')"    title="Сетка"  style="flex:1;padding:1px 2px;height:24px;min-height:0"><span style="display:inline-block;width:18px;height:11px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(0deg,var(--tx2) 0,var(--tx2) 1px,transparent 1px,transparent 5px),repeating-linear-gradient(90deg,var(--tx2) 0,var(--tx2) 1px,transparent 1px,transparent 5px)"></span></button>
+            </div>
+            <input type="hidden" id="lp-fill-pattern" value="solid">
+          </div>
+          <div class="lp-row">
+            <span class="lp-lbl">Обводка</span>
+            <input type="range" id="lp-stroke-opacity" min="0" max="100" value="100" oninput="applyLayerProps('opacity')">
+            <span class="lp-val" id="lp-stroke-val">100%</span>
+            <input type="color" class="lp-color" id="lp-stroke-color" value="#f59e0b" oninput="applyLayerProps('color')">
+          </div>
+          <div class="lp-row">
+            <span class="lp-lbl">Толщина</span>
+            <input type="range" id="lp-weight" min="1" max="12" value="2" oninput="applyLayerProps('weight')">
+            <span class="lp-val" id="lp-weight-val">2px</span>
+          </div>
+          <div class="lp-row" id="lp-crs-row" style="display:none">
+            <span class="lp-lbl">СК</span>
+            <select id="lp-crs" onchange="onLayerCrsChange()" style="flex:1;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:2px 4px"></select>
+          </div>
+          <div id="lp-crs-note" style="display:none;font-size:var(--fs-1);color:var(--tx2);padding:0 0 4px 0;line-height:1.4">
+            Перестройка недоступна — слой без исходных координат
+          </div>
+          <div class="lp-row" id="lp-zone-type-row" style="display:none">
+            <span class="lp-lbl">Подпись</span>
+            <select id="lp-zone-type" onchange="applyLayerProps('zoneType')">
+              <optgroup label="Общие">
+                <option value="zu">ЗУ</option>
+                <option value="szz">СЗЗ</option>
+                <option value="site">Площадка</option>
+              </optgroup>
+              <optgroup label="Жилые зоны">
+                <option value="residential">Жилая зона</option>
+                <option value="Ж1">Ж1 — Индивидуальная жилая застройка</option>
+                <option value="Ж2">Ж2 — Малоэтажная жилая застройка</option>
+                <option value="Ж3">Ж3 — Среднеэтажная жилая застройка</option>
+                <option value="Ж4">Ж4 — Многоэтажная жилая застройка</option>
+                <option value="Ж5">Ж5 — Смешанная жилая застройка</option>
+              </optgroup>
+              <optgroup label="Общественно-деловые">
+                <option value="ОД">ОД — Общественно-деловая зона</option>
+                <option value="ОД1">ОД1 — Зона делового центра</option>
+                <option value="ОД2">ОД2 — Зона обслуживания и торговли</option>
+                <option value="О">О — Зона общественных объектов</option>
+              </optgroup>
+              <optgroup label="Производственные">
+                <option value="industrial">Промышленная зона</option>
+                <option value="П">П — Производственная зона</option>
+                <option value="П1">П1 — Промышленная зона I–II класса</option>
+                <option value="П2">П2 — Промышленная зона III класса</option>
+                <option value="П3">П3 — Промышленная зона IV–V класса</option>
+                <option value="КП">КП — Коммунально-складская зона</option>
+              </optgroup>
+              <optgroup label="Рекреационные">
+                <option value="Р">Р — Рекреационная зона</option>
+                <option value="Р1">Р1 — Зона городских лесов и парков</option>
+                <option value="Р2">Р2 — Зона отдыха и туризма</option>
+                <option value="Р3">Р3 — Зона спортивных объектов</option>
+                <option value="Лс">Лс — Зона лесов</option>
+                <option value="Пр">Пр — Зона природных территорий</option>
+              </optgroup>
+              <optgroup label="Транспортные и инженерные">
+                <option value="ИТ">ИТ — Инженерно-транспортная инфраструктура</option>
+                <option value="Т">Т — Транспортная зона</option>
+                <option value="И">И — Зона инженерной инфраструктуры</option>
+              </optgroup>
+              <optgroup label="Сельскохозяйственные">
+                <option value="СХ">СХ — Сельскохозяйственная зона</option>
+                <option value="СХ1">СХ1 — Зона с/х угодий</option>
+                <option value="СХ2">СХ2 — Зона с/х производства</option>
+                <option value="СА">СА — Зона садоводства и огородничества</option>
+              </optgroup>
+              <optgroup label="Специальные">
+                <option value="СП">СП — Зона специального назначения</option>
+                <option value="СН1">СН1 — Зона режимных объектов</option>
+                <option value="СН2">СН2 — Зона кладбищ</option>
+                <option value="В">В — Зона водных объектов</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="lp-row" style="flex-direction:column;align-items:stretch;gap:4px">
+            <span class="lp-lbl" style="width:auto">Готовые стили</span>
+            <div id="lp-presets" style="display:flex;flex-wrap:wrap;gap:3px"></div>
+          </div>
+          <div class="lp-row" id="lp-dash-row">
+            <span class="lp-lbl">Линия</span>
+            <select id="lp-dash" onchange="applyLayerProps('dashArray')">
+              <option value="">Сплошная</option>
+              <option value="8,5">Пунктир</option>
+              <option value="2,6">Точки</option>
+              <option value="12,4,2,4">Штрих-пунктир</option>
+            </select>
+          </div>
+          <!-- Дополнительные настройки выносок -->
+          <!-- Выноска слоя (ЗУ/СЗЗ): подпись на полочке у полигона -->
+          <div class="lp-row" id="lp-zu-callout-row" style="display:none">
+            <label class="lp-lbl" style="width:auto;display:flex;align-items:center;gap:5px;cursor:pointer" title="Подпись на полочке у полигона">
+              <input type="checkbox" id="lp-zu-callout-on" onchange="setLayerCalloutOn(this.checked)">Выноска
+            </label>
+            <input type="text" id="lp-zu-callout-text" placeholder="текст выноски"
+                   oninput="setLayerCalloutText(this.value)"
+                   style="flex:1;min-width:0;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:2px 5px">
+            <label class="lp-lbl" style="width:auto;display:flex;align-items:center;gap:4px;cursor:pointer" title="Подпись собирается сама: номер + тип зоны + ширина СЗЗ. Текст ввести вручную нельзя, пока это включено">
+              <input type="checkbox" id="lp-zu-callout-auto" onchange="setLayerCalloutAuto(this.checked)">Авто</label>
+          </div>
+
+          <!-- Собственный цвет и толщина линии выноски: не зависят от обводки полигона -->
+          <div class="lp-row" id="lp-zu-callout-style-row" style="display:none">
+            <span class="lp-lbl">Цвет выноски</span>
+            <input type="range" id="lp-zu-callout-lw" min="0.5" max="6" step="0.5" value="1.5" oninput="applyLayerProps('calloutLineWidth')">
+            <span class="lp-val" id="lp-zu-callout-lw-val">1.5px</span>
+            <input type="color" class="lp-color" id="lp-zu-callout-color" value="#111827" oninput="applyLayerProps('calloutColor')">
+          </div>
+
+          <div id="lp-callout-extra" style="display:none">
+            <div class="lp-row">
+              <span class="lp-lbl">Цвет текста</span>
+              <input type="color" class="lp-color" id="lp-text-color" value="#ef4444" oninput="applyLayerProps('textColor')">
+            </div>
+            <div class="lp-row">
+              <span class="lp-lbl">Обв. текста</span>
+              <input type="range" id="lp-text-stroke-w" min="0" max="6" step="0.5" value="0" oninput="applyLayerProps('textStrokeWidth')">
+              <span class="lp-val" id="lp-text-stroke-w-val">0px</span>
+              <input type="color" class="lp-color" id="lp-text-stroke-color" value="#ffffff" oninput="applyLayerProps('textStrokeColor')">
+            </div>
+            <div class="lp-row">
+              <span class="lp-lbl">Шрифт</span>
+              <select id="lp-font-family" onchange="applyLayerProps('fontFamily')" style="flex:1;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:2px 4px">
+                <option value="Arial,sans-serif">Arial</option>
+                <option value="'Times New Roman',serif">Times New Roman</option>
+                <option value="'Courier New',monospace">Courier New</option>
+                <option value="Verdana,sans-serif">Verdana</option>
+                <option value="Georgia,serif">Georgia</option>
+                <option value="Tahoma,sans-serif">Tahoma</option>
+                <option value="'Segoe UI',sans-serif">Segoe UI</option>
+              </select>
+            </div>
+            <div class="lp-row">
+              <span class="lp-lbl">Размер</span>
+              <input type="range" id="lp-font-size" min="8" max="36" value="12" oninput="applyLayerProps('fontSize')">
+              <span class="lp-val" id="lp-font-size-val">12px</span>
+            </div>
+          </div>
+
+          <!-- Сводка по геометрии выделения -->
+          <div id="lp-geom-info" class="lp-geom" style="display:none"></div>
+
+          <!-- Координаты вершин полигона -->
+          <div id="lp-verts-row" style="display:none;margin-top:6px">
+            <div class="lp-row lp-subhdr" onclick="toggleVertsBlock()" title="Показать/скрыть координаты">
+              <span class="lp-lbl" style="width:auto">Координаты вершин</span>
+              <span id="lp-verts-cnt" style="font-size:var(--fs-1);color:var(--tx2);margin-left:auto"></span>
+              <span id="lp-verts-arrow" style="font-size:var(--fs-1);color:var(--tx2)">▸</span>
+            </div>
+            <div id="lp-verts-body" style="display:none">
+            <select id="lp-verts-crs" onchange="renderLayerVerts()" style="width:100%;font-size:var(--fs-1);margin-bottom:4px;background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:2px 4px"></select>
+            <textarea id="lp-verts" spellcheck="false"
+              style="width:100%;height:110px;resize:vertical;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:5px;font-family:monospace"
+              placeholder="широта, долгота — по точке на строку"></textarea>
+            <div style="display:flex;gap:5px;margin-top:5px">
+              <button class="btn" style="flex:1" onclick="renderLayerVerts()">Сбросить</button>
+              <button class="btn pri" style="flex:1" onclick="applyLayerVerts()">Применить</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Координаты: панель ввода -->
+      <div class="section" id="coords-input-section" style="display:none">
+        <div class="section-hdr" onclick="toggleSection(this)">
+          <svg class="icon icon-sm" style="flex-shrink:0;opacity:.6"><use href="#ico-coords"/></svg>
+          <span class="section-title">Координаты</span>
+          <span class="section-arrow">▾</span>
+        </div>
+        <div class="section-body">
+          <div class="prow" style="gap:6px;margin-bottom:6px;align-items:center">
+            <span style="font-size:var(--fs-1);color:var(--tx2);flex-shrink:0">СК</span>
+            <select id="crs-select" onchange="onCrsChange()" style="flex:1;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:3px 5px"></select>
+          </div>
+          <div id="crs-custom-row" style="display:none;margin-bottom:6px">
+            <input id="crs-custom-p4" class="modal-input" style="font-size:var(--fs-1);font-family:monospace;width:100%"
+              placeholder="+proj=tmerc +lat_0=0 +lon_0=... +k=1 +x_0=... +y_0=... +ellps=krass +towgs84=... +units=m +no_defs">
+          </div>
+          <div id="crs-auto-msg" style="display:none;font-size:var(--fs-1);color:var(--tx2);margin-bottom:6px"></div>
+          <textarea id="coords-input" oninput="onCoordsInput()"
+            style="width:100%;height:110px;resize:vertical;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:5px;font-family:monospace"
+            placeholder="55.123456 37.654321&#10;по одной точке на строку"></textarea>
+          <button class="btn pri" style="margin-top:6px;display:flex;align-items:center;justify-content:center;gap:5px" onclick="buildFromCoords()"><svg class="icon icon-sm"><use href="#ico-check"/></svg>Построить</button>
+        </div>
+      </div>
+
+
+      <div class="status-bar" id="status-bar">Готово</div>
+    </div>
+
+    <!-- Разделитель ресайза -->
+    <div id="main-resize-handle" title="Тянуть — ширина панели. Двойной клик — подогнать по названиям слоёв"></div>
+
+    <!-- ── КАРТА ── -->
+
+    <div class="map-wrap">
+      <div id="map-wrapper">
+        <div id="map"></div>
+        <div class="zoom-rect-overlay" id="zoom-rect-overlay"></div>
+      </div>
+      <!-- Панель информации об участке -->
+      <div id="parcel-info-panel" style="display:none"></div>
+
+      <!-- Панель выбора слоёв -->
+      <div id="layers-panel" class="layers-panel"></div>
+      <div class="map-ctrl">
+        <button class="mbtn" onclick="fitActive()" title="К слою"><svg class="icon"><use href="#ico-fit"/></svg></button>
+        <button class="mbtn" id="basemap-btn" onclick="toggleSat()" title="Подложка карты"><svg class="icon"><use href="#ico-map-scheme"/></svg></button>
+        <button class="mbtn" onclick="toggleLayersPanel(event)" title="Слои карты"><svg class="icon"><use href="#ico-layers"/></svg></button>
+        <button class="mbtn" id="zoom-rect-btn" onclick="toggleZoomRect()" title="Зум"><svg class="icon"><use href="#ico-zoom-in"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ── ПРАВАЯ ПАНЕЛЬ РЕЗУЛЬТАТОВ ── -->
+    <div id="results-panel" class="results-panel" style="display:none">
+      <!-- ЗУ -->
+      <div class="section results-section" id="search-results-section">
+        <div class="section-hdr" onclick="toggleSection(this)">
+          <svg class="icon icon-sm" style="flex-shrink:0;opacity:.6"><use href="#ico-list"/></svg>
+          <span class="section-title">Найдено: <span id="res-cnt" style="color:var(--acc2)">0</span> ЗУ</span>
+          <span class="section-arrow">▾</span>
+        </div>
+        <div class="section-body results-body">
+          <div class="res-filter-wrap" id="res-filter-wrap" style="display:none">
+            <div class="res-filter-box">
+              <svg class="icon icon-sm" style="flex-shrink:0;color:var(--tx2)"><use href="#ico-search"/></svg>
+              <input type="text" id="res-filter-input" placeholder="Фильтр по к/н или адресу…" oninput="filterParcels(this.value)" autocomplete="off" spellcheck="false">
+              <button id="res-filter-clear" onclick="clearParcelFilter()" title="Очистить" style="display:none"><svg class="icon icon-sm"><use href="#ico-x"/></svg></button>
+            </div>
+            <div class="res-sort-row">
+              <span>Сортировка</span>
+              <select id="res-sort" onchange="setParcelSort(this.value)">
+                <option value="default">как нашлось</option>
+                <option value="cn">по кадастровому номеру</option>
+                <option value="area">по площади, больше сверху</option>
+                <option value="dist">по расстоянию до активного слоя</option>
+              </select>
+            </div>
+            <div class="res-status-filter" id="res-status-filter">
+              <button data-v="all"   class="active" onclick="setParcelStatusFilter('all')">Все <b>0</b></button>
+              <button data-v="in"    onclick="setParcelStatusFilter('in')">Внутри <b>0</b></button>
+              <button data-v="cross" onclick="setParcelStatusFilter('cross')">Пересечение <b>0</b></button>
+              <button class="res-fit" onclick="fitParcelsBounds()" title="Показать все найденные участки на карте"><svg class="icon icon-sm"><use href="#ico-fit"/></svg></button>
+            </div>
+            <div id="res-filter-cnt" class="res-filter-cnt"></div>
+          </div>
+          <div class="multi-sel-bar" id="multi-sel-bar" style="display:none">
+            <svg class="icon icon-sm" style="flex-shrink:0;color:var(--acc2)"><use href="#ico-layers"/></svg>
+            <span class="multi-sel-cnt"></span>
+            <button class="multi-sel-clear" onclick="clearMultiSelection()" title="Снять выделение">✕</button>
+          </div>
+          <div class="res-list" id="res-list">
+            <div class="empty"><svg class="icon icon-md" style="opacity:.35;display:block;margin:0 auto 6px"><use href="#ico-pin"/></svg>Найденные участки появятся здесь</div>
+          </div>
+        </div>
+      </div>
+      <!-- НП -->
+      <div class="section results-section" id="sl-results-section" style="display:none">
+        <div class="section-hdr" onclick="toggleSection(this)">
+          <svg class="icon icon-sm" style="flex-shrink:0;opacity:.6"><use href="#ico-map"/></svg>
+          <span class="section-title">НП: <span id="sl-cnt" style="color:var(--red)">0</span></span>
+          <span class="section-arrow">▾</span>
+        </div>
+        <div class="section-body" style="padding:6px 8px">
+          <div class="res-list" id="sl-list"><div class="empty">Нет данных</div></div>
+          <div style="display:flex;gap:5px;margin-top:6px">
+            <button class="btn" id="btn-sl-toggle" onclick="toggleSettlementsVis()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;border-color:var(--tx3);color:var(--tx2)"><svg class="icon icon-sm"><use href="#ico-eye-off"/></svg><span>Скрыть НП</span></button>
+            <button class="btn" onclick="clearSettlements()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;border-color:var(--tx3);color:var(--tx2)"><svg class="icon icon-sm"><use href="#ico-x"/></svg><span>Очистить</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /app-body -->
+</div><!-- /app -->
+
+<!-- ══ ОЦЕНКА РИСКА ЗДОРОВЬЮ (risk_server) ══ -->
+<div id="risk-editor" style="display:none"></div>
+
+<!-- ══ КОНВЕРТЕР ШУМА → INT ══ -->
+<div id="noise-editor" style="display:none"></div>
+
+<!-- ══ PDF РЕДАКТОР ══ -->
+<div id="pdf-editor" style="display:none">
+  <div id="pdf-left-toolbar"></div>
+  <!-- Листы — вкладками над холстом, как документы в фотошопе -->
+  <div id="pdf-canvas-col">
+    <div id="pdf-sheets"></div>
+    <div id="pdf-canvas-wrap">
+      <div id="pdf-canvas" tabindex="0"></div>
+    </div>
+  </div>
+  <div id="pdf-resize-handle" title="Потяни чтобы изменить ширину панели"></div>
+  <div id="pdf-sidebar">
+    <div id="pdf-sidebar-header">
+      <button class="pdf-back-btn" onclick="exitPdfMode()">← Карта</button>
+      <!-- Три кнопки экспорта не помещались в шапку (310 px против 280) и не
+           объясняли разницу между «PDF» и «Вектор». Теперь одно действие —
+           сохранить — и выбор формата с пояснением. -->
+      <div class="pdf-export-wrap">
+        <button id="pdf-export-btn" class="pdf-back-btn" onclick="togglePdfExportMenu(event)" title="Сохранить лист"><svg class="icon icon-sm"><use href="#ico-save"/></svg>Сохранить<span class="pdf-export-caret">▾</span></button>
+        <div id="pdf-export-menu" class="pdf-export-menu" style="display:none">
+          <button onclick="closePdfExportMenu();renderPdfAllSheets()">
+            <svg class="icon icon-sm"><use href="#ico-save"/></svg>
+            <span><b>PDF</b><i>карта картинкой, все листы страницами</i></span>
+          </button>
+          <button onclick="closePdfExportMenu();renderPdfVector()">
+            <svg class="icon icon-sm"><use href="#ico-pencil"/></svg>
+            <span><b>PDF векторный</b><i>линии и текст не мылятся при увеличении</i></span>
+          </button>
+          <button onclick="closePdfExportMenu();exportPng()">
+            <svg class="icon icon-sm"><use href="#ico-image"/></svg>
+            <span><b>PNG</b><i>текущий лист картинкой</i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="pdf-map-bar">
+      <button class="pmb-btn" id="pdf-sat-btn" onclick="togglePdfMapSat()" title="Спутник / Схема" style="display:flex;align-items:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-sat"/></svg>Спутник</button>
+      <button class="pmb-btn" id="pdf-drag-btn" onclick="togglePdfMapDrag()" title="Двигать карту" style="display:flex;align-items:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-hand"/></svg>Двигать</button>
+      <button class="pmb-btn" onclick="fitPdfMapToLayer()" title="Центровать на участке" style="display:flex;align-items:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-target"/></svg>На участок</button>
+    </div>
+    <!-- Разделы боковой панели разведены по вкладкам: раньше всё стояло
+         одной вертикальной простынёй и до нижнего приходилось скроллить -->
+    <div id="pdf-tabs">
+      <button class="pdf-tab" data-tab="sheet"  onclick="pdfTab('sheet')">
+        <svg class="icon icon-sm"><use href="#ico-portrait"/></svg>Лист</button>
+      <button class="pdf-tab" data-tab="props"  onclick="pdfTab('props')">
+        <svg class="icon icon-sm"><use href="#ico-gear"/></svg>Объект</button>
+      <button class="pdf-tab" data-tab="layers" onclick="pdfTab('layers')">
+        <svg class="icon icon-sm"><use href="#ico-layers"/></svg>Слои</button>
+    </div>
+
+    <div class="pdf-pane" id="pdf-pane-sheet">
+      <div id="pdf-toolbar"></div>
+      <div id="pdf-actions"></div>
+    </div>
+    <div class="pdf-pane" id="pdf-pane-props">
+      <!-- Сначала список объектов листа, под ним свойства выбранного:
+           искать объект в соседней вкладке было незачем -->
+      <div id="pdf-objects-panel"></div>
+      <div id="pdf-props-panel"></div>
+    </div>
+    <div class="pdf-pane" id="pdf-pane-layers">
+      <div id="pdf-layers-resize" style="display:none"></div>
+      <div id="pdf-layers-panel"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ МОДАЛ: УЧАСТКИ ПО КАДАСТРОВОМУ НОМЕРУ ══ -->
+<div id="cn-modal" style="display:none">
+  <div class="modal-bg" onclick="closeCnImportModal()"></div>
+  <div class="modal" style="width:520px">
+    <div class="modal-hdr">
+      <h2>Участки по кадастровому номеру</h2>
+      <button class="modal-close" onclick="closeCnImportModal()"><svg class="icon icon-sm"><use href="#ico-x"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div style="font-size:var(--fs-1);color:var(--tx2);margin-bottom:6px">
+        Номер и название — по строке на участок, через <b>;</b> или <b>—</b>.
+        Название необязательно. Геометрия берётся из НСПД, участок добавляется отдельным слоем.
+      </div>
+      <textarea id="cn-input" class="modal-input" spellcheck="false"
+        style="height:150px;font-family:monospace;resize:vertical"
+        placeholder="86:10:0101001:15; Склад ГСМ&#10;86:10:0101001:16; Котельная&#10;86:10:0101001:17"></textarea>
+      <div style="display:flex;gap:6px;margin-top:8px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:var(--fs-1);color:var(--tx2)">Имя слоя</span>
+        <select id="cn-name-mode" style="flex:1;min-width:150px;font-size:var(--fs-1);background:var(--bg2);color:var(--tx1);border:1px solid var(--brd);border-radius:var(--r-sm);padding:3px 5px">
+          <option value="both">Название, а без него — КН</option>
+          <option value="cn">Только кадастровый номер</option>
+          <option value="name">Только название</option>
+          <option value="cn-name">КН — Название</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:5px;font-size:var(--fs-1);color:var(--tx2);cursor:pointer">
+          <input type="checkbox" id="cn-callouts">Сразу добавить выноски
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:var(--fs-1);color:var(--tx2);cursor:pointer">
+          <input type="checkbox" id="cn-group">Собрать в группу
+        </label>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:8px;align-items:center">
+        <button class="btn" style="flex:1" onclick="document.getElementById('cn-file').click()">
+          <svg class="icon icon-sm" style="margin-right:4px"><use href="#ico-download"/></svg>Загрузить из Excel / CSV</button>
+        <input type="file" id="cn-file" accept=".xlsx,.xlsm,.xls,.csv,.txt" style="display:none" onchange="cnImportFile(event)">
+        <button class="btn pri" id="cn-add-btn" style="flex:1" onclick="cnImportAdd()">
+          <svg class="icon icon-sm" style="margin-right:4px"><use href="#ico-plus"/></svg>Добавить на карту</button>
+      </div>
+      <div id="cn-status" class="cn-status" style="margin-top:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ МОДАЛ ПРОЕКТОВ ══ -->
+<div id="projects-modal" style="display:none">
+  <div class="modal-bg" onclick="closeProjects()"></div>
+  <div class="modal">
+    <div class="modal-hdr">
+      <h2 style="display:flex;align-items:center;gap:7px"><svg class="icon icon-md" style="opacity:.7"><use href="#ico-folder"/></svg>Проекты</h2>
+      <button class="modal-close" onclick="closeProjects()"><svg class="icon"><use href="#ico-x"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <button class="btn pri" style="margin-bottom:12px" onclick="newProject()">＋ Новый проект</button>
+      <div id="projects-list"><div class="empty">Нет сохранённых проектов</div></div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="ps-image-upload" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+<input type="file" id="logo-upload-input" accept="image/*" style="display:none" onchange="handleLogoUpload(event)">
+<input type="file" id="sources-csv-input" accept=".csv,.txt" style="display:none" onchange="importSourcesCSV(event)">
+
+<!-- ══ МОДАЛ ИСТОЧНИКОВ ══ -->
+<div id="sources-modal" style="display:none">
+  <div class="modal-bg" onclick="closeSourcesModal()"></div>
+  <div class="modal" style="width:560px;max-width:96vw">
+    <div class="modal-hdr">
+      <h2 style="display:flex;align-items:center;gap:7px"><svg class="icon icon-md" style="opacity:.7"><use href="#ico-pin"/></svg>Источники выбросов и шума</h2>
+      <button class="modal-close" onclick="closeSourcesModal()"><svg class="icon"><use href="#ico-x"/></svg></button>
+    </div>
+    <div class="modal-body" style="padding:14px">
+
+      <!-- Вкладки -->
+      <div style="display:flex;gap:4px;margin-bottom:12px">
+        <button class="btn" id="src-tab-add"    onclick="srcTab('add')"    style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-plus"/></svg>Добавить</button>
+        <button class="btn" id="src-tab-list"   onclick="srcTab('list')"   style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-list"/></svg>Список</button>
+        <button class="btn" id="src-tab-import" onclick="srcTab('import')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Импорт</button>
+      </div>
+
+      <!-- ─── ВКЛАДКА: ДОБАВИТЬ ─── -->
+      <div id="src-panel-add">
+        <input type="hidden" id="src-active-geomtype" value="point">
+
+        <!-- Тип геометрии -->
+        <div style="display:flex;gap:4px;margin-bottom:10px">
+          <button id="src-gtype-point" class="btn active" onclick="srcSetGeomType('point')"
+            style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px">
+            <svg class="icon icon-sm"><use href="#ico-pin"/></svg>Точечный
+          </button>
+          <button id="src-gtype-line" class="btn" onclick="srcSetGeomType('line')"
+            style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px">
+            <svg class="icon icon-sm"><use href="#ico-ruler"/></svg>Линейный
+          </button>
+        </div>
+
+        <!-- Название / тип / цвет -->
+        <div style="display:grid;grid-template-columns:1fr auto auto;gap:7px;align-items:end;margin-bottom:10px">
+          <div>
+            <label class="src-flabel">Название</label>
+            <input type="text" id="src-name" class="modal-input" placeholder="Котельная №1, Автодорога...">
+          </div>
+          <div>
+            <label class="src-flabel">Тип воздействия</label>
+            <select id="src-type" class="modal-input" style="min-width:120px"
+              onchange="document.getElementById('src-color').value = SRC_COLORS[this.value] || SRC_COLORS.other">
+              <option value="emission">Выброс (атм.)</option>
+              <option value="noise">Шум</option>
+              <option value="other">Прочее</option>
+            </select>
+          </div>
+          <div>
+            <label class="src-flabel">Цвет</label>
+            <input type="color" id="src-color" value="#ef4444"
+              style="width:38px;height:34px;border-radius:var(--r-sm);border:1px solid var(--bd);cursor:pointer;padding:2px">
+          </div>
+        </div>
+
+        <!-- Тип заливки -->
+        <div style="margin-bottom:10px">
+          <label class="src-flabel">Тип заливки</label>
+          <div style="display:flex;gap:3px">
+            <button id="src-fpat-solid"   class="btn active" onclick="srcSetFillPattern('solid')"   title="Сплошная заливка"
+              style="flex:1;padding:2px 4px;height:30px;min-height:0">
+              <span style="display:inline-block;width:22px;height:14px;vertical-align:middle;background:var(--tx2);border-radius:var(--r-xs)"></span>
+            </button>
+            <button id="src-fpat-hatch-l" class="btn" onclick="srcSetFillPattern('hatch-l')" title="Полоски влево (╲)"
+              style="flex:1;padding:2px 4px;height:30px;min-height:0">
+              <span style="display:inline-block;width:22px;height:14px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(45deg,var(--tx2) 0,var(--tx2) 3px,transparent 3px,transparent 7px)"></span>
+            </button>
+            <button id="src-fpat-hatch-r" class="btn" onclick="srcSetFillPattern('hatch-r')" title="Полоски вправо (╱)"
+              style="flex:1;padding:2px 4px;height:30px;min-height:0">
+              <span style="display:inline-block;width:22px;height:14px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(135deg,var(--tx2) 0,var(--tx2) 3px,transparent 3px,transparent 7px)"></span>
+            </button>
+            <button id="src-fpat-grid"    class="btn" onclick="srcSetFillPattern('grid')"    title="Сетка"
+              style="flex:1;padding:2px 4px;height:30px;min-height:0">
+              <span style="display:inline-block;width:22px;height:14px;vertical-align:middle;border-radius:var(--r-xs);background:repeating-linear-gradient(0deg,var(--tx2) 0,var(--tx2) 1px,transparent 1px,transparent 5px),repeating-linear-gradient(90deg,var(--tx2) 0,var(--tx2) 1px,transparent 1px,transparent 5px)"></span>
+            </button>
+          </div>
+          <input type="hidden" id="src-fill-pattern" value="solid">
+        </div>
+
+        <!-- ТОЧЕЧНЫЙ источник -->
+        <div id="src-geom-point">
+          <div style="font-size:var(--fs-1);color:var(--tx2);margin-bottom:5px">Координата источника (WGS-84):</div>
+          <div style="display:flex;gap:6px;align-items:flex-end;margin-bottom:8px">
+            <div style="flex:1">
+              <label class="src-flabel">Широта</label>
+              <input type="number" id="src-lat" class="modal-input" placeholder="59.934300" step="0.000001">
+            </div>
+            <div style="flex:1">
+              <label class="src-flabel">Долгота</label>
+              <input type="number" id="src-lon" class="modal-input" placeholder="30.335100" step="0.000001">
+            </div>
+            <button class="btn src-map-pick-btn" onclick="srcPickPoint()" title="Взять координаты кликом на карте" style="display:flex;align-items:center;gap:4px;white-space:nowrap">
+              <svg class="icon icon-sm"><use href="#ico-pin"/></svg>С карты
+            </button>
+          </div>
+          <div style="max-width:200px">
+            <label class="src-flabel">Радиус (м)</label>
+            <input type="number" id="src-radius" class="modal-input" placeholder="100" min="0">
+          </div>
+        </div>
+
+        <!-- ЛИНЕЙНЫЙ источник -->
+        <div id="src-geom-line" style="display:none">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span style="font-size:var(--fs-1);color:var(--tx2)">Узловые точки линии (мин. 2):</span>
+            <div style="display:flex;gap:4px">
+              <button class="btn src-map-pick-btn" onclick="srcDrawLineOnMap()" title="Нарисовать маршрут на карте" style="display:flex;align-items:center;gap:4px;width:auto">
+                <svg class="icon icon-sm"><use href="#ico-pencil"/></svg>Нарисовать
+              </button>
+              <button class="btn" onclick="srcAddLinePt()"
+                style="padding:0 9px;height:28px;min-height:0;font-size:var(--fs-1);width:auto">
+                + Точка
+              </button>
+            </div>
+          </div>
+          <div id="src-line-pts"
+            style="max-height:150px;overflow-y:auto;background:var(--bg3);border-radius:7px;padding:8px 6px 4px;margin-bottom:8px">
+            <!-- рендерится JS -->
+          </div>
+          <div style="max-width:220px">
+            <label class="src-flabel">Ширина (м)</label>
+            <input type="number" id="src-line-width" class="modal-input" placeholder="50" min="0">
+          </div>
+        </div>
+
+        <!-- Выноска -->
+        <div style="margin-top:10px;background:var(--bg3);border-radius:var(--r-md);padding:9px">
+          <label style="display:flex;align-items:center;gap:7px;cursor:pointer;font-size:var(--fs-1);color:var(--tx2)">
+            <input type="checkbox" id="src-show-label" onchange="srcToggleLabelControls()">
+            Показывать выноску на карте
+          </label>
+          <div id="src-label-controls" style="display:none;margin-top:8px">
+            <div style="font-size:var(--fs-1);color:var(--tx2);margin-bottom:5px">Выноску можно перетащить прямо на карте</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+              <div>
+                <label class="src-flabel">Цвет</label>
+                <input type="color" id="src-callout-color" value="#ef4444"
+                  style="width:100%;height:32px;border-radius:var(--r-sm);border:1px solid var(--bd);cursor:pointer">
+              </div>
+              <div>
+                <label class="src-flabel">Шрифт (px)</label>
+                <input type="number" id="src-callout-fontsize" class="modal-input" value="12" min="6" max="36">
+              </div>
+              <div>
+                <label class="src-flabel">Толщина лин.</label>
+                <input type="number" id="src-callout-linewidth" class="modal-input" value="1.5" min="0.5" max="8" step="0.5">
+              </div>
+              <div>
+                <label class="src-flabel">Обводка цвет</label>
+                <input type="color" id="src-callout-stroke-color" value="#ffffff"
+                  style="width:100%;height:32px;border-radius:var(--r-sm);border:1px solid var(--bd);cursor:pointer">
+              </div>
+              <div>
+                <label class="src-flabel">Обводка (px)</label>
+                <input type="number" id="src-callout-stroke-width" class="modal-input" value="0" min="0" max="5" step="0.5">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:6px;margin-top:10px">
+          <button id="src-form-cancel" class="btn warn" onclick="srcCancelEdit()"
+            style="display:none;flex-shrink:0;align-items:center;gap:4px;white-space:nowrap;width:auto"><svg class="icon icon-sm"><use href="#ico-x"/></svg>Отмена</button>
+          <button id="src-form-submit" class="btn pri" onclick="addSource()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap">
+            <svg class="icon icon-sm"><use href="#ico-plus"/></svg>Добавить на карту
+          </button>
+        </div>
+      </div><!-- /src-panel-add -->
+
+      <!-- ─── ВКЛАДКА: СПИСОК ─── -->
+      <div id="src-panel-list" style="display:none">
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <input type="text" id="src-search" oninput="srcSearch(this.value)" placeholder="Поиск по источникам…"
+                 autocomplete="off" spellcheck="false" class="modal-input" style="flex:1">
+          <button class="btn" onclick="srcRenumber()" title="Перенумеровать источники подряд по типам" style="width:auto;padding:4px 10px">1,2,3…</button>
+        </div>
+        <div id="src-list-body" style="max-height:320px;overflow-y:auto"></div>
+        <div style="display:flex;gap:6px;margin-top:10px">
+          <button class="btn warn" onclick="clearAllSources()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-x"/></svg>Удалить все</button>
+          <button class="btn"      onclick="fitSourcesBounds()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-fit"/></svg>Показать все</button>
+        </div>
+        <div style="margin-top:6px">
+          <button class="btn" onclick="srcToggleAllCallouts()"
+            style="width:100%;display:flex;align-items:center;justify-content:center;gap:5px">
+            <svg class="icon icon-sm"><use href="#ico-pushpin"/></svg>Выноски — вкл/выкл всем
+          </button>
+          <button class="btn" onclick="srcToggleAllCalloutCircles()"
+            style="width:100%;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:5px">
+            <svg class="icon icon-sm"><use href="#ico-circle"/></svg>Кружки выносок — вкл/выкл всем
+          </button>
+        </div>
+      </div>
+
+      <!-- ─── ВКЛАДКА: ИМПОРТ ─── -->
+      <div id="src-panel-import" style="display:none">
+
+        <!-- Формат 1: Integral -->
+        <details style="margin-bottom:8px">
+          <summary style="font-size:var(--fs-1);color:var(--acc2);cursor:pointer;user-select:none;display:flex;align-items:center;gap:4px">
+            <svg class="icon icon-sm"><use href="#ico-list"/></svg>Формат Интеграл / Эколог-ГИС (X_start/Y_start)
+          </summary>
+          <div style="font-size:var(--fs-1);color:var(--tx2);margin-top:6px;line-height:1.65;background:var(--bg3);border-radius:var(--r-sm);padding:8px">
+            <code style="font-size:var(--fs-1)">Name;X_start;Y_start;X_end;Y_end;Width</code><br>
+            <code style="font-size:var(--fs-1)">Name;X1;Y1;X2;Y2;Width</code><br>
+            Точечный: X_end(X2)=0, Y_end(Y2)=0, Width=радиус(м)<br>
+            Линейный: X_end(X2)/Y_end(Y2)≠0, Width=ширина коридора(м)<br>
+            <span style="color:var(--amber)">Требует выбора МСК ниже!</span>
+          </div>
+        </details>
+
+        <!-- Формат 2: WGS-84 -->
+        <details style="margin-bottom:10px">
+          <summary style="font-size:var(--fs-1);color:var(--tx2);cursor:pointer;user-select:none;display:flex;align-items:center;gap:4px">
+            <svg class="icon icon-sm"><use href="#ico-list"/></svg>Стандартный формат WGS-84
+          </summary>
+          <div style="font-size:var(--fs-1);color:var(--tx2);margin-top:6px;background:var(--bg3);border-radius:var(--r-sm);padding:8px;line-height:1.65">
+            <code style="font-size:var(--fs-1)">название; тип; lat; lon; радиус(м)</code><br>
+            <span style="color:var(--tx2);font-size:var(--fs-1)">Типы: emission/выброс, noise/шум, other/прочее</span>
+          </div>
+        </details>
+
+        <!-- СК + Тип по умолчанию -->
+        <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:end;margin-bottom:8px">
+          <div>
+            <label class="src-flabel">Система координат источника</label>
+            <select id="src-import-crs" class="modal-input" style="font-size:var(--fs-1)">
+              <!-- заполняется JS -->
+            </select>
+          </div>
+          <button class="btn" onclick="srcAutoDetectCrs()"
+            style="padding:0 9px;height:34px;min-height:0;font-size:var(--fs-1);flex-shrink:0;display:flex;align-items:center;gap:4px"
+            title="Определить СК по содержимому файла">
+            <svg class="icon icon-sm"><use href="#ico-search"/></svg>Авто
+          </button>
+        </div>
+        <div style="margin-bottom:8px">
+          <label class="src-flabel">Тип воздействия (для Integral-формата)</label>
+          <select id="src-import-deftype" class="modal-input" style="font-size:var(--fs-1)">
+            <option value="emission">Выброс (атм.)</option>
+            <option value="noise">Шум</option>
+            <option value="other">Прочее</option>
+          </select>
+        </div>
+
+        <textarea id="src-csv-text" rows="7"
+          style="width:100%;box-sizing:border-box;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r-sm);color:var(--tx);padding:8px;font-size:var(--fs-1);font-family:monospace;resize:vertical"
+          placeholder="Name;X_start;Y_start;X_end;Y_end;Width&#10;Name;X1;Y1;X2;Y2;Width&#10;0001;3640888.28;1178985.64;0.00;0.00;0&#10;6001;3640743.40;1179068.90;3640736.50;1179058.90;277"></textarea>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+          <label style="font-size:var(--fs-1);color:var(--tx2);display:flex;align-items:center;gap:4px;cursor:pointer">
+            <input type="checkbox" id="src-import-replace" style="cursor:pointer">
+            Заменить все
+          </label>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:6px">
+          <button class="btn" onclick="document.getElementById('sources-csv-input').click()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Файл CSV</button>
+          <button class="btn pri" onclick="importSourcesText()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-check"/></svg>Импортировать</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ МОДАЛ РАСЧЁТНЫХ ТОЧЕК (РТ) ══ -->
+<div id="mp-modal" style="display:none">
+  <div class="modal-bg" onclick="closeMonPointsModal()"></div>
+  <div class="modal" style="width:420px;max-width:96vw">
+    <div class="modal-hdr">
+      <h2 style="display:flex;align-items:center;gap:7px"><svg class="icon icon-md" style="opacity:.7"><use href="#ico-pushpin"/></svg>Расчётные точки (РТ)</h2>
+      <button class="modal-close" onclick="closeMonPointsModal()"><svg class="icon"><use href="#ico-x"/></svg></button>
+    </div>
+    <div class="modal-body" style="padding:14px">
+
+      <!-- Вкладки -->
+      <div style="display:flex;gap:4px;margin-bottom:12px">
+        <button class="btn" id="mp-tab-add"    onclick="mpTab('add')"    style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-plus"/></svg>Добавить</button>
+        <button class="btn" id="mp-tab-list"   onclick="mpTab('list')"   style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-list"/></svg>Список</button>
+        <button class="btn" id="mp-tab-import" onclick="mpTab('import')" style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Импорт</button>
+      </div>
+
+      <!-- ─── ВКЛАДКА: ДОБАВИТЬ ─── -->
+      <div id="mp-panel-add">
+        <div class="lp-row" style="display:flex;flex-direction:column;gap:8px">
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <label style="width:90px;color:var(--tx2);font-size:var(--fs-2)">Название</label>
+            <input type="text" id="mp-name" placeholder="Расчётная точка №1" class="inp"
+              style="flex:1;background:var(--bg);border:1px solid var(--bd2);color:var(--tx);border-radius:var(--r-sm);padding:5px 8px;font-size:var(--fs-2)">
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <label style="width:90px;color:var(--tx2);font-size:var(--fs-2)">Широта</label>
+            <input type="number" id="mp-lat" step="any" placeholder="55.7558" class="inp"
+              style="flex:1;background:var(--bg);border:1px solid var(--bd2);color:var(--tx);border-radius:var(--r-sm);padding:5px 8px;font-size:var(--fs-2)">
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <label style="width:90px;color:var(--tx2);font-size:var(--fs-2)">Долгота</label>
+            <input type="number" id="mp-lon" step="any" placeholder="37.6173" class="inp"
+              style="flex:1;background:var(--bg);border:1px solid var(--bd2);color:var(--tx);border-radius:var(--r-sm);padding:5px 8px;font-size:var(--fs-2)">
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <label style="width:90px;color:var(--tx2);font-size:var(--fs-2)">Цвет</label>
+            <input type="color" id="mp-color" value="#3b82f6"
+              style="height:28px;width:48px;border:none;border-radius:var(--r-sm);cursor:pointer;background:none">
+          </div>
+
+          <button class="btn" onclick="mpPickPoint()"
+            style="display:flex;align-items:center;justify-content:center;gap:5px">
+            <svg class="icon icon-sm"><use href="#ico-cursor"/></svg>Указать на карте
+          </button>
+
+          <!-- Выноска -->
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+            <label style="color:var(--tx2);font-size:var(--fs-2);display:flex;align-items:center;gap:6px;cursor:pointer">
+              <input type="checkbox" id="mp-show-label" onchange="mpToggleLabelControls()">
+              Показывать выноску
+            </label>
+          </div>
+          <div id="mp-label-controls" style="display:none;flex-direction:column;gap:6px;padding:8px;background:var(--bg);border-radius:var(--r-sm);border:1px solid var(--bg4)">
+            <div style="display:flex;align-items:center;gap:8px">
+              <label style="width:90px;color:var(--tx2);font-size:var(--fs-1)">Цвет линии</label>
+              <input type="color" id="mp-callout-color" value="#3b82f6" style="height:24px;width:40px;border:none;border-radius:var(--r-xs);cursor:pointer">
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <label style="width:90px;color:var(--tx2);font-size:var(--fs-1)">Размер шрифта</label>
+              <input type="number" id="mp-callout-fontsize" value="12" min="8" max="32" style="width:60px;background:var(--bd);border:1px solid var(--bd2);color:var(--tx);border-radius:var(--r-sm);padding:3px 6px;font-size:var(--fs-1)">
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <label style="width:90px;color:var(--tx2);font-size:var(--fs-1)">Толщина линии</label>
+              <input type="number" id="mp-callout-linewidth" value="1.5" min="0.5" max="5" step="0.5" style="width:60px;background:var(--bd);border:1px solid var(--bd2);color:var(--tx);border-radius:var(--r-sm);padding:3px 6px;font-size:var(--fs-1)">
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;gap:6px;margin-top:12px">
+          <button class="btn pri" id="mp-form-submit" onclick="mpSubmitForm()"
+            style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap"><svg class="icon icon-sm"><use href="#ico-plus"/></svg>Добавить</button>
+          <button class="btn" id="mp-form-cancel" onclick="mpCancelEdit()"
+            style="display:none;border-color:var(--tx2);color:var(--tx2);align-items:center;gap:4px;white-space:nowrap;width:auto"><svg class="icon icon-sm"><use href="#ico-x"/></svg>Отмена</button>
+        </div>
+      </div>
+
+      <!-- ─── ВКЛАДКА: СПИСОК ─── -->
+      <div id="mp-panel-list" style="display:none">
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <input type="text" id="mp-search" oninput="mpSearch(this.value)" placeholder="Поиск по РТ…"
+                 autocomplete="off" spellcheck="false" class="modal-input" style="flex:1">
+          <button class="btn" onclick="mpRenumber()" title="Перенумеровать РТ подряд" style="width:auto;padding:4px 10px">1,2,3…</button>
+        </div>
+        <div style="font-size:var(--fs-1);color:var(--tx2);opacity:.75;margin:-2px 0 4px 2px">
+          Клик — выбрать, Shift — диапазон, Ctrl — добавить, ПКМ — меню.
+          Каждая РТ — обычный слой: группы и порядок те же, что в панели слоёв
+        </div>
+        <!-- Своих кнопок нет: все операции над выделением — по правой кнопке,
+             как в панели слоёв и в редакторе PDF -->
+        <div id="mp-sel-bar" style="display:none;align-items:center;gap:6px;padding:5px 8px;margin-bottom:5px;border:1px solid var(--acc2);border-radius:6px">
+          <span id="mp-sel-count" style="font-size:var(--fs-1);color:var(--acc2);font-weight:600">Выделено: 0</span>
+          <span style="font-size:var(--fs-1);color:var(--tx2);opacity:.8">— действия по правой кнопке</span>
+        </div>
+        <div id="mp-list-body" style="max-height:320px;overflow-y:auto">
+          <div class="empty">Нет расчётных точек</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:10px">
+          <button class="btn" onclick="mpFitBounds()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-target"/></svg>Карта</button>
+          <button class="btn" onclick="mpToggleAllCallouts()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-tag"/></svg>Выноски</button>
+          <button class="btn" onclick="mpExportCsv()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px" title="Экспорт РТ в CSV"><svg class="icon icon-sm"><use href="#ico-download"/></svg>CSV</button>
+          <button class="btn pri" onclick="mpAddByClick()" title="Ставить РТ кликами по карте" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-pin"/></svg>Кликом</button>
+          <button class="btn" onclick="mpTab('add')" title="Добавить по координатам" style="display:flex;align-items:center;justify-content:center"><svg class="icon icon-sm"><use href="#ico-plus"/></svg></button>
+          <button class="btn warn" onclick="mpDeleteAll()" style="display:flex;align-items:center;justify-content:center"><svg class="icon icon-sm"><use href="#ico-trash"/></svg></button>
+        </div>
+      </div>
+
+      <!-- ─── ВКЛАДКА: ИМПОРТ ─── -->
+      <div id="mp-panel-import" style="display:none">
+
+        <details style="margin-bottom:8px">
+          <summary style="font-size:var(--fs-1);color:var(--acc2);cursor:pointer;user-select:none;display:flex;align-items:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-list"/></svg>Формат CSV</summary>
+          <div style="font-size:var(--fs-1);color:var(--tx2);margin-top:6px;line-height:1.65;background:var(--bg3);border-radius:var(--r-sm);padding:8px">
+            <b>WGS-84:</b> <code style="font-size:var(--fs-1)">Название;Широта;Долгота</code><br>
+            <b>МСК/UTM:</b> <code style="font-size:var(--fs-1)">Название;X;Y</code> — выбери СК ниже<br>
+            <span style="color:var(--amber)">Разделитель: ; или , или табуляция</span>
+          </div>
+        </details>
+
+        <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:end;margin-bottom:8px">
+          <div>
+            <label class="src-flabel">Система координат</label>
+            <select id="mp-import-crs" class="modal-input" style="font-size:var(--fs-1)">
+              <option value="">WGS-84 (координаты в градусах)</option>
+            </select>
+          </div>
+        </div>
+
+        <textarea id="mp-csv-text" rows="7"
+          style="width:100%;box-sizing:border-box;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r-sm);color:var(--tx);padding:8px;font-size:var(--fs-1);font-family:monospace;resize:vertical"
+          placeholder="РТ-1;55.755800;37.617300&#10;РТ-2;55.756000;37.618000"></textarea>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+          <label style="font-size:var(--fs-1);color:var(--tx2);display:flex;align-items:center;gap:4px;cursor:pointer">
+            <input type="checkbox" id="mp-import-replace" style="cursor:pointer">
+            Заменить все
+          </label>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:6px">
+          <button class="btn" onclick="document.getElementById('mp-csv-input').click()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-folder"/></svg>Файл CSV</button>
+          <button class="btn pri" onclick="mpImportText()" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px"><svg class="icon icon-sm"><use href="#ico-check"/></svg>Импортировать</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<input type="file" id="mp-csv-input" accept=".csv,.txt" style="display:none" onchange="mpImportFile(event)">
+
+<!-- ══ ПРОЕКТЫ через localStorage ══ -->
+<script>
+  // SVG иконка для кнопки удаления в JS-шаблонах
+  const _SVG_TRASH = '<svg class="icon icon-sm" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5h11M6 5V3h4v2M5 5l.8 8.5h4.4L11 5"/></svg>';
+
+  let currentProjectId = null;
+
+  function _getProjects() {
+    try { return JSON.parse(localStorage.getItem('szz_projects') || '[]'); } catch(e) { return []; }
+  }
+  function _saveProjects(list) {
+    try { localStorage.setItem('szz_projects', JSON.stringify(list)); } catch(e) {}
+  }
+
+  window.openProjects = () => {
+    document.getElementById('projects-modal').style.display = 'flex';
+    _renderProjectsList();
+  };
+  window.closeProjects = () => {
+    document.getElementById('projects-modal').style.display = 'none';
+  };
+
+  function _renderProjectsList() {
+    const list = document.getElementById('projects-list');
+    const projects = _getProjects();
+    if (!projects.length) {
+      list.innerHTML = '<div class="empty">Нет сохранённых проектов</div>';
+      return;
+    }
+    list.innerHTML = projects.slice().reverse().map(p => `
+      <div class="project-card">
+        <div class="project-card-info">
+          <div class="project-card-name">${p.name || 'Без названия'}</div>
+          <div class="project-card-meta">${p.layerCount || 0} слоёв · ${p.parcelCount || 0} ЗУ · ${p.updatedAt ? new Date(p.updatedAt).toLocaleString('ru-RU') : ''}</div>
+        </div>
+        <div class="project-card-actions">
+          <button class="btn" style="width:auto;padding:4px 10px" onclick="loadProject('${p.id}')">Открыть</button>
+          <button class="btn warn" style="width:auto;padding:4px 8px;display:flex;align-items:center" onclick="deleteProject('${p.id}')">${_SVG_TRASH}</button>
+        </div>
+      </div>`).join('');
+  }
+
+  // ── Захват / восстановление состояния приложения ──────────────────────────
+  window._captureAppState = function() {
+    return {
+      layers: mapLayers.filter(l => l.poly).map(l => ({
+        id: l.id, type: l.type, name: l.name, poly: l.poly,
+        visible: l.visible, color: l.color, _psStyle: l._psStyle || null,
+        locked: !!l.locked,
+        rawCoords: l.rawCoords || null, crsId: l.crsId || null,
+        zoneType: l.zoneType || null,
+        callout: l.callout ? { ...l.callout } : null,
+        // Геометрия с дырками (вырезанный участок, мультиконтур): poly хранит
+        // только внешнее кольцо, и без geojson вырез пропадал при открытии
+        geojson: l.geojson || null,
+        originalOuterPoly: l.originalOuterPoly || null,
+      })),
+      // Найденные ЗУ сохраняем целиком: раньше стоял срез до 300 записей и всё,
+      // что нашлось сверх этого, пропадало при следующем открытии проекта
+      foundParcels: foundParcels.map(p => ({ ...p })),
+      foundLayerName: typeof _foundLayerName !== 'undefined' ? _foundLayerName : '',
+      parcelsHidden: typeof _parcelsHidden !== 'undefined' ? _parcelsHidden : false,
+      currentProjectId,
+      sources:   typeof _srcGetData === 'function' ? _srcGetData() : [],
+      monPoints: typeof _mpGetData  === 'function' ? _mpGetData()  : [],
+      pdfObjects: (typeof pdfObjects !== 'undefined' ? pdfObjects : []).map(o => ({...o, data:{...o.data}})),
+      // Листы редактора PDF целиком; pdfObjects выше остаётся для старых версий
+      pdfSheets: typeof _pdfSheetsCapture === 'function' ? _pdfSheetsCapture() : null,
+      pdfOrientation: typeof pdfOrientation !== 'undefined' ? pdfOrientation : 'landscape',
+      pdfGroups: typeof window._pdfCaptureGroups === 'function' ? window._pdfCaptureGroups() : {},
+      // Положение карты в редакторе PDF (центр/зум/подложка) — своё у каждого проекта
+      pdfView: typeof _pdfCaptureView === 'function' ? _pdfCaptureView() : null,
+      // Видимость/стиль/порядок слоёв, которые не имеют своей геометрии
+      // (источники, РТ, выноски) — они пересоздаются при загрузке проекта
+      layerPrefs: typeof _captureLayerPrefs === 'function' ? _captureLayerPrefs() : null,
+      // Группы слоёв в панели: названия, свёрнутость и состав
+      layerGroups: typeof captureLayerGroups === 'function' ? captureLayerGroups() : null,
+      exclBtnActive: (typeof isExclParcelActive === 'function') ? isExclParcelActive() : true,
+    };
+  };
+
+  window._restoreAppState = function(state) {
+    // Всегда чистим метку исключённого ЗУ перед загрузкой нового состояния
+    if (typeof clearExcludedMark === 'function') clearExcludedMark();
+    // Восстанавливаем состояние кнопки "Вырезать ЗУ" из сохранённого (при наличии)
+    if (state && state.exclBtnActive !== undefined && typeof setExclParcelActive === 'function')
+      setExclParcelActive(state.exclBtnActive);
+    clearAll();
+    // Настройки авто-слоёв должны быть известны ДО того как _srcLoadData/_mpLoadData
+    // пересоздадут записи слоёв — иначе скрытые слои снова включатся
+    if (typeof _setLayerPrefs === 'function') _setLayerPrefs(state ? state.layerPrefs : null);
+    if (typeof _srcLoadData === 'function') _srcLoadData(state ? state.sources   : []);
+    if (typeof _mpLoadData  === 'function') _mpLoadData(state  ? state.monPoints : []);
+    if (!state) {
+      currentProjectId = null;
+      if (typeof pdfObjects !== 'undefined') {
+        pdfObjects = []; pdfOrientation = 'landscape';
+        if (typeof window._pdfRestoreGroups === 'function') window._pdfRestoreGroups({});
+        if (typeof pdfObjCnt !== 'undefined') pdfObjCnt = 0;
+        // Листы редактора PDF тоже привязаны к проекту — без явного сброса
+        // старые листы оставались в памяти и «переезжали» в новый проект
+        if (typeof window._pdfSheetsRestore === 'function') window._pdfSheetsRestore(null);
+        if (typeof _renderAll        === 'function') _renderAll();
+        if (typeof _renderLayersList === 'function') _renderLayersList();
+        if (typeof _renderProps      === 'function') _renderProps();
+        if (typeof _applyOrientation === 'function') _applyOrientation();
+      }
+      if (typeof _pdfApplyView === 'function') _pdfApplyView(null);
+      if (typeof setParcelsHidden === 'function') setParcelsHidden(false);
+      if (typeof restoreLayerGroups === 'function') restoreLayerGroups(null);
+      renderLayers(); updateButtons();
+      return;
+    }
+    currentProjectId = state.currentProjectId || null;
+    const _layersToRestorePattern = [];
+    let _skippedLayers = 0;
+    // Приводим контур к [[lat, lon], ...]: в старых проектах встречаются
+    // и объекты {lat,lng}, и служебные слои вообще без геометрии
+    const _normPoly = (poly) => {
+      if (!Array.isArray(poly) || poly.length < 3) return null;
+      const pts = poly.map(pt => {
+        if (Array.isArray(pt) && pt.length >= 2 && isFinite(pt[0]) && isFinite(pt[1])) return [+pt[0], +pt[1]];
+        if (pt && typeof pt === 'object') {
+          const lat = pt.lat ?? pt[0], lon = pt.lng ?? pt.lon ?? pt[1];
+          if (isFinite(lat) && isFinite(lon)) return [+lat, +lon];
+        }
+        return null;
+      }).filter(Boolean);
+      return pts.length >= 3 ? pts : null;
+    };
+    // GeoJSON-контуры → структура колец для L.polygon: [внешнее, дырка, ...]
+    const _llRings = (geom) => {
+      if (!geom) return null;
+      const ring = r => r.map(c => [c[1], c[0]]).filter(p => isFinite(p[0]) && isFinite(p[1]));
+      try {
+        if (geom.type === 'Polygon')
+          return geom.coordinates.map(ring).filter(r => r.length >= 3);
+        if (geom.type === 'MultiPolygon')
+          return geom.coordinates.map(p => p.map(ring).filter(r => r.length >= 3))
+                                 .filter(p => p.length);
+      } catch(e) {}
+      return null;
+    };
+    (state.layers || []).forEach(l => {
+      try {
+      const poly = _normPoly(l.poly);
+      // Слой без геометрии (служебный из старых версий) — пропускаем:
+      // источники и РТ всё равно восстановятся из своих разделов проекта
+      if (!poly) { _skippedLayers++; return; }
+      l = { ...l, poly };
+      const ll = l.poly.map(pt => L.latLng(pt[0], pt[1]));
+      const style = l._psStyle || (l.type === 'szz'
+        ? { color: l.color, fillColor: l.color, fillOpacity: 0.1, weight: 2, dashArray: '8,5' }
+        : { color: l.color, fillColor: l.color, fillOpacity: 0.15, weight: 2 });
+      // Есть сохранённая геометрия с дырками — строим слой по ней,
+      // иначе получится сплошной полигон и вырез потеряется
+      const rings = _llRings(l.geojson);
+      const layer = L.polygon(rings && rings.length ? rings : ll, style).addTo(map);
+      mapLayers.push({ id: l.id, type: l.type, name: l.name, poly: l.poly,
+                       visible: l.visible, color: l.color, _psStyle: l._psStyle, layer,
+                       locked: !!l.locked,
+                       rawCoords: l.rawCoords || null, crsId: l.crsId || null,
+                       zoneType: l.zoneType || (l.type === 'szz' ? 'szz' : l.type === 'parcel' ? 'zu' : null),
+                       callout: l.callout ? { ...l.callout } : null,
+                       geojson: l.geojson || undefined,
+                       originalOuterPoly: l.originalOuterPoly || undefined });
+      if (!l.visible) map.removeLayer(layer);
+      if (l.visible && l._psStyle && l._psStyle.layerOpacity != null && l._psStyle.layerOpacity !== 1
+          && typeof window._applyLayerOpacityTo === 'function') {
+        const _lo = mapLayers[mapLayers.length - 1];
+        setTimeout(() => window._applyLayerOpacityTo(_lo, l._psStyle.layerOpacity), 0);
+      }
+      if (l.visible && l._psStyle?.fillPattern && l._psStyle.fillPattern !== 'solid')
+        _layersToRestorePattern.push({ layer, fp: l._psStyle.fillPattern, fc: l._psStyle.fillColor || l._psStyle.color || l.color });
+      } catch(err) {
+        // Один битый слой не должен рушить открытие всего проекта
+        _skippedLayers++;
+        console.warn('[open] слой пропущен:', l && l.name, err && err.message);
+      }
+    });
+    if (_skippedLayers) console.warn(`[open] пропущено слоёв без геометрии: ${_skippedLayers}`);
+    // Восстанавливаем z-порядок: push добавляет слои сверху вниз, но Leaflet рисует
+    // последний добавленный поверх — нужно синхронизировать порядок
+    if (typeof _syncLayerOrder === 'function') _syncLayerOrder();
+    if (_layersToRestorePattern.length && typeof window._applyFillPattern === 'function') {
+      requestAnimationFrame(() => _layersToRestorePattern.forEach(({ layer, fp, fc }) => {
+        if (typeof layer.eachLayer === 'function') layer.eachLayer(sub => window._applyFillPattern(sub, fc, fp));
+        else window._applyFillPattern(layer, fc, fp);
+      }));
+    }
+    if (typeof pdfObjects !== 'undefined') {
+      // Объект без data встречается в очень старых проектах — отбрасываем,
+      // иначе редактор падал при первой же отрисовке
+      pdfObjects = (state.pdfObjects || []).filter(o => o && o.type && o.data);
+      pdfOrientation = state.pdfOrientation || 'landscape';
+      // Листы редактора. В старом проекте их нет — тогда из загруженного
+      // выше содержимого получится один лист
+      if (typeof window._pdfSheetsRestore === 'function') {
+        const _sheets = Array.isArray(state.pdfSheets)
+          ? state.pdfSheets.map(sh => ({ ...sh,
+              objects: (sh.objects || []).filter(o => o && o.type && o.data) }))
+          : null;
+        window._pdfSheetsRestore(_sheets);
+      }
+      if (typeof window._pdfRestoreGroups === 'function') window._pdfRestoreGroups(state.pdfGroups);
+      if (typeof pdfObjCnt !== 'undefined') {
+        pdfObjCnt = pdfObjects.reduce((m, o) => {
+          const n = parseInt((o.id || '').replace('pobj_', '')) || 0;
+          return Math.max(m, n + 1);
+        }, 0);
+      }
+      if (typeof _renderAll          === 'function') _renderAll();
+      if (typeof _renderLayersList   === 'function') _renderLayersList();
+      if (typeof _renderProps        === 'function') _renderProps();
+      if (typeof _applyOrientation   === 'function') _applyOrientation();
+    }
+    // ── Найденные ЗУ: полигоны + карточки с данными ──
+    foundParcels = state.foundParcels || [];
+    if (typeof _foundLayerName !== 'undefined') _foundLayerName = state.foundLayerName || '';
+    const inside = foundParcels.filter(fp => fp.inP);
+    const cross  = foundParcels.filter(fp => !fp.inP);
+    foundParcels.forEach(fp => addParcelLayer(fp));
+    if (foundParcels.length) {
+      renderResults(inside, cross, state.foundLayerName || '');
+      // Список результатов живёт на вкладке «Поиск ЗУ» — подсказываем, что данные на месте
+      if (typeof setSt === 'function')
+        setSt(`Восстановлено ЗУ: ${foundParcels.length} (внутри ${inside.length}, пересечение ${cross.length})`, 'ok');
+      // Режим «Скрыть ЗУ» задаём явно в обе стороны, иначе флаг и карта расходятся
+      if (typeof setParcelsHidden === 'function') setParcelsHidden(!!state.parcelsHidden);
+    }
+    if (!foundParcels.length && typeof setParcelsHidden === 'function') setParcelsHidden(false);
+    renderLayers(); updateButtons();
+    document.getElementById('res-cnt').textContent      = inside.length;
+    document.getElementById('btn-export').disabled      = !foundParcels.length;
+    document.getElementById('btn-export-word').disabled = !foundParcels.length;
+    const _bg = document.getElementById('btn-export-geojson');
+    if (_bg) _bg.disabled = !foundParcels.some(p => p.geometry && p.geometry.type !== 'Point');
+    if (mapLayers.filter(l => l.poly).length) {
+      const bounds = mapLayers.filter(l => l.layer && l.layer.getBounds).map(l => l.layer.getBounds());
+      if (bounds.length) map.fitBounds(bounds.reduce((a, b) => a.extend(b)), { padding: [30, 30] });
+    }
+    // Видимость/стиль/порядок слоёв — после того как созданы все слои проекта.
+    // Внутри вызывается _syncLayerOrder(), который перерисует и карту редактора.
+    if (typeof _applyLayerPrefs === 'function') _applyLayerPrefs(state.layerPrefs);
+    if (typeof restoreLayerGroups === 'function') restoreLayerGroups(state.layerGroups);
+    // Строки РТ создаются раньше, чем приходят группы, поэтому их членство
+    // проставляем здесь — иначе после открытия проекта группы РТ исчезали
+    if (typeof window._mpReapplyGroups === 'function') window._mpReapplyGroups();
+    // Выноски слоёв рисуем после того, как восстановлены видимость и порядок
+    if (typeof refreshLayerCallouts === 'function') refreshLayerCallouts();
+    renderLayers();
+    // Положение карты в редакторе PDF, сохранённое для этого проекта
+    if (typeof _pdfApplyView === 'function') _pdfApplyView(state.pdfView || null);
+  };
+
+  // Новый проект — в отдельной вкладке, как кнопка «+». Раньше пункт меню
+  // очищал ТЕКУЩУЮ вкладку на месте, и открытый проект пропадал.
+  window.newProject = () => {
+    closeProjects();
+    if (typeof _ptabNew === 'function') {
+      _ptabNew();
+    } else {
+      currentProjectId = null;
+      if (typeof _restoreAppState === 'function') _restoreAppState(null);
+      else clearAll();
+      document.getElementById('tb-project-name').textContent = 'Новый проект';
+    }
+    setSt('Новый проект создан', 'ok');
+  };
+
+  // ── Несохранённые изменения ───────────────────────────────────────────────
+  // Любое изменение помечает проект «грязным», сохранение — снимает пометку.
+  // Индикатор — звёздочка в имени проекта в шапке.
+  let _dirty = false;
+  window.markDirty = function() {
+    // Счётчик правок — по нему автосохранение понимает, что пора писать
+    window._changeRev = (window._changeRev || 0) + 1;
+    if (_dirty) return;
+    _dirty = true;
+    const el = document.getElementById('tb-project-name');
+    if (el && !el.textContent.endsWith(' *')) el.textContent += ' *';
+  };
+  window.clearDirty = function() {
+    _dirty = false;
+    const el = document.getElementById('tb-project-name');
+    if (el) el.textContent = el.textContent.replace(/\s\*$/, '');
+  };
+  window.isDirty = function() { return _dirty; };
+
+  // Закрытие приложения: дописываем автосохранение и спрашиваем про несохранённое
+  // Три варианта, а не два: раньше окно нельзя было закрыть, не сохранившись
+  function _askOnClose(names) {
+    const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const msg = names && names.length > 1
+      ? `Есть изменения, которых нет в файлах, в проектах: ${names.map(esc).join(', ')}. Что сделать перед закрытием?`
+      : `В проекте${names && names.length ? ' ' + esc(names[0]) : ''} есть изменения, которых нет в файле. Что сделать перед закрытием?`;
+    return new Promise(resolve => {
+      const d = document.createElement('div');
+      d.id = 'close-ask';
+      d.className = 'app-dialog';
+      d.innerHTML = `<div class="modal ask-box" style="width:420px">
+        <div class="modal-hdr"><h2>Несохранённые изменения</h2>
+          <button class="modal-close" data-a="cancel" title="Не закрывать"><svg class="icon"><use href="#ico-x"/></svg></button></div>
+        <div class="modal-body"><div class="ask-msg">${msg}</div></div>
+        <div class="ask-actions ask-actions-wrap">
+          <button class="btn" data-a="cancel">Не закрывать</button>
+          <button class="btn warn" data-a="discard">Закрыть без сохранения</button>
+          <button class="btn pri" data-a="save">Сохранить и закрыть</button>
+        </div></div>`;
+      document.body.appendChild(d);
+      const done = a => { d.remove(); resolve(a); };
+      d.querySelectorAll('button').forEach(b => b.onclick = () => done(b.dataset.a));
+      d.addEventListener('click', e => { if (e.target === d) done('cancel'); });
+      document.addEventListener('keydown', function esc(ev) {
+        if (ev.key === 'Escape') { document.removeEventListener('keydown', esc); done('cancel'); }
+      });
+    });
+  }
+
+  window.requestAppClose = async function() {
+    try { if (window._autosaveNow) window._autosaveNow(true); } catch(e) {}
+    // Несохранённое ищем во всех вкладках, не только в открытой
+    const dirtyIds = (typeof _ptabs !== 'undefined')
+      ? _ptabs.filter(t => t.id === _ptabCurrent ? _dirty : t.dirty).map(t => t.id)
+      : (_dirty ? [null] : []);
+    if (dirtyIds.length) {
+      const names = (typeof _ptabs !== 'undefined')
+        ? _ptabs.filter(t => dirtyIds.includes(t.id)).map(t => '«' + t.name + '»') : [];
+      const answer = await _askOnClose(names);
+      if (answer === 'cancel') return false;
+      if (answer === 'save') {
+        // Текущую — первой, остальные — переключаясь на каждую по очереди
+        const order = dirtyIds.includes(_ptabCurrent)
+          ? [_ptabCurrent, ...dirtyIds.filter(id => id !== _ptabCurrent)] : dirtyIds;
+        for (const id of order) {
+          if (id && id !== _ptabCurrent && typeof _ptabSwitchTo === 'function') _ptabSwitchTo(id);
+          if (!_dirty) continue;
+          try { await saveProject(); } catch(e) {}
+          if (_dirty) return false;      // сохранение не прошло — окно оставляем
+        }
+      }
+      // 'discard' — закрываем как есть; автосохранение выше уже отработало
+    }
+    const api = window.pywebview && window.pywebview.api;
+    if (api && api.close_win) setTimeout(() => api.close_win(), 120);
+    return true;
+  };
+
+  // ── Сохранить / Открыть файл проекта ──────────────────────────────────────
+  // Путь файла текущего проекта: пока он известен, «Сохранить» пишет молча
+  let _projectPath = null;
+  // Путь живёт вместе с вкладкой проекта
+  function _ptabSetPath(p) {
+    if (typeof _ptabUpdateCurrentPath === 'function') _ptabUpdateCurrentPath(p);
+  }
+  window._setProjectPath = function(p) { _projectPath = p || null; };
+  window._getProjectPath = function() { return _projectPath; };
+
+  window.saveProjectAs = () => saveProject(true);
+
+  window.saveProject = async (asNew = false) => {
+    // Пометка несохранённого (« *») не должна попадать в имя файла
+    const curName = document.getElementById('tb-project-name').textContent.replace(/\s\*$/, '').trim();
+    const state  = typeof _captureAppState === 'function' ? _captureAppState() : {};
+    const projId = currentProjectId || ('proj_' + Date.now());
+    let name = curName === 'Новый проект' ? 'проект' : curName;
+
+    // Без отступов: с ними файл раздувался вдвое, а на больших поисках
+    // (сотни ЗУ с геометрией) это единственное, что реально утяжеляет проект
+    const makeContent = (n) => JSON.stringify(
+      { szz_version: 1, id: projId, name: n, ...state, savedAt: Date.now() });
+
+    // Проверяем, что состояние вообще сериализуется, и что данные по ЗУ на месте
+    let content0;
+    try {
+      content0 = makeContent(name);
+    } catch(e) {
+      setSt('Не удалось подготовить проект к сохранению: ' + e.message, 'err');
+      console.error('saveProject/JSON', e);
+      return;
+    }
+    console.log(`[save] ЗУ: ${(state.foundParcels||[]).length}, слоёв: ${(state.layers||[]).length}, ` +
+                `объектов PDF: ${(state.pdfObjects||[]).length}, размер: ${(content0.length/1048576).toFixed(2)} МБ`);
+
+    let saved = false;
+    const napi = window.pywebview && window.pywebview.api;
+    if (!saved && napi && napi.write_project) {
+      try {
+        // Файл уже сохранялся — пишем прямо в него, без диалога.
+        // Диалог только для нового проекта или для «Сохранить как».
+        let path = (!asNew && _projectPath) ? _projectPath : null;
+        if (!path && napi.choose_save_path) {
+          path = await napi.choose_save_path(name + '.szz');
+          if (!path) return;
+        }
+        if (!path) throw new Error('нет пути');
+        name = (String(path).split(/[\\/]/).pop() || name).replace(/\.[^.]+$/, '') || name;
+        const ok = await napi.write_project(path, makeContent(name));
+        if (!ok) { setSt('Не удалось сохранить файл', 'err'); return; }
+        _projectPath = path;
+        _ptabSetPath(path);
+        saved = true;
+      } catch(e) {
+        setSt('Не удалось сохранить файл: ' + (e && e.message || e), 'err');
+        console.error('saveProject/write', e);
+        return;
+      }
+    }
+    if (!saved && window.showSaveFilePicker) {
+      try {
+        const handle = await window.showSaveFilePicker({
+          suggestedName: name + '.szz',
+          types: [{ description: 'Проект СЗЗ', accept: { 'application/json': ['.szz'] } }],
+        });
+        name = handle.name.replace(/\.[^.]+$/, '') || name;
+        const writable = await handle.createWritable();
+        await writable.write(makeContent(name));
+        await writable.close();
+        saved = true;
+      } catch(e) {
+        if (e.name === 'AbortError') return;
+      }
+    }
+    if (!saved) {
+      askText('Название проекта', name, n => {
+        const nm = n || 'Без названия';
+        const blob = new Blob([makeContent(nm)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = nm + '.szz'; a.click();
+        URL.revokeObjectURL(url);
+      });
+      return;
+    }
+    currentProjectId = projId;
+    document.getElementById('tb-project-name').textContent = name;
+    if (typeof _ptabUpdateCurrentName === 'function') _ptabUpdateCurrentName(name, projId);
+    const _np = (state.foundParcels || []).length;
+    clearDirty();
+    setSt(`Проект сохранён ✓${_np ? ` (ЗУ в проекте: ${_np})` : ''}`, 'ok');
+  };
+
+  // Открываемый проект получает свою вкладку — открытый не подменяется.
+  // В текущую грузим, только если она пустая и нетронутая. Если файл уже
+  // открыт в какой-то вкладке — переключаемся на неё. false — грузить не нужно.
+  function _prepareTabForOpen(path, id) {
+    const same = _ptabs.find(t => (path && t.path === path) || (!path && id && t.projectId === id));
+    if (same) {
+      if (same.id !== _ptabCurrent) _ptabSwitchTo(same.id);
+      setSt(`Проект «${same.name}» уже открыт — переключено на его вкладку`, 'ok');
+      return false;
+    }
+    const cur = _ptabs.find(t => t.id === _ptabCurrent);
+    const curEmpty = cur && !cur.path && !cur.projectId && !isDirty() &&
+                     !(typeof _tabHasData === 'function' && _tabHasData(_captureAppState()));
+    if (!curEmpty && typeof _ptabNew === 'function') _ptabNew();
+    return true;
+  }
+
+  // Общая загрузка проекта (в новую вкладку — см. _prepareTabForOpen)
+  window._loadProjectData = function(data, path) {
+    if (!_prepareTabForOpen(path, data && data.id)) return;
+    console.log(`[open] ЗУ в файле: ${(data.foundParcels||[]).length}, слоёв: ${(data.layers||[]).length}, ` +
+                `источников: ${(data.sources||[]).length}, РТ: ${(data.monPoints||[]).length}`);
+    if (typeof _restoreAppState === 'function') _restoreAppState(data);
+    currentProjectId = data.id || null;
+    const pname = data.name || 'Без названия';
+    document.getElementById('tb-project-name').textContent = pname;
+    if (typeof _ptabUpdateCurrentName === 'function') _ptabUpdateCurrentName(pname, data.id);
+    _projectPath = path || null;
+    _ptabSetPath(_projectPath);
+    const _np = (data.foundParcels || []).length;
+    clearDirty();
+    setSt(`Проект «${pname}» загружен${_np ? ` · ЗУ: ${_np}` : ''}`, 'ok');
+  };
+
+  window.openProjectFile = async () => {
+    const napi = window.pywebview && window.pywebview.api;
+    if (napi && napi.open_project_dialog) {
+      try {
+        const r = await napi.open_project_dialog();
+        if (!r) return;
+        if (r.error || !r.content) { setSt('Не удалось прочитать файл: ' + (r.error || 'пустой файл'), 'err'); return; }
+        let data;
+        try { data = JSON.parse(r.content); }
+        catch(pe) { setSt('Файл повреждён — это не проект СЗЗ (.szz)', 'err'); console.error('[open] JSON', pe); return; }
+        _loadProjectData(data, r.path);
+      } catch(e) {
+        setSt('Ошибка открытия файла: ' + (e && e.message || e), 'err');
+        console.error('[open]', e);
+      }
+      return;
+    }
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = '.szz,.json';
+    inp.onchange = e => {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          _loadProjectData(JSON.parse(ev.target.result));
+        } catch(err) { setSt('Ошибка открытия файла', 'err'); }
+      };
+      reader.readAsText(file);
+    };
+    inp.click();
+  };
+
+  // ── Недавние проекты ───────────────────────────────────────────────────────
+  let _recentItems = [];
+  // Список файловых команд: недавние проекты подгружаются при открытии,
+  // поэтому наполняем их здесь, а не при старте программы.
+  window._fileMenuClose = function() {
+    const p = document.getElementById('rb-file-panel');
+    if (p) p.style.display = 'none';
+    document.removeEventListener('mousedown', _fileMenuOutside);
+  };
+  function _fileMenuOutside(e) {
+    if (!e.target.closest('#rb-file-panel') && !e.target.closest('#rb-file-btn')) window._fileMenuClose();
+  }
+  window._fileMenuToggle = async function(e) {
+    if (e) e.stopPropagation();
+    const panel = document.getElementById('rb-file-panel');
+    const btn   = document.getElementById('rb-file-btn');
+    if (!panel || !btn) return;
+    if (panel.style.display !== 'none') { window._fileMenuClose(); return; }
+    await _fillRecent(document.getElementById('rb-file-recent'));
+    panel.style.display = 'block';
+    placeUnder(panel, btn);
+    setTimeout(() => document.addEventListener('mousedown', _fileMenuOutside), 0);
+  };
+  async function _fillRecent(host) {
+    if (!host) return;
+    const napi = window.pywebview && window.pywebview.api;
+    _recentItems = [];
+    if (napi && napi.get_recent) {
+      try { _recentItems = (await napi.get_recent()) || []; } catch (err) {}
+    }
+    host.innerHTML = _recentItems.length
+      ? _recentItems.map((it, idx) =>
+          `<button onclick="_fileMenuClose();_recentOpen(${idx})" title="${(it.path || '').replace(/"/g, '&quot;')}">` +
+          `<svg class="icon icon-sm"><use href="#ico-doc"/></svg>` +
+          `<span class="rbf-recent-name">${(it.name || 'Без названия').replace(/</g, '&lt;')}</span>` +
+          `<span class="src-ctx-key">${it.ts ? new Date(it.ts).toLocaleDateString('ru-RU') : ''}</span></button>`).join('')
+      : '<div class="src-ctx-hdr" style="opacity:.6">Пока пусто</div>';
+  }
+
+  window._recentOpen = async function(idx) {
+    const it = _recentItems[idx];
+    const napi = window.pywebview && window.pywebview.api;
+    if (!it || !napi || !napi.open_recent) return;
+    try {
+      const r = await napi.open_recent(it.path);
+      if (!r || r.error || !r.content) { setSt('Файл не найден или повреждён', 'err'); return; }
+      _loadProjectData(JSON.parse(r.content), r.path || it.path);
+    } catch(e) { setSt('Ошибка открытия файла', 'err'); }
+  };
+
+  // legacy localStorage helpers
+  window.loadProject = (id) => {
+    const projects = _getProjects();
+    const p = projects.find(x => x.id === id);
+    if (!p) { setSt('Проект не найден', 'err'); return; }
+    closeProjects();
+    if (!_prepareTabForOpen(null, id)) return;
+    if (typeof _restoreAppState === 'function') _restoreAppState(p);
+    currentProjectId = id;
+    const pname = p.name || 'Без названия';
+    document.getElementById('tb-project-name').textContent = pname;
+    if (typeof _ptabUpdateCurrentName === 'function') _ptabUpdateCurrentName(pname, id);
+    setSt(`Проект «${pname}» загружен`, 'ok');
+  };
+
+  window.deleteProject = (id) => {
+    const p0 = _getProjects().find(p => p.id === id);
+    askConfirm('Удалить проект?', `«${(p0 && p0.name) || 'Без названия'}» будет удалён из списка. Отменить это нельзя.`, () => {
+      _saveProjects(_getProjects().filter(p => p.id !== id));
+      _renderProjectsList();
+    });
+  };
+
+  window._getCurrentUser = () => null;
+</script>
+
+<!-- ══ ОСНОВНЫЕ СКРИПТЫ ══ -->
+<!-- app-config.js генерируется приложением: адрес прокси (динамический порт) и версия -->
+<script src="app-config.js"></script>
+<script src="lib/proj4.js"></script>
+<script src="lib/leaflet.js"></script>
+<script src="lib/turf.min.js"></script>
+<script src="lib/html2canvas.min.js"></script>
+<script src="lib/jspdf.umd.min.js"></script>
+<script src="lib/svg2pdf.umd.min.js"></script>
+<script>
+// Шрифт с кириллицей для векторного PDF — почти мегабайт, поэтому грузим
+// по требованию, при первом векторном экспорте, а не на старте приложения
+window.loadPdfFont = function() {
+  if (window.DEJAVU_SANS_B64) return Promise.resolve(window.DEJAVU_SANS_B64);
+  if (window._pdfFontPromise) return window._pdfFontPromise;
+  window._pdfFontPromise = new Promise((res, rej) => {
+    const sc = document.createElement('script');
+    sc.src = 'lib/font-dejavu.js';
+    sc.onload  = () => res(window.DEJAVU_SANS_B64);
+    sc.onerror = () => {
+      // Не кэшируем отказ: разовый сбой сети не должен ломать экспорт
+      // на весь остаток сессии — следующий клик обязан попробовать снова
+      window._pdfFontPromise = null;
+      sc.remove();
+      rej(new Error('Не удалось загрузить шрифт для PDF'));
+    };
+    document.head.appendChild(sc);
+  });
+  return window._pdfFontPromise;
+};
+
+// Жирное начертание — отдельный файл. Раньше 'bold' регистрировался тем же
+// обычным DejaVuSans.ttf, поэтому жирный текст в векторном PDF ничем не
+// отличался от обычного (другого начертания в файле физически не было).
+window.loadPdfFontBold = function() {
+  if (window.DEJAVU_SANS_BOLD_B64) return Promise.resolve(window.DEJAVU_SANS_BOLD_B64);
+  if (window._pdfFontBoldPromise) return window._pdfFontBoldPromise;
+  window._pdfFontBoldPromise = new Promise((res, rej) => {
+    const sc = document.createElement('script');
+    sc.src = 'lib/font-dejavu-bold.js';
+    sc.onload  = () => res(window.DEJAVU_SANS_BOLD_B64);
+    sc.onerror = () => {
+      window._pdfFontBoldPromise = null;
+      sc.remove();
+      rej(new Error('Не удалось загрузить жирный шрифт для PDF'));
+    };
+    document.head.appendChild(sc);
+  });
+  return window._pdfFontBoldPromise;
+};
+</script>
+<script src="lib/docx.umd.js"></script>
+<script src="lib/xlsx.full.min.js"></script>
+<script src="js/utils.js?v=22"></script>
+<script src="js/map.js?v=99"></script>
+<script src="js/search.js?v=25"></script>
+<script src="js/sources.js?v=105"></script>
+<script src="js/monpoints.js?v=43"></script>
+<script src="js/pdf-editor.js?v=98"></script>
+<script src="js/pdf-vector.js?v=12"></script>
+<script src="js/export.js?v=11"></script>
+<script src="js/risk.js?v=6"></script>
+<script src="js/noise-converter.js?v=3"></script>
+<script src="js/econ-converter.js?v=1"></script>
+<script src="js/settlements.js?v=4"></script>
+<script src="js/workspace.js?v=5"></script>
+<script src="js/main.js?v=32"></script>
+<script>
+function _applyStartupProject(data) {
+  if (!data) return;
+  if (typeof _restoreAppState === 'function') _restoreAppState(data);
+  var pname = data.name || 'Без названия';
+  var projId = data.id || null;
+  if (typeof currentProjectId !== 'undefined') currentProjectId = projId;
+  var nameEl = document.getElementById('tb-project-name');
+  if (nameEl) nameEl.textContent = pname;
+  if (typeof _ptabUpdateCurrentName === 'function') _ptabUpdateCurrentName(pname, projId);
+  if (typeof setSt === 'function') setSt('Проект «' + pname + '» загружен', 'ok');
+}
+
+// Открытие проекта из JSON-строки: и при запуске, и из второй копии (WM_COPYDATA)
+window._openProjectJson = function(json, newTab) {
+  if (!json) return;
+  var data;
+  try {
+    data = JSON.parse(json);
+  } catch(e) {
+    if (typeof setSt === 'function') setSt('Ошибка открытия файла', 'err');
+    return;
+  }
+  if (window._appInitialized) {
+    if (newTab && typeof _ptabNew === 'function') _ptabNew();
+    _applyStartupProject(data);
+  } else {
+    window._pendingStartupProject = data;
+  }
+};
+
+window.addEventListener('pywebviewready', function() {
+  var api = window.pywebview && window.pywebview.api;
+  if (!api) return;
+  if (api.get_startup_project) {
+    api.get_startup_project().then(function(json) {
+      if (json) { window._openProjectJson(json, false); return; }
+      // Файла при запуске нет — проверяем автосохранение
+      if (!api.get_autosave) return;
+      api.get_autosave().then(function(as) {
+        if (!as) return;
+        var p;
+        try { p = JSON.parse(as); } catch(e) { return; }
+        if (!p || !p.offer || !(p.tabs || []).length) return;
+        var when = p.ts ? new Date(p.ts).toLocaleString('ru-RU') : '';
+        // Своё окно отвечает не сразу, поэтому оба исхода — в обратных вызовах
+        var _box = askConfirm('Найдено автосохранение',
+          'Несохранённые проекты' + (when ? ' от ' + when : '') + '. Восстановить их?',
+          function () {
+            if (window._appInitialized && window._restoreAutosave) window._restoreAutosave(p);
+            else window._pendingAutosave = p;
+          }, { ok: 'Восстановить', danger: false });
+        _box.querySelector('.ask-cancel').addEventListener('click', function () {
+          if (api.clear_autosave) api.clear_autosave();
+        });
+      }).catch(function(){});
+    }).catch(function(){});
+  }
+  if (api.get_version) {
+    api.get_version().then(function(v) {
+      var el = document.getElementById('tb-version');
+      if (el && v) el.textContent = 'v' + v;
+    }).catch(function(){});
+  }
+});
+
+window.addEventListener('pywebviewready', function() {
+  var api = window.pywebview && window.pywebview.api;
+  if (!api || typeof api.minimize !== 'function') return;
+
+  document.documentElement.classList.add('app');
+
+  var minBtn   = document.getElementById('tb-min');
+  var maxBtn   = document.getElementById('tb-max');
+  var closeBtn = document.getElementById('tb-close');
+  if (minBtn)   minBtn.onclick   = function() { api.minimize(); };
+  if (closeBtn) closeBtn.onclick = function() { window.requestAppClose(); };
+
+  // Синхронизация вида кнопки «Развернуть» с реальным состоянием окна:
+  // Aero Snap может развернуть/восстановить окно без нашей кнопки
+  var _syncMaxT = 0;
+  function _syncMax() {
+    if (!api.is_maximized || !maxBtn) return;
+    api.is_maximized().then(function(m) {
+      maxBtn.classList.toggle('is-max', !!m);
+      maxBtn.title = m ? 'Восстановить' : 'Развернуть';
+      document.documentElement.classList.toggle('is-max', !!m);
+    }).catch(function(){});
+  }
+  window.addEventListener('resize', function() {
+    clearTimeout(_syncMaxT);
+    _syncMaxT = setTimeout(_syncMax, 150);
+  });
+  if (maxBtn) maxBtn.onclick = function() {
+    api.toggle_maximize();
+    setTimeout(_syncMax, 100);
+  };
+  _syncMax();
+
+  // Resize handles: нативный системный resize-loop (WM_NCLBUTTONDOWN) —
+  // плавно, с Aero Snap и min_size; старый ручной способ — как fallback
+  (function() {
+    var dpr = window.devicePixelRatio || 1;
+    document.querySelectorAll('.rz').forEach(function(el) {
+      el.addEventListener('pointerdown', function(e) {
+        if (e.button !== 0) return;
+        e.preventDefault();
+        if (api.native_resize) { api.native_resize(el.dataset.dir); return; }
+        el.setPointerCapture(e.pointerId);
+        api.begin_resize(el.dataset.dir,
+          Math.round(e.screenX * dpr), Math.round(e.screenY * dpr));
+        var _rzId = 0;
+        function onMove(ev) {
+          if (!_rzId) {
+            _rzId = requestAnimationFrame(function() {
+              _rzId = 0;
+              api.step_resize(Math.round(ev.screenX * dpr), Math.round(ev.screenY * dpr));
+            });
+          }
+        }
+        function onUp(ev) {
+          el.releasePointerCapture(ev.pointerId);
+          el.removeEventListener('pointermove', onMove);
+          el.removeEventListener('pointerup',   onUp);
+          if (_rzId) { cancelAnimationFrame(_rzId); _rzId = 0; }
+        }
+        el.addEventListener('pointermove', onMove);
+        el.addEventListener('pointerup',   onUp);
+      });
+    });
+  })();
+
+  var titlebar = document.getElementById('titlebar');
+  if (titlebar) {
+    titlebar.addEventListener('mousedown', function(e) {
+      if (e.button !== 0) return;
+      if (e.target.closest('.ptabs-new,.ptabs-tab,.ptabs-x,.ptabs-rename-input,.tb-btn,.tb-wins')) return;
+      // Перетаскивание запускаем только после реального сдвига мыши,
+      // чтобы не ломать dblclick; дальше окно ведёт Python (start_move)
+      if (api.start_move) {
+        var sx = e.screenX, sy = e.screenY;
+        function onMove(ev) {
+          if (Math.abs(ev.screenX - sx) + Math.abs(ev.screenY - sy) < 3) return;
+          cleanup();
+          api.start_move();
+          setTimeout(_syncMax, 300);  // drag развёрнутого окна восстанавливает его
+        }
+        function cleanup() {
+          window.removeEventListener('mousemove', onMove);
+          window.removeEventListener('mouseup', cleanup);
+        }
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', cleanup);
+        return;
+      }
+      // Fallback для старых сборок
+      var initX = e.clientX;
+      var initY = e.clientY;
+      function onMoveOld(ev) {
+        if (window.pywebview && window.pywebview._jsApiCallback) {
+          window.pywebview._jsApiCallback('pywebviewMoveWindow', [ev.screenX - initX, ev.screenY - initY], 'move');
+        }
+      }
+      function onUpOld() {
+        window.removeEventListener('mousemove', onMoveOld);
+        window.removeEventListener('mouseup', onUpOld);
+      }
+      window.addEventListener('mousemove', onMoveOld);
+      window.addEventListener('mouseup', onUpOld);
+    });
+    titlebar.addEventListener('dblclick', function(e) {
+      if (e.target.closest('.ptabs-new,.ptabs-tab,.ptabs-x,.ptabs-rename-input,.tb-btn,.tb-wins')) return;
+      api.toggle_maximize();
+      setTimeout(_syncMax, 100);
+    });
+  }
+});
+</script>
+
+<!-- Resize handles -->
+<div class="rz rz-n"  data-dir="n"></div>
+<div class="rz rz-s"  data-dir="s"></div>
+<div class="rz rz-e"  data-dir="e"></div>
+<div class="rz rz-w"  data-dir="w"></div>
+<div class="rz rz-nw" data-dir="nw"></div>
+<div class="rz rz-ne" data-dir="ne"></div>
+<div class="rz rz-sw" data-dir="sw"></div>
+<div class="rz rz-se" data-dir="se"></div>
+</body>
+</html>

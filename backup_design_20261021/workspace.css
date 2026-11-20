@@ -1,0 +1,206 @@
+/* Application layout only: printed sheet geometry and typography stay in
+   pdf-editor.css. Keep workspace chrome separate from document content. */
+.workspace-ui { --ws-panel: 304px; --ws-stroke: var(--bd2); }
+.workspace-ui:not(.light) { --bg2:#16191e; --bg3:#20252c; --bg4:#2b323b; --tx2:#b0b9c6; --tx3:#8390a0; --bd:rgba(155,174,197,.13); --bd2:rgba(155,174,197,.24); }
+.workspace-ui .menubar { min-height:40px; height:auto; }
+.workspace-ui .mb-tabs { min-width:0; overflow-x:auto; scrollbar-width:thin; }
+.workspace-ui .mb-tab { min-height:40px; padding:0 13px; font-size:13px; }
+.workspace-ui .mb-pdf-tab { color:var(--tx); font-weight:600; }
+.workspace-ui .ribbon { height:54px; gap:6px; padding:0 12px; }
+.workspace-ui .rb-btn { flex-direction:row; gap:7px; height:34px; padding:6px 10px; }
+.workspace-ui .rb-btn span { opacity:1; font-size:12px; }
+.workspace-ui .rb-btn .icon { width:17px; height:17px; }
+.workspace-ui .rb-quick { margin-left:auto; position:sticky; right:-12px; background:var(--bg2); padding:0 10px; }
+.ws-bar { display:flex; align-items:center; gap:8px; min-height:44px; flex-shrink:0; padding:5px 12px; background:var(--bg2); border-bottom:1px solid var(--bd); box-sizing:border-box; }
+.ws-bar-title { font-size:13px; font-weight:600; white-space:nowrap; margin:0 8px; color:var(--tx); }
+.ws-spacer { flex:1; min-width:0; }
+.ws-button,.ws-icon-button { display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; min-height:32px; padding:5px 10px; border:1px solid var(--bd); border-radius:6px; background:var(--bg3); color:var(--tx2); font:12px var(--ui); cursor:pointer; }
+.ws-button:hover,.ws-icon-button:hover { background:var(--bg4); color:var(--tx); border-color:var(--bd2); }
+.ws-button.active { background: var(--sel-bg); border-color: var(--bd2); color: var(--tx); }
+.ws-icon-button { width:30px; min-height:30px; padding:5px; background:transparent; border-color:transparent; }
+.workspace-ui :is(button,input,select,textarea,[tabindex]):focus-visible { outline:2px solid var(--acc); outline-offset:2px; }
+.workspace-ui .app-body { min-height:0; position:relative; }
+.workspace-ui #sidebar { width:278px; min-width:230px; max-width:34vw; overflow:hidden; }
+.workspace-ui #sidebar > .section-grow { min-height:90px; }
+.workspace-ui #sidebar .section-grow > .section-body { padding:10px 8px 0; gap:6px; }
+.workspace-ui #sidebar .section-grow > .section-hdr { cursor:default; min-height:46px; }
+.ws-count-hint { margin-left:auto; white-space:nowrap; color:var(--tx3); font-size:10px; }
+.workspace-ui #layer-search,.workspace-ui #layer-type-filter { min-height:34px; font-size:12px!important; border-color:var(--bd2)!important; }
+.workspace-ui #layer-type-filter { width:92px!important; }
+.workspace-ui .lb-tools { flex-wrap:wrap; }
+.workspace-ui .lb-tool { min-height:30px; font-size:12px; }
+.workspace-ui #layer-box,.workspace-ui #layer-box.manual { flex:1!important; height:auto!important; min-height:50px; max-height:none; border:0; border-radius:0; background:transparent; padding-bottom:8px; }
+.workspace-ui #layer-resize-handle { display:none; }
+.workspace-ui .li-row { min-height:40px; padding:7px 6px; border-radius:5px; gap:5px; position:relative; }
+.workspace-ui .li-name { font-size:12px; line-height:1.4; }
+.workspace-ui .li-fillpct { display:none; }
+.workspace-ui .li-type { max-width:60px; overflow:hidden; text-overflow:ellipsis; font-size:10px; }
+.workspace-ui .li-del { opacity:0; }
+.workspace-ui .li-row:is(:hover,:focus-within) .li-del { opacity:1; }
+.workspace-ui .li-thumb { flex-shrink:0; }
+.workspace-ui :is(.li-group,.pl-group) { min-height:36px; }
+
+/* Иерархия групп. Раньше шаг у заголовка и у его слоёв считался по-разному:
+   заголовок сдвигался на 20 px за уровень, строка — на 12, и начиная со
+   второго уровня вложенности слой оказывался ЛЕВЕЕ собственной группы.
+   Теперь шаг один (--lvl) и общий для обоих: группа на своей ступени,
+   её слои — ровно на одну правее. */
+/* Сдвиг нельзя считать одним padding: у заголовка группы перед галкой стоит
+   стрелка сворачивания, у строки слоя её нет. При равном padding галка
+   ребёнка оказывалась ЛЕВЕЕ галки родителя — иерархия читалась наизнанку.
+   Поэтому строка внутри группы дополнительно отступает на ширину этой
+   стрелки (--grp-lead), и её галка встаёт ровно на ступень правее. */
+.workspace-ui .li-group        { padding-left: calc(8px + var(--g-depth, 0) * var(--lvl)); }
+.workspace-ui .li-row.in-group { padding-left: calc(8px + var(--grp-lead) + var(--g-depth, 1) * var(--lvl)); }
+.workspace-ui .li-row.in-group::before { left: calc(8px + var(--grp-lead) / 2); }
+.workspace-ui .map-wrap { min-width:180px; }
+.workspace-ui #coords-input-section { flex-shrink:0; max-height:65%; overflow:auto; border-bottom:1px solid var(--bd2); }
+.workspace-ui #coords-input-section textarea { min-height:130px; resize:vertical; }
+.ws-inspector { width:var(--ws-panel); min-width:270px; max-width:34vw; flex-shrink:0; display:flex; flex-direction:column; overflow:hidden; background:var(--bg2); }
+.ws-panel-heading { min-height:46px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 12px; border-bottom:1px solid var(--bd); box-sizing:border-box; }
+.ws-panel-heading strong { font-size:13px; font-weight:600; }
+#map-inspector-content { flex:1; min-height:0; overflow:auto; }
+.ws-empty { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin:26px 20px; color:var(--tx2); font-size:13px; line-height:1.6; }
+.ws-empty > .icon { width:28px; height:28px; color:var(--tx3); }
+.ws-empty strong { color:var(--tx); font-size:14px; }
+.ws-empty p { margin:0; }
+#map-inspector-content:has(#layer-props-panel:not([style*="display: none"]):not([style*="display:none"])) > .ws-empty { display:none; }
+.workspace-ui #layer-props-panel:not(.lp-floating) { position:static; border:0; box-shadow:none; background:transparent; max-height:none; width:auto; }
+.workspace-ui #layer-props-panel .section-hdr { min-height:44px; gap:4px; }
+.workspace-ui #layer-props-panel .section-title { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; }
+.workspace-ui #layer-props-panel .section-body { padding:12px; }
+.workspace-ui .lp-row { gap:8px; margin-bottom:12px; }
+.workspace-ui .lp-label { font-size:12px; color:var(--tx2); }
+.workspace-ui #layer-props-panel :is(input[type=number],select,.btn) { min-height:32px; font-size:12px; }
+.workspace-ui #layer-props-panel input[type=color] { width:34px; height:30px; }
+.workspace-ui #layer-props-panel.lp-floating { z-index:9100; min-width:280px; max-width:calc(100vw - 24px); max-height:calc(100vh - 24px); }
+.ws-divider,.workspace-ui #main-resize-handle,.workspace-ui #pdf-resize-handle { width:6px; flex-shrink:0; background:var(--bg3); cursor:col-resize; position:relative; touch-action:none; }
+.ws-divider:hover,.workspace-ui #main-resize-handle:hover,.workspace-ui #pdf-resize-handle:hover,.ws-divider:focus-visible { background:var(--acc); }
+.ws-resizing,.ws-resizing * { cursor:col-resize!important; user-select:none!important; }
+.ws-hide-left > #sidebar,.ws-hide-left > #main-resize-handle,.ws-hide-right > #map-inspector,.ws-hide-right > #map-inspector-resize { display:none!important; }
+.ws-show-results:not(.ws-inspect-layer) > #map-inspector,.ws-show-results:not(.ws-inspect-layer) > #map-inspector-resize { display:none!important; }
+.ws-inspect-layer > #results-panel,.ws-hide-right > #results-panel { display:none!important; }
+.ws-button[hidden],#pdf-selection-bar[hidden] { display:none; }
+#pdf-selection-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px; padding:8px; border-bottom:1px solid var(--bd); background: var(--sel-bg); }
+.ws-selection-count { font-size:11px; color:var(--tx2); }
+.ws-button:disabled { opacity:.4; cursor:default; }
+.workspace-ui .results-panel { max-width:36vw; }
+.ws-status { display:flex; align-items:center; min-height:28px; border-top:1px solid var(--bd); background:var(--bg2); padding:0 12px; gap:16px; flex-shrink:0; }
+.ws-status .status-bar { flex:1; min-width:0; border:0; background:transparent; padding:4px 0; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.ws-status .mb-proxy { margin:0; font-size:11px; padding:0; }
+
+/* Print workspace: header / tool rail + tree + canvas + inspector. */
+.workspace-ui #pdf-editor { grid-template-columns:56px auto 6px minmax(180px,1fr) 6px auto; grid-template-rows:52px minmax(0,1fr); }
+.workspace-ui #pdf-sidebar-header { grid-column:1 / -1; grid-row:1; width:auto; min-width:0; padding:8px 12px; border-bottom:1px solid var(--bd2); z-index:30; overflow:visible; }
+.workspace-ui #pdf-sidebar-header .pdf-back-btn { min-height:34px; font-size:12px; padding:7px 12px; }
+.ws-header-panels { display:flex; gap:6px; }
+.workspace-ui #pdf-export-btn { background:var(--acc); color:#fff; border-color:transparent; }
+.workspace-ui #pdf-left-toolbar { grid-row:2; grid-column:1; width:56px; min-height:0; padding:8px 4px; box-sizing:border-box; gap:3px; }
+.workspace-ui .ps-ltool { width:40px; height:36px; }
+.workspace-ui .ps-ltool[data-tip]:hover::after { display:none; }
+.workspace-ui .ps-ltool-cap { font-size:9px; letter-spacing:0; padding-top:8px; }
+.ws-navigator { grid-row:2; grid-column:2; width:248px; max-width:34vw; min-width:230px; min-height:0; display:flex; flex-direction:column; background:var(--bg2); overflow:hidden; }
+#pdf-navigator-resize { grid-row:2; grid-column:3; }
+.ws-tree-scroll { flex:1; min-height:0; overflow:auto; overscroll-behavior:contain; }
+.workspace-ui #pdf-objects-panel { max-height:none; overflow:visible; flex:none; border-bottom:1px solid var(--bd2); }
+.workspace-ui #pdf-pane-layers { display:block!important; overflow:visible; padding:0; }
+.workspace-ui #pdf-layers-panel { flex:none; max-height:none; overflow:visible; }
+.workspace-ui #pdf-layers-panel .pl-geo-box { max-height:none; overflow:visible; }
+.workspace-ui #pdf-navigator .pl-item { min-height:36px; }
+.workspace-ui #pdf-navigator .pl-section-hdr { min-height:38px; padding:8px; font-size:12px; }
+.workspace-ui #pdf-navigator input[type=text] { min-height:32px; }
+.workspace-ui #pdf-canvas-col { grid-row:2; grid-column:4; min-width:0; min-height:0; }
+.workspace-ui #pdf-resize-handle { grid-row:2; grid-column:5; }
+.workspace-ui #pdf-sidebar { grid-row:2; grid-column:6; width:304px; min-width:270px; max-width:34vw; min-height:0; overflow:hidden; background:var(--bg2); }
+.workspace-ui #pdf-tabs { flex-shrink:0; min-height:42px; padding:0 8px; gap:8px; }
+.workspace-ui .pdf-tab { min-height:40px; font-size:12px; }
+.workspace-ui #pdf-sidebar .pdf-pane { min-height:0; overflow:auto; }
+.workspace-ui #pdf-props-panel { max-height:none; overflow:visible; flex:none; }
+.workspace-ui #pdf-toolbar { padding:14px 12px; }
+.workspace-ui #pdf-sidebar :is(.ps-align-btn,.orient-btn,.ps-prop-inp,.ps-prop-sel) { min-height:32px; font-size:12px; }
+.workspace-ui #pdf-sidebar .ps-tb-row { gap:6px; margin-bottom:10px; }
+.workspace-ui #pdf-sidebar .ps-tb-check { padding:6px 0; font-size:12px; }
+.workspace-ui #pdf-sidebar .ps-tb-label { margin-top:14px; margin-bottom:8px; color:var(--tx2); font-size:12px; }
+.workspace-ui #pdf-map-bar { padding:6px 12px; justify-content:center; background:var(--bg2); gap:6px; flex-shrink:0; min-height:40px; border-bottom:1px solid var(--bd); }
+.workspace-ui #pdf-map-bar .pmb-btn { min-height:28px; flex:0 1 auto; padding:5px 10px; }
+.workspace-ui #pdf-sheets { min-height:40px; padding:6px 10px; flex-wrap:nowrap; overflow-x:auto; flex-shrink:0; }
+.workspace-ui #pdf-canvas-wrap { min-height:0; background:radial-gradient(ellipse at center,#303844 0,#20262e 90%); }
+.workspace-ui #pdf-canvas { flex:none; }
+.light.workspace-ui #pdf-canvas-wrap { background:#dce2e9; }
+.ws-view-bar { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:6px 12px; min-height:44px; box-sizing:border-box; background:var(--bg2); border-top:1px solid var(--bd); flex-shrink:0; }
+.ws-view-hint { font-size:11px; line-height:1.4; color:var(--tx3); }
+#pdf-view-controls { margin-left:auto; flex-shrink:0; }
+#pdf-view-controls .ps-tb-row { display:flex; margin:0; gap:4px; }
+#pdf-view-controls .ps-align-btn { min-width:32px; height:30px; padding:4px 8px; }
+#pdf-view-controls #pdf-zoom-pct { min-width:76px; }
+#pdf-layer-inspector { display:none; min-height:0; overflow:auto; flex:1; }
+#pdf-sidebar.ws-geo-properties > :is(#pdf-tabs,.pdf-pane) { display:none!important; }
+#pdf-sidebar.ws-geo-properties > #pdf-layer-inspector { display:block; }
+.ws-properties-back { margin:10px 12px 0; }
+.workspace-ui #pdf-sidebar-header,.workspace-ui #pdf-toolbar,.workspace-ui #pdf-navigator .pl-section-hdr { background:var(--bg2); }
+.workspace-ui #pdf-navigator .pl-section-hdr:hover { background:var(--bg3); }
+.workspace-ui #pdf-props-panel { padding:0; }
+.workspace-ui #pdf-props-panel .pp-body { padding:0; }
+.workspace-ui #pdf-props-panel .pp-row { margin-bottom:10px; gap:8px; }
+.workspace-ui #pdf-props-panel :is(input[type=number],input[type=text],select) { min-height:32px; font-size:12px; }
+.workspace-ui #pdf-props-panel .pp-lbl,.workspace-ui .lp-lbl { font-size:12px; }
+.workspace-ui #pdf-props-panel .pp-sec-hdr { min-height:34px; }
+.workspace-ui #pdf-props-panel textarea { min-height:76px; line-height:1.5; }
+.workspace-ui #pdf-props-panel :is(.pp-inp,.pp-inp-sm,select,.pp-grid) { min-width:0; }
+.workspace-ui #pdf-props-panel .pp-inp-sm { flex:0 1 62px; width:62px; }
+.workspace-ui #pdf-props-panel .pp-slider { flex:1 1 0; min-width:24px; width:0; }
+.workspace-ui #pdf-props-panel .pp-actions { padding:12px; }
+.workspace-ui #pdf-pane-props { --pp-h:32px; --pp-hit:30px; }
+.workspace-ui #layer-props-panel [id^=lp-fpat-] { min-height:28px; background:var(--bg3); color:var(--tx2); border:1px solid var(--bd2); border-radius:4px; }
+.workspace-ui #layer-props-panel [id^=lp-fpat-].active { border-color: var(--bd2); color: var(--tx); }
+.workspace-ui #lp-presets button { min-height:28px; padding:4px 6px; }
+.workspace-ui #pdf-view-bar .status-bar { flex:1; min-width:0; max-height:34px; padding:0; background:none; border:0; font-size:11px; line-height:1.45; white-space:normal; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+.workspace-ui #pdf-editor.ws-hide-left { grid-template-columns:56px 0 0 minmax(180px,1fr) 6px auto; }
+.workspace-ui #pdf-editor.ws-hide-right { grid-template-columns:56px auto 6px minmax(180px,1fr) 0 0; }
+.workspace-ui #pdf-editor.ws-hide-left.ws-hide-right { grid-template-columns:56px 0 0 minmax(180px,1fr) 0 0; }
+.ws-hide-left > #pdf-navigator,.ws-hide-left > #pdf-navigator-resize,.ws-hide-right > #pdf-sidebar,.ws-hide-right > #pdf-resize-handle { display:none!important; }
+.workspace-ui .modal { max-width:calc(100vw - 40px); max-height:calc(100dvh - 48px); }
+.workspace-ui .modal-hdr { padding:14px 20px; gap:16px; }
+.workspace-ui .modal-body { padding:20px; min-height:0; overscroll-behavior:contain; }
+.workspace-ui .modal-close { width:32px; height:32px; }
+.workspace-ui .modal :is(.btn,select,input[type=text],input[type=number]) { min-height:34px; }
+.workspace-ui .modal .modal-input { width:100%; min-width:0; }
+.workspace-ui .modal-body div[style*="flex:1"] { min-width:0; }
+.workspace-ui .modal .src-map-pick-btn { width:auto; flex:0 0 auto; }
+.workspace-ui #src-panel-add > div:has(> #src-form-submit) { position:sticky; bottom:-14px; padding:10px 0; background:var(--bg2); border-top:1px solid var(--bd); z-index:2; }
+@media (max-width:1200px) {
+  .ws-view-hint { max-width:145px; }
+  .workspace-ui .mb-tab { padding:0 9px; }
+  .workspace-ui .rb-hint { max-width:300px; white-space:normal; font-size:11px; }
+}
+@media (max-width:1049px) {
+  .ws-count-hint { display:none; }
+  .workspace-ui #sidebar,.ws-inspector,.workspace-ui #pdf-sidebar,.ws-navigator { max-width:40vw; }
+  .ws-reset span { display:none; }
+  .workspace-ui .mb-tab { gap:5px; font-size:12px; }
+}
+@media (max-width:760px) {
+  .ws-bar-title,.ws-view-hint { display:none; }
+  .workspace-ui .mb-tab .icon { display:none; }
+  .ws-bar { padding-left:8px; padding-right:8px; gap:5px; }
+  .workspace-ui #pdf-sidebar-header { gap:5px; padding:6px; }
+  .workspace-ui .modal { max-width:calc(100vw - 20px); max-height:calc(100dvh - 24px); }
+  .workspace-ui .modal-body { padding:14px; }
+}
+
+/* ── Управление панелями внутри ленты ──────────────────────────────────
+   Раньше это была отдельная строка под лентой высотой 44 px. В ленте
+   места по ширине меньше, поэтому подписи скрыты — назначение кнопок
+   даёт подсказка, а состояние видно по заливке. «Результаты» появляются
+   редко и потому с подписью. */
+.ws-ribbon-group { display: flex; align-items: center; gap: 4px; }
+.ws-ribbon-group .ws-button {
+  min-height: 30px;
+  padding: 5px 8px;
+  gap: 0;
+}
+.ws-ribbon-group .ws-toggle span,
+.ws-ribbon-group .ws-reset span { display: none; }
+/* Кнопка результатов остаётся с подписью — она появляется редко */
+.ws-ribbon-group #map-results-toggle { gap: 6px; padding: 5px 10px; }
+.ws-ribbon-group #map-results-toggle span { display: inline; }

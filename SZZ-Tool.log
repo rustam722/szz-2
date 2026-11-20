@@ -1,0 +1,63 @@
+2026-10-09 10:47:56  === СЗЗ Инструмент v1.7 запуск ===
+2026-10-09 10:47:56  frozen=False
+2026-10-09 10:47:56  APP_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 10:47:56  DATA_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 10:47:56  STATIC_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 10:47:56  Static server: 127.0.0.1:57944  dir=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 10:47:56  Proxy server FAILED:
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\SZZ-Tool\app.py", line 126, in start_proxy_server
+    import proxy as _proxy
+  File "C:\Users\User\Desktop\SZZ-Tool\proxy.py", line 18, in <module>
+    import httpx
+ModuleNotFoundError: No module named 'httpx'
+
+2026-10-09 10:47:56  Risk server: 127.0.0.1:57943
+2026-10-09 10:48:11  Готовность: static=True  proxy=False  risk=True
+2026-10-09 10:48:12  _setup_frameless OK hwnd=14816748
+2026-10-09 12:16:23  === СЗЗ Инструмент v1.9 запуск ===
+2026-10-09 12:16:23  frozen=False
+2026-10-09 12:16:23  APP_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 12:16:23  DATA_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 12:16:23  STATIC_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 12:16:23  Static server: 127.0.0.1:61473  dir=C:\Users\User\Desktop\SZZ-Tool
+2026-10-09 12:16:24  Risk server: 127.0.0.1:61472
+2026-10-09 12:16:25  Proxy server: 127.0.0.1:61471
+2026-10-09 12:16:25  Cache DB: C:\Users\User\Desktop\SZZ-Tool\nspd_cache.db
+2026-10-09 12:16:25  Готовность: static=True  proxy=True  risk=True
+2026-10-09 12:16:26  _setup_frameless OK hwnd=2170614
+2026-11-12 15:39:07  === СЗЗ Инструмент v2.1.1 запуск ===
+2026-11-12 15:39:07  frozen=False
+2026-11-12 15:39:07  APP_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:39:07  DATA_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:39:07  STATIC_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:39:07  Static server: 127.0.0.1:53521  dir=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:39:08  Risk server: 127.0.0.1:53520
+2026-11-12 15:39:10  Proxy server: 127.0.0.1:53519
+2026-11-12 15:39:10  Cache DB: C:\Users\User\Desktop\SZZ-Tool\nspd_cache.db
+2026-11-12 15:39:10  Готовность: static=True  proxy=True  risk=True
+2026-11-12 15:39:11  _setup_frameless OK hwnd=4787960
+2026-11-12 15:45:25  === СЗЗ Инструмент завершён ===
+2026-11-12 15:45:38  === СЗЗ Инструмент v2.1.1 запуск ===
+2026-11-12 15:45:38  frozen=False
+2026-11-12 15:45:38  APP_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:45:38  DATA_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:45:38  STATIC_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:45:38  Static server: 127.0.0.1:53931  dir=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:45:39  Risk server: 127.0.0.1:53930
+2026-11-12 15:45:40  Proxy server: 127.0.0.1:53929
+2026-11-12 15:45:40  Cache DB: C:\Users\User\Desktop\SZZ-Tool\nspd_cache.db
+2026-11-12 15:45:41  Готовность: static=True  proxy=True  risk=True
+2026-11-12 15:45:42  _setup_frameless OK hwnd=1643490
+2026-11-12 15:55:07  === СЗЗ Инструмент завершён ===
+2026-11-12 15:55:21  === СЗЗ Инструмент v2.1.1 запуск ===
+2026-11-12 15:55:21  frozen=False
+2026-11-12 15:55:21  APP_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:55:21  DATA_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:55:21  STATIC_DIR=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:55:21  Static server: 127.0.0.1:54593  dir=C:\Users\User\Desktop\SZZ-Tool
+2026-11-12 15:55:22  Risk server: 127.0.0.1:54592
+2026-11-12 15:55:23  Proxy server: 127.0.0.1:54591
+2026-11-12 15:55:23  Cache DB: C:\Users\User\Desktop\SZZ-Tool\nspd_cache.db
+2026-11-12 15:55:24  Готовность: static=True  proxy=True  risk=True
+2026-11-12 15:55:25  _setup_frameless OK hwnd=3674734

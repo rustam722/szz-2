@@ -1,0 +1,662 @@
+Inno Setup 7 Command-Line Compiler
+Copyright (C) 1997-2026 Jordan Russell. All rights reserved.
+Portions Copyright (C) 2000-2026 Martijn Laan. All rights reserved.
+Portions Copyright (C) 2001-2004 Alex Yackimoff. All rights reserved.
+https://www.innosetup.com
+
+Compiler engine version: Inno Setup 7.1.0
+Non-commercial use only
+
+Preprocessing
+   Reading file: C:\Program Files\Inno Setup 7\ISPPBuiltins.iss
+Parsing [Setup] section, line 28
+Parsing [Setup] section, line 29
+Parsing [Setup] section, line 30
+Parsing [Setup] section, line 31
+Parsing [Setup] section, line 32
+Parsing [Setup] section, line 33
+Parsing [Setup] section, line 34
+Parsing [Setup] section, line 35
+Parsing [Setup] section, line 36
+Parsing [Setup] section, line 37
+Parsing [Setup] section, line 38
+Parsing [Setup] section, line 40
+Parsing [Setup] section, line 41
+Parsing [Setup] section, line 42
+Parsing [Setup] section, line 43
+Parsing [Setup] section, line 44
+Parsing [Setup] section, line 45
+Parsing [Setup] section, line 46
+Parsing [Setup] section, line 47
+Parsing [Setup] section, line 48
+Parsing [Setup] section, line 49
+Parsing [Setup] section, line 51
+Parsing [Setup] section, line 53
+Reading file (WizardImageFile)
+Reading file (WizardSmallImageFile)
+Preparing Setup program executable
+   Verification successful
+   Updating icons (Setup.e32)
+   Updating version info (Setup.e32)
+Determining language code pages
+Parsing [Languages] section, line 56
+   Reading file: C:\Program Files\Inno Setup 7\Languages\Russian.isl
+   Messages in script file
+Reading default messages from Default.isl
+Parsing [Languages] section, line 56
+   Reading file: C:\Program Files\Inno Setup 7\Languages\Russian.isl
+Parsing [LangOptions], [Messages], and [CustomMessages] sections
+   Messages in script file
+Reading [Code] section
+Parsing [Tasks] section, line 66
+Parsing [Tasks] section, line 67
+Parsing [Icons] section, line 98
+Parsing [Icons] section, line 103
+Parsing [Icons] section, line 107
+Parsing [Registry] section, line 87
+Parsing [Registry] section, line 89
+Parsing [Registry] section, line 91
+Parsing [Registry] section, line 93
+Parsing [UninstallDelete] section, line 120
+Parsing [UninstallDelete] section, line 121
+Parsing [Run] section, line 114
+Parsing [Files] section, line 71
+Parsing [Files] section, line 74
+Parsing [Files] section, line 81
+   Reading version info: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+Parsing [Files] section, line 83
+   Reading version info: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\MicrosoftEdgeWebview2Setup.exe
+Compiling [Code] section
+Creating setup files
+   Verification successful
+   Updating icons (Setup.exe)
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\SZZ-Tool.exe
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\base_library.zip
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\index.html
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\libcrypto-3.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\libffi-8.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\libssl-3.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\main_icon.ico
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyexpat.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\python314.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\select.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\sqlite3.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\unicodedata.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\VCRUNTIME140.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\VCRUNTIME140_1.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\version.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_asyncio.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_bz2.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_cffi_backend.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_ctypes.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_decimal.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_elementtree.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_hashlib.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_lzma.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_multiprocessing.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_overlapped.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_queue.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_socket.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_sqlite3.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_ssl.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_uuid.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_wmi.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_zoneinfo.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\_zstd.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\certifi\cacert.pem
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\certifi\py.typed
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\click-8.4.2.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\click-8.4.2.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\click-8.4.2.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\click-8.4.2.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\click-8.4.2.dist-info\licenses\LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\clr_loader\ffi\dlls\amd64\ClrLoader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\clr_loader\ffi\dlls\x86\ClrLoader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\css\main.css
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\css\pdf-editor.css
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\py.typed
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_controller.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_exceptions.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_files.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_headers.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_lfu_cache.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_lmdb_types_.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_s3.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_serializers.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_synchronization.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_utils.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\httpx.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\requests.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_async_cache.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_sync_cache.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\models.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_headers.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_spec.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_async\_storages\_sqlite.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_base\_storages\_base.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_base\_storages\_packing.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\beta\_core\_sync\_storages\_sqlite.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\_client.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\_mock.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\_pool.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\_storages.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\_transports.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_async\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\_client.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\_mock.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\_pool.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\_storages.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\_transports.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel\_sync\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\REQUESTED
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\hishel-0.1.5.dist-info\licenses\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\export.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\main.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\map.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\monpoints.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\pdf-editor.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\search.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\settlements.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\sources.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\js\utils.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\docx.umd.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\html2canvas.min.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\jspdf.umd.min.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\leaflet.css
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\leaflet.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\proj4.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\turf.min.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\lib\xlsx.full.min.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\msgpack\_cmsgpack.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\fft\_pocketfft_umath.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\linalg\_umath_linalg.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\bit_generator.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\mtrand.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_bounded_integers.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_common.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_generator.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_mt19937.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_pcg64.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_philox.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\random\_sfc64.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\_core\_multiarray_tests.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy\_core\_multiarray_umath.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\DELVEWHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\entry_points.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\fft\pocketfft\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\linalg\lapack_lite\LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\ma\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\distributions\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\mt19937\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\pcg64\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\philox\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\sfc64\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\random\src\splitmix64\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\include\numpy\libdivide\LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\src\common\pythoncapi-compat\COPYING
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\src\highway\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\src\multiarray\dragon4_LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\src\npysort\x86-simd-sort\LICENSE.md
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy-2.5.2.dist-info\licenses\numpy\_core\src\umath\svml\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy.libs\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic-2.13.4.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic-2.13.4.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic-2.13.4.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic-2.13.4.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic-2.13.4.dist-info\licenses\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pydantic_core\_pydantic_core.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\cli.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\client.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\errors.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\logger.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\py.typed
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\map_types\enums.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\map_types\_autogen_layers.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\map_types\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\base_feature.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\feature.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\geometries.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\layer_configs.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\properties.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\responses.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\_autogen_features.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\_common.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\schemas\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\_async\api.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\_async\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\_sync\api.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd\_sync\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\entry_points.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\REQUESTED
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pynspd-1.1.13.dist-info\licenses\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\base.pxi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\database.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\database.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\database.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\database.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\list.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\list.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\list.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\list.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj.pxi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\py.typed
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_compat.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_compat.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_compat.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_compat.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_compat.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_context.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_context.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_context.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_context.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_context.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_crs.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_crs.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_crs.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_crs.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_crs.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_geod.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_geod.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_geod.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_geod.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_geod.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_network.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_network.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_network.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_network.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_sync.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_sync.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_sync.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_sync.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_transformer.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_transformer.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_transformer.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_transformer.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_transformer.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_version.c
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_version.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_version.pyi
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\_version.pyx
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\CH
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\copyright
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\deformation_model.schema.json
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\GL27
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\ITRF2000
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\ITRF2008
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\ITRF2014
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\ITRF2020
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\nad.lst
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\nad27
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\nad83
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\other.extra
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj-config-version.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj-config.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj-targets-debug.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj-targets-release.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj-targets.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj.db
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj.ini
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj4-targets-debug.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj4-targets-release.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\proj4-targets.cmake
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\projjson.schema.json
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\triangulation.schema.json
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\usage
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\vcpkg.spdx.json
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\vcpkg_abi_info.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj\proj_dir\share\proj\world
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\jpeg62-6af98f759afc6cea2ea01a24bea0bc98.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\libcurl-50d401113827f0f3a5d90c6a7176c6ad.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\liblzma-0b4d0ddf0e0758305b1b8162225048f8.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\msvcp140-0f885b509a685d2bbfa652fed26b5fb3.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\proj_9-c635a7dcf1c2f5308514f46a54311e70.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\sqlite3-fe7be31bbec5a4ba375dbf7916a37e96.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\tiff-04898ba48a3f57dbaae85579a67d7489.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pyproj.libs\zlib1-9b024f7633a4f81dfeedce1958c40759.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\Microsoft.Win32.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\netstandard.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\Python.Runtime.deps.json
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\Python.Runtime.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\Python.Runtime.xml
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.AppContext.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Collections.Concurrent.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Collections.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Collections.NonGeneric.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Collections.Specialized.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ComponentModel.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ComponentModel.EventBasedAsync.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ComponentModel.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ComponentModel.TypeConverter.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Console.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Data.Common.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.Contracts.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.Debug.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.FileVersionInfo.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.Process.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.StackTrace.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.TextWriterTraceListener.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.Tools.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.TraceSource.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Diagnostics.Tracing.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Drawing.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Dynamic.Runtime.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Globalization.Calendars.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Globalization.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Globalization.Extensions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.Compression.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.Compression.ZipFile.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.FileSystem.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.FileSystem.DriveInfo.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.FileSystem.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.FileSystem.Watcher.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.IsolatedStorage.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.MemoryMappedFiles.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.Pipes.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.IO.UnmanagedMemoryStream.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Linq.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Linq.Expressions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Linq.Parallel.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Linq.Queryable.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Http.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.NameResolution.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.NetworkInformation.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Ping.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Requests.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Security.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.Sockets.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.WebHeaderCollection.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.WebSockets.Client.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Net.WebSockets.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ObjectModel.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Reflection.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Reflection.Extensions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Reflection.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Resources.Reader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Resources.ResourceManager.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Resources.Writer.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.CompilerServices.VisualC.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Extensions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Handles.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.InteropServices.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.InteropServices.RuntimeInformation.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Numerics.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Serialization.Formatters.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Serialization.Json.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Serialization.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Runtime.Serialization.Xml.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Claims.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Cryptography.Algorithms.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Cryptography.Csp.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Cryptography.Encoding.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Cryptography.Primitives.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Cryptography.X509Certificates.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.Principal.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Security.SecureString.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Text.Encoding.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Text.Encoding.Extensions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Text.RegularExpressions.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.Overlapped.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.Tasks.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.Tasks.Parallel.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.Thread.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.ThreadPool.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Threading.Timer.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.ValueTuple.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.ReaderWriter.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.XDocument.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.XmlDocument.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.XmlSerializer.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.XPath.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pythonnet\runtime\System.Xml.XPath.XDocument.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\entry_points.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\REQUESTED
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\top_level.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\pywebview-6.2.1.dist-info\licenses\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\REQUESTED
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\top_level.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\importlib_metadata-8.7.1.dist-info\licenses\LICENSE
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\setuptools\_vendor\jaraco\text\Lorem ipsum.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\affinity.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\conftest.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\constructive.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\coordinates.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\coords.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\creation.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\decorators.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\errors.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geos.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\io.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\lib.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\linear.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\measurement.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\ops.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\plotting.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\predicates.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\prepared.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\set_operations.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\speedups.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\strtree.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\testing.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\validation.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\wkb.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\wkt.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_coverage.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_enum.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_geometry.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_geometry_helpers.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_geos.cp314-win_amd64.pyd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_geos.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_pygeos_api.pxd
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_ragged_array.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\_version.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\algorithms\cga.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\algorithms\polylabel.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\algorithms\_oriented_envelope.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\algorithms\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\base.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\collection.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\geo.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\linestring.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\multilinestring.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\multipoint.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\multipolygon.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\point.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\polygon.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\geometry\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\common.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_constructive.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_coordinates.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_coverage.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_creation.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_creation_indices.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_decorators.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_geometry.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_io.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_linear.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_measurement.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_misc.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_plotting.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_predicates.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_ragged_array.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_set_operations.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_strtree.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\test_testing.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_collection.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_coords.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_decimal.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_emptiness.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_equality.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_format.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_geometry_base.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_hash.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_linestring.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_multi.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_multilinestring.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_multipoint.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_multipolygon.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_point.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\test_polygon.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\geometry\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\conftest.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_affinity.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_box.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_buffer.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_cga.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_clip_by_rect.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_create_inconsistent_dimensionality.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_delaunay.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_empty_polygons.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_equality.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_geointerface.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_invalid_geometries.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_linear_referencing.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_linemerge.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_locale.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_make_valid.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_mapping.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_minimum_clearance.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_ndarrays.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_nearest.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_operations.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_operators.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_orient.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_parallel_offset.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_persist.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_pickle.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_polygonize.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_polylabel.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_predicates.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_prepared.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_products_z.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_shape.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_shared_paths.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_singularity.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_snap.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_split.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_substring.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_svg.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_transform.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_union.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_validation.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_vectorized.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_voronoi_diagram.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_wkb.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\test_wkt.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\threading_test.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\tests\legacy\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely\vectorized\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\DELVEWHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\INSTALLER
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\METADATA
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\RECORD
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\REQUESTED
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\top_level.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\WHEEL
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\licenses\LICENSE.txt
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\licenses\LICENSE_GEOS
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\shapely-2.1.2.dist-info\licenses\LICENSE_win32
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\Shapely.libs\geos-ae6efa0782962b98e358f10ea539ae5f.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\Shapely.libs\geos_c-072b7a9224d16d3e4ab2395bb855b2d3.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\Shapely.libs\msvcp140-90bc62d4947a5878f1dc1057312f3be2.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\errors.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\event.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\guilib.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\http.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\localization.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\menu.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\models.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\py.typed
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\screen.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\state.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\util.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\window.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\_version.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\classlist.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\dom.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\element.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\event.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\propsdict.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\dom\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\api.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\customize.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\finish.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\state.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\lib\dom_json.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\js\lib\polyfill.js
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\Microsoft.Web.WebView2.Core.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\Microsoft.Web.WebView2.WinForms.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\pywebview-android.jar
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\WebBrowserInterop.x64.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\WebBrowserInterop.x86.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\runtimes\win-arm64\native\WebView2Loader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\runtimes\win-x64\native\WebView2Loader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\lib\runtimes\win-x86\native\WebView2Loader.dll
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\cef.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\cocoa.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\edgechromium.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\gtk.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\mshtml.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\qt.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\win32.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\winforms.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\app.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\base.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\event.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\app.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\content.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\net.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\os.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\view.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\webkit.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jclass\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jinterface\pywebview.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jinterface\view.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jinterface\webkit.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\platforms\android\jinterface\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\__pyinstaller\hook-webview.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\dist\SZZ-Tool\_internal\webview\__pyinstaller\__init__.py
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\MicrosoftEdgeWebView2RuntimeInstallerX64.exe   (1.3.251.5)
+   Compressing: \\?\C:\Users\Рустам\Desktop\SZZ-Tool\MicrosoftEdgeWebview2Setup.exe   (1.3.241.15)
+   Compressing Setup program executable
+   Updating version info (Setup.exe)
+   Updating manifest (Setup.exe)
+
+
+Successful compile (15,015 sec). Resulting Setup program filename is:
+C:\Users\Рустам\Desktop\SZZ-Tool\installer_output\SZZ-Tool-Setup-1.2.2.exe

@@ -1,0 +1,993 @@
+/* ═══════════════════════════════════════════════
+   PDF EDITOR — полноэкранный режим
+═══════════════════════════════════════════════ */
+
+#pdf-editor {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  background: var(--bg);
+}
+
+/* ── ЛЕВЫЙ ТУЛБАР (Photoshop-style) ── */
+#pdf-left-toolbar {
+  width: 48px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  border-right: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 0;
+  gap: 1px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  z-index: 10;
+}
+/* На низком окне палитра прокручивается — тонкая полоса, чтобы нижние
+   инструменты не пропадали молча */
+#pdf-left-toolbar::-webkit-scrollbar { width: 4px; }
+#pdf-left-toolbar::-webkit-scrollbar-thumb { background: transparent; border-radius: 2px; }
+#pdf-left-toolbar:hover::-webkit-scrollbar-thumb { background: var(--bd2); }
+
+.ps-ltool {
+  width: 40px; height: 32px;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--tx2);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--t);
+  position: relative;
+  font-family: var(--ui);
+  flex-shrink: 0;
+}
+.ps-ltool:hover { border-color: var(--bd2); background: var(--bg3); color: var(--tx); }
+/* Активный инструмент: один акцентный цвет, но заметно — заливка, рамка и метка слева */
+.ps-ltool.active {
+  background: rgba(10,132,255,.16);
+  border-color: rgba(10,132,255,.55);
+  color: var(--acc);
+}
+.ps-ltool.active::before {
+  content: ''; position: absolute; left: 2px; top: 8px; bottom: 8px;
+  width: 2.5px; border-radius: 2px; background: var(--acc);
+}
+.ps-ltool .icon { stroke-width: 1.5; }
+.ps-ltool-sep { width: 26px; height: 1px; background: var(--bd); margin: 4px 0; flex-shrink: 0; }
+
+/* Tooltip — справа от кнопки */
+.ps-ltool[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg3);
+  border: 1px solid var(--bd2);
+  color: var(--tx);
+  font-size: 11px;
+  line-height: 1.35;
+  padding: 5px 9px;
+  width: max-content;
+  max-width: 230px;
+  border-radius: var(--r-sm);
+  white-space: normal;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+/* ── КАНВАС (карта + объекты) ── */
+#pdf-canvas-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #131315;
+  overflow: hidden;
+  position: relative;
+}
+
+#pdf-canvas {
+  position: relative;
+  background: #fff;
+  overflow: visible;
+  outline: none;
+}
+
+#pdf-canvas.portrait  { width: 794px; height: 1123px; }
+#pdf-canvas.landscape { width: 1123px; height: 794px; }
+
+#pdf-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Активен инструмент рисования: карта и всё, что на ней, не должны перехватывать
+   клики. Одного pointer-events:none на #pdf-map мало — Leaflet выставляет
+   pointer-events:auto своим полигонам (.leaflet-interactive), а выноски —
+   своим SVG-элементам, из-за чего клик по полигону не доходил до холста
+   и инструменты (выноска, полочка, текст) молча не срабатывали. */
+#pdf-canvas.ps-drawing #pdf-map,
+#pdf-canvas.ps-drawing #pdf-map * { pointer-events: none !important; }
+/* Уже созданные объекты тоже не мешают рисовать поверх них */
+#pdf-canvas.ps-drawing .ps-obj,
+#pdf-canvas.ps-drawing .ps-obj * { pointer-events: none !important; }
+#pdf-canvas.ps-drawing { cursor: crosshair; }
+
+/* Свои полосы прокрутки листа: обычные не работают, потому что лист
+   масштабируется через transform и layout-размер не меняется */
+.pdf-sb {
+  position: absolute;
+  background: rgba(255,255,255,0.05);
+  border-radius: 5px;
+  z-index: 40;
+  display: none;
+}
+.pdf-sb-h { left: 8px; right: 18px; bottom: 4px; height: 10px; }
+.pdf-sb-v { top: 8px; bottom: 18px; right: 4px; width: 10px; }
+.pdf-sb-thumb {
+  position: absolute;
+  background: rgba(255,255,255,0.28);
+  border-radius: 5px;
+  transition: background .12s;
+}
+.pdf-sb-h .pdf-sb-thumb { top: 1px; height: 8px; }
+.pdf-sb-v .pdf-sb-thumb { left: 1px; width: 8px; }
+.pdf-sb-thumb:hover  { background: rgba(255,255,255,0.45); }
+.pdf-sb-thumb:active { background: var(--acc, #0a84ff); }
+
+#pdf-editor .leaflet-container,
+#pdf-editor .leaflet-grab { cursor: default !important; }
+#pdf-editor .leaflet-dragging .leaflet-container,
+#pdf-editor .leaflet-dragging .leaflet-grab { cursor: grabbing !important; }
+
+/* ── РАЗДЕЛИТЕЛЬ (ресайзер) ── */
+#pdf-resize-handle {
+  width: 5px;
+  flex-shrink: 0;
+  background: var(--bd);
+  cursor: col-resize;
+  position: relative;
+  transition: background var(--t);
+  z-index: 10;
+}
+#pdf-resize-handle:hover,
+#pdf-resize-handle.dragging { background: var(--acc); }
+#pdf-resize-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,.15);
+  border-radius: 1px;
+}
+
+/* ── ПРАВАЯ ПАНЕЛЬ ── */
+#pdf-sidebar {
+  width: 280px;
+  min-width: 180px;
+  max-width: 560px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── ПОЛОСА УПРАВЛЕНИЯ КАРТОЙ PDF ── */
+#pdf-map-bar {
+  display: flex;
+  gap: 3px;
+  padding: 5px 8px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  flex-shrink: 0;
+}
+.pmb-btn {
+  flex: 1;
+  padding: 5px 4px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 10px;
+  font-family: var(--ui);
+  cursor: pointer;
+  transition: all var(--t);
+  white-space: nowrap;
+}
+.pmb-btn:hover { border-color: var(--acc); color: var(--tx); background: var(--bg4); }
+.pmb-btn.active { background: rgba(50,215,75,.1); border-color: rgba(50,215,75,.4); color: var(--green); }
+
+/* ── ШАПКА САЙДБАРА ── */
+#pdf-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  flex-shrink: 0;
+  gap: 6px;
+}
+.pdf-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 12px;
+  font-family: var(--ui);
+  cursor: pointer;
+  transition: all var(--t);
+  white-space: nowrap;
+}
+.pdf-back-btn:hover { border-color: rgba(255,69,58,.4); color: var(--red); background: rgba(255,69,58,.08); }
+
+/* ── ДОП. КОНТРОЛЫ ── */
+#pdf-toolbar {
+  padding: 7px 8px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  max-height: 220px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bd2) transparent;
+}
+#pdf-toolbar::-webkit-scrollbar { width: 3px; }
+#pdf-toolbar::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 2px; }
+
+.ps-tool {
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--t);
+  position: relative;
+  font-family: var(--ui);
+}
+.ps-tool:hover { border-color: rgba(10,132,255,.4); color: var(--tx); background: var(--bg4); }
+.ps-tool.active { background: rgba(10,132,255,.14); border-color: rgba(10,132,255,.5); color: var(--acc); }
+.ps-tool-sep { width: 1px; background: var(--bd); margin: 2px 2px; }
+
+.ps-align-btn {
+  flex: 1;
+  min-width: 36px;
+  height: 28px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 11px;
+  font-family: var(--ui);
+  cursor: pointer;
+  transition: all var(--t);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.ps-align-btn:hover { border-color: rgba(10,132,255,.4); color: var(--tx); background: var(--bg4); }
+.ps-align-btn.active { color: var(--acc); border-color: rgba(10,132,255,.5); background: rgba(10,132,255,.14); }
+
+/* Строка в toolbar */
+.ps-tb-row {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.ps-tb-checks {
+  width: 100%;
+  padding: 4px 0 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ps-tb-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--tx2);
+  cursor: pointer;
+  padding: 1px 0;
+}
+.ps-tb-check:hover { color: var(--tx); }
+.ps-tb-label {
+  width: 100%;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--tx2);
+  opacity: .85;
+  padding: 4px 0 2px;
+}
+
+.snap-guide { position: absolute; pointer-events: none; z-index: 9999; }
+
+.inset-leaflet { border-radius: inherit; overflow: hidden; }
+.inset-leaflet .leaflet-control-zoom { margin: 6px !important; }
+.inset-leaflet .leaflet-control-zoom a {
+  width: 22px !important; height: 22px !important;
+  line-height: 22px !important; font-size: 14px !important;
+}
+
+.ps-rotate-handle {
+  position: absolute !important;
+  top: -32px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 18px !important; height: 18px !important;
+  border-radius: 50% !important;
+  background: var(--amber) !important;
+  border: 2px solid #fff !important;
+  cursor: grab !important;
+  z-index: 1000 !important;
+  /* Значок ↻ — чтобы ручку поворота было видно у любого объекта */
+  color: #fff !important;
+  font-size: 12px !important;
+  line-height: 14px !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+}
+.ps-rotate-handle::before { content: '↻'; }
+.ps-rotate-handle:hover { background: #e08800 !important; transform: translateX(-50%) scale(1.2) !important; }
+.ps-rotate-handle::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; left: 50%;
+  transform: translateX(-50%);
+  width: 1px; height: 12px;
+  background: rgba(255,159,10,.5);
+}
+
+#pdf-grid-overlay {
+  background-image:
+    linear-gradient(rgba(10,132,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,132,255,.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  display: none;
+}
+
+#pdf-ctx-menu {
+  background: var(--bg3);
+  border: 1px solid var(--bd2);
+  border-radius: var(--r-md);
+  padding: 4px;
+  min-width: 190px;
+  font-family: var(--ui, system-ui);
+  font-size: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+.ctx-item {
+  display: flex; align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  color: var(--tx);
+  cursor: pointer;
+  transition: background var(--t);
+}
+.ctx-item:hover { background: var(--bg4); }
+.ctx-item.danger { color: var(--red); }
+.ctx-item.danger:hover { background: rgba(255,69,58,.1); }
+.ctx-sep { height: 1px; background: var(--bd); margin: 3px 4px; }
+
+.ps-path-pt {
+  position: absolute !important;
+  width: 12px !important; height: 12px !important;
+  border-radius: 50% !important;
+  background: var(--acc) !important;
+  border: 2px solid #fff !important;
+  cursor: move !important;
+  z-index: 600 !important;
+}
+.ps-path-first {
+  background: var(--green) !important;
+  width: 14px !important; height: 14px !important;
+}
+.ps-path-pt:hover { transform: scale(1.3); }
+
+.ps-callout-tail {
+  position: absolute !important;
+  width: 16px !important; height: 16px !important;
+  border-radius: 50% !important;
+  background: var(--amber) !important;
+  border: 2px solid #fff !important;
+  cursor: move !important;
+  z-index: 600 !important;
+}
+.ps-callout-tail:hover { transform: scale(1.25); }
+
+.ps-src-anchor {
+  position: absolute !important;
+  width: 16px !important; height: 16px !important;
+  border-radius: 3px !important;
+  background: var(--amber) !important;
+  border: 2px solid rgba(255,159,10,.5) !important;
+  cursor: default !important;
+  z-index: 600 !important;
+  pointer-events: none !important;
+}
+
+.pdf-map-ctrl {
+  width: 100%;
+  padding: 5px 8px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 11px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--t);
+  font-family: var(--ui);
+  margin-bottom: 2px;
+}
+.pdf-map-ctrl:hover { border-color: rgba(10,132,255,.4); color: var(--tx); background: var(--bg4); }
+.pdf-map-ctrl.active { background: rgba(50,215,75,.1); border-color: rgba(50,215,75,.4); color: var(--green); }
+
+.ps-tool[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: -28px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg3);
+  border: 1px solid var(--bd2);
+  color: var(--tx);
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.pdf-orient-row {
+  display: flex;
+  gap: 4px;
+  padding: 0 4px;
+  align-items: center;
+}
+.orient-btn {
+  flex: 1;
+  padding: 4px 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 10px;
+  cursor: pointer;
+  font-family: var(--ui);
+  transition: all var(--t);
+}
+.orient-btn.active { background: rgba(10,132,255,.14); border-color: rgba(10,132,255,.5); color: var(--acc); }
+
+/* ── ПАНЕЛЬ СВОЙСТВ ── */
+#pdf-props-panel {
+  flex-shrink: 0;
+  border-top: 1px solid var(--bd);
+  border-bottom: 1px solid var(--bd);
+  overflow-y: auto;
+  max-height: 300px;
+  background: var(--bg2);
+}
+#pdf-props-panel::-webkit-scrollbar { width: 3px; }
+#pdf-props-panel::-webkit-scrollbar-thumb { background: var(--bd2); }
+
+.pp-title {
+  padding: 7px 10px 5px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #3a3a40;
+  border-bottom: 1px solid var(--bd);
+}
+.pp-empty {
+  padding: 16px;
+  text-align: center;
+  color: #3a3a40;
+  font-size: 11px;
+}
+.pp-body { padding: 8px 10px; }
+
+.pp-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.pp-lbl { font-size: 11px; color: var(--tx2); width: 58px; flex-shrink: 0; }
+.pp-inp {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-sm);
+  color: var(--tx);
+  font-size: 11px;
+  padding: 3px 6px;
+  outline: none;
+  font-family: var(--ui);
+  width: auto;
+  transition: border-color var(--t);
+}
+.pp-inp:focus { border-color: rgba(10,132,255,.5); }
+.pp-inp-sm {
+  width: 48px;
+  flex: none;
+  background: var(--bg3);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-sm);
+  color: var(--tx);
+  font-size: 11px;
+  padding: 3px 5px;
+  outline: none;
+  text-align: center;
+  font-family: var(--ui);
+  transition: border-color var(--t);
+}
+.pp-inp-sm:focus { border-color: rgba(10,132,255,.5); }
+.pp-color {
+  width: 24px; height: 24px;
+  border: 1px solid var(--bd2);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.pp-slider { flex: 1; accent-color: var(--acc); cursor: pointer; }
+.pp-sep { height: 1px; background: var(--bd); margin: 6px 0; }
+
+.pp-style-btns { display: flex; gap: 3px; }
+.pp-sbtn {
+  flex: 1;
+  padding: 4px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 11px;
+  cursor: pointer;
+  font-family: var(--ui);
+  transition: all var(--t);
+  display: flex; align-items: center; justify-content: center;
+}
+.pp-sbtn:hover { border-color: rgba(10,132,255,.4); color: var(--tx); }
+.pp-sbtn.active { background: rgba(10,132,255,.14); border-color: rgba(10,132,255,.5); color: var(--acc); }
+.pp-sbtn.danger:hover { border-color: rgba(255,69,58,.4); color: var(--red); }
+
+/* ── ВЕРТИКАЛЬНЫЙ РЕСАЙЗЕР панели слоёв ── */
+#pdf-layers-resize {
+  height: 5px;
+  flex-shrink: 0;
+  background: var(--bd);
+  cursor: row-resize;
+  transition: background var(--t);
+  position: relative;
+}
+#pdf-layers-resize:hover,
+#pdf-layers-resize.dragging { background: var(--acc); }
+#pdf-layers-resize::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,.15);
+  border-radius: 1px;
+}
+
+/* ── ПАНЕЛЬ СЛОЁВ ── */
+#pdf-layers-panel {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+}
+
+/* Заголовок секции внутри панели слоёв */
+.pl-section-hdr {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 6px 5px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #3a3a40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  cursor: pointer;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition: color var(--t), background var(--t);
+}
+.pl-section-hdr:hover { color: var(--tx2); background: #0e0e10; }
+.pl-section-arrow { font-size: 9px; flex-shrink: 0; }
+
+/* Подпункты */
+.pl-sub-item { padding-left: 10px; }
+.pl-sub-item:hover { background: var(--bg3); }
+
+.pl-header {
+  padding: 7px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #3a3a40;
+  border-bottom: 1px solid var(--bd);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.pl-order-btns { display: flex; gap: 2px; }
+.pl-order-btn {
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx2);
+  font-size: 11px;
+  cursor: pointer;
+  font-family: var(--ui);
+  transition: all var(--t);
+}
+.pl-order-btn:hover { border-color: rgba(10,132,255,.4); color: var(--acc); }
+
+/* Строка поиска в панели объектов редактора */
+.pl-search-row {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 8px; background: var(--bg); border-bottom: 1px solid var(--bd);
+}
+.pl-search-row input {
+  flex: 1; min-width: 0; font-size: 11px; font-family: var(--ui);
+  background: var(--bg3); border: 1px solid var(--bd); border-radius: var(--r-sm);
+  color: var(--tx); padding: 3px 6px;
+}
+.pl-search-row input:focus { outline: none; border-color: rgba(10,132,255,.45); }
+.pl-search-row button {
+  background: none; border: none; color: var(--tx2); cursor: pointer;
+  font-size: 11px; padding: 2px 4px; border-radius: 3px;
+}
+.pl-search-row button:hover { background: var(--bg3); color: var(--tx); }
+
+/* Переключатели видимости слоёв карты внутри секций панели слоёв */
+.pl-vis-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 5px 8px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.pl-vis-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx3, #64748b);
+  font-size: 10px;
+  font-family: var(--ui);
+  cursor: pointer;
+  transition: all var(--t);
+}
+.pl-vis-chip .icon { width: 11px; height: 11px; }
+.pl-vis-chip:hover { border-color: rgba(10,132,255,.4); }
+.pl-vis-chip.on { color: var(--acc); border-color: rgba(10,132,255,.35); }
+
+.pl-list {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg2);
+}
+.pl-list::-webkit-scrollbar { width: 3px; }
+.pl-list::-webkit-scrollbar-thumb { background: var(--bd2); }
+
+.pl-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  transition: background var(--t);
+  user-select: none;
+}
+.pl-item:hover { background: var(--bg3); }
+.pl-item.selected { background: rgba(10,132,255,.1); border-left: 2px solid var(--acc); }
+.pl-item.locked { opacity: 0.4; }
+.pl-vis {
+  font-size: 12px;
+  cursor: pointer;
+  padding: 1px 2px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity var(--t);
+}
+.pl-vis:hover { opacity: 1; }
+.pl-thumb {
+  width: 26px; height: 18px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  overflow: hidden;
+}
+.pl-name {
+  flex: 1;
+  font-size: 11px;
+  color: var(--tx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pl-lock { font-size: 10px; flex-shrink: 0; opacity: 0.4; }
+.pl-rename-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--acc2);
+  color: var(--tx);
+  font-size: 11px;
+  font-family: var(--ui);
+  outline: none;
+  min-width: 0;
+  padding: 0;
+}
+
+.pl-empty {
+  padding: 20px;
+  text-align: center;
+  color: #3a3a40;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ── ДЕЙСТВИЯ ── */
+#pdf-actions {
+  padding: 10px;
+  border-top: 1px solid var(--bd);
+  background: var(--bg2);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pdf-save-btn {
+  padding: 10px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--acc);
+  background: var(--acc);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--ui);
+  transition: background var(--t), opacity var(--t);
+  letter-spacing: .02em;
+}
+.pdf-save-btn:hover { background: var(--acc2); border-color: var(--acc2); }
+.pdf-save-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pdf-exit-btn {
+  padding: 7px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bd);
+  background: transparent;
+  color: var(--tx2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--ui);
+  transition: all var(--t);
+}
+.pdf-exit-btn:hover { border-color: rgba(255,69,58,.4); color: var(--red); background: rgba(255,69,58,.06); }
+
+/* ── ОБЪЕКТЫ НА КАНВАСЕ ── */
+.ps-obj {
+  position: absolute;
+  box-sizing: border-box;
+  cursor: grab;
+}
+.ps-obj:active { cursor: grabbing; }
+
+.ps-obj.ps-selected {
+  outline: 2px solid var(--acc);
+  outline-offset: 1px;
+}
+.ps-obj.ps-locked { cursor: not-allowed; }
+/* Объект в множественном выделении (Shift+клик) */
+.ps-handle.ps-arrow-end {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #f59e0b; border: 2px solid #fff; cursor: move;
+}
+.ps-obj.ps-multi { outline: 2px dashed var(--acc2, #38bdf8); outline-offset: 1px; }
+.ps-obj.ps-locked.ps-selected { outline-color: var(--amber); }
+.ps-obj.ps-obj-src-leader.ps-selected { outline: none; }
+
+.ps-handle {
+  position: absolute;
+  width: 14px; height: 14px;
+  background: var(--acc);
+  border: 2px solid #fff;
+  border-radius: 3px;
+  z-index: 10;
+  pointer-events: all;
+}
+.ps-handle[data-h="nw"] { top: -7px; left: -7px; cursor: nwse-resize; }
+.ps-handle[data-h="n"]  { top: -7px; left: calc(50% - 7px); cursor: ns-resize; }
+.ps-handle[data-h="ne"] { top: -7px; right: -7px; cursor: nesw-resize; }
+.ps-handle[data-h="e"]  { top: calc(50% - 7px); right: -7px; cursor: ew-resize; }
+.ps-handle[data-h="se"] { bottom: -7px; right: -7px; cursor: nwse-resize; }
+.ps-handle[data-h="s"]  { bottom: -7px; left: calc(50% - 7px); cursor: ns-resize; }
+.ps-handle[data-h="sw"] { bottom: -7px; left: -7px; cursor: nesw-resize; }
+.ps-handle[data-h="w"]  { top: calc(50% - 7px); left: -7px; cursor: ew-resize; }
+
+.ps-obj-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.ps-obj-text .ps-text-content[contenteditable="true"] {
+  outline: none;
+  min-width: 20px;
+  min-height: 1em;
+  width: 100%;
+  text-align: inherit;
+  cursor: text;
+}
+
+.ps-obj-rect, .ps-obj-ellipse { overflow: visible; }
+.ps-obj-ellipse { border-radius: 50% !important; }
+.ps-obj-line { overflow: visible; }
+
+#ps-draw-ghost {
+  position: absolute;
+  border: 2px dashed var(--acc);
+  background: rgba(10,132,255,.06);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.ps-legend-content { padding: 12px; width: 100%; }
+.ps-legend-title {
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+.ps-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+.ps-legend-swatch {
+  width: 18px; height: 18px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.ps-scale-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  width: 100%;
+}
+.ps-scale-bar {
+  border: 2px solid currentColor;
+  border-top: none;
+  height: 6px;
+  margin-top: 3px;
+}
+
+.ps-north-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pdf-ruler-h, .pdf-ruler-v {
+  position: absolute;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent, transparent 9px,
+    rgba(255,255,255,0.04) 9px, rgba(255,255,255,0.04) 10px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+
+/* Заголовки сворачиваемых секций правой панели */
+.pdf-sec-hdr {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; flex-shrink: 0; cursor: pointer; user-select: none;
+  background: var(--bg); border-bottom: 1px solid var(--bd);
+  font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--tx2); transition: color var(--t);
+}
+.pdf-sec-hdr:hover { color: var(--tx); }
+.pdf-sec-arrow { font-size: 9px; width: 9px; flex-shrink: 0; }
+
+
+/* Подписи групп в левом тулбаре — 17 кнопок подряд читались как каша */
+.ps-ltool-cap {
+  font-size: 9px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600;
+  color: var(--tx2); opacity: .75; text-align: center;
+  margin: 6px 0 2px; padding-top: 5px; width: 100%; flex-shrink: 0; user-select: none;
+  border-top: 1px solid var(--bd);
+}
+.ps-ltool-cap:first-child { border-top: none; padding-top: 0; margin-top: 2px; }
+
+/* Разделы панели свойств */
+.pp-sec { border-bottom: 1px solid var(--bd); }
+.pp-sec:last-of-type { border-bottom: none; }
+.pp-sec-hdr {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; cursor: pointer; user-select: none;
+  font-size: 10px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--tx2); transition: color var(--t);
+}
+.pp-sec-hdr:hover { color: var(--tx); }
+.pp-sec-arrow { font-size: 9px; width: 9px; flex-shrink: 0; }
+.pp-sec-body { padding: 2px 10px 8px; display: flex; flex-direction: column; gap: 5px; }
+.pp-sec-body .pp-sep { display: none; }          /* разделители внутри разделов не нужны */
+.pp-type {
+  margin-left: auto; font-size: 10px; letter-spacing: .04em; font-weight: 600;
+  color: var(--tx2); opacity: .8; text-transform: uppercase;
+}
+.pp-actions {
+  display: flex; gap: 4px; padding: 8px 10px;
+  border-top: 1px solid var(--bd);
+}
+.pp-actions .pp-sbtn { flex: 1; }
+.pp-mini-btn {
+  font-size: 10px; padding: 2px 6px; margin-left: 2px; cursor: pointer;
+  border: 1px solid var(--bd2); border-radius: 4px;
+  background: var(--bg3); color: var(--tx2);
+}
+.pp-mini-btn:hover { color: var(--tx); border-color: var(--acc); }
